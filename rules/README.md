@@ -40,7 +40,7 @@ There are various locations for which special rules apply:
 
 ## Setup
 
-Place the tech cards and white coercion cubes where everyone can reach them. Place a supply of coloured resource cubes in near location according to the colours printed in each location.
+Place the tech cards and coercion counters where everyone can reach them. Place a supply of coloured resource cubes in near location according to the colours printed in each location.
 
 Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number. Each player starts with the following:
 
