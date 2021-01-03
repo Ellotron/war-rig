@@ -1,3 +1,5 @@
+require("setupTwoPlayer")
+
 function createButton(guid, label, functionName, position, size)
     position = position or {0,0.2,0}
     size = size or 500
@@ -14,9 +16,21 @@ function createButton(guid, label, functionName, position, size)
     })
 end
 
-function setup()
+
+function setup2()
     gameBox = getObjectFromGUID('5578eb')
     setupBags(gameBox)
+    setupDecks(gameBox)
+    setupTwoPlayer(gameBox)
+end
+
+function setupDecks(gameBox)
+    -- Tech Deck
+    gameBox.takeObject({
+        guid = '35e89c',
+        position = { x = -11.8115749359131, y = 2.02723932266235, z = 0.642256796360016 },
+        rotation = { x = 6.92669391355594E-06, y = 180.02424621582, z = 180 }
+    })
 end
 
 function setupBags(gameBox)
@@ -103,6 +117,14 @@ end
 function storeInBox()
     gameBox = getObjectFromGUID('5578eb')
     storeBags(gameBox)
+    storeDecks(gameBox)
+    storePlayers(gameBox)
+end
+
+function storeDecks(gameBox)
+    -- Tech Deck
+    currentObj = getObjectFromGUID('35e89c')
+    gameBox.putObject(currentObj)
 end
 
 function storeBags(gameBox)
@@ -145,4 +167,165 @@ function storeBags(gameBox)
     -- Biological
     currentObj = getObjectFromGUID('0e2066')
     gameBox.putObject(currentObj)
+end
+
+function storePlayers(gameBox)
+  --
+  currentObj = getObjectFromGUID('10f853')
+  gameBox.putObject(currentObj)
+
+  -- P War Rig
+  currentObj = getObjectFromGUID('4c65be')
+  gameBox.putObject(currentObj)
+
+  -- P1-4
+  currentObj = getObjectFromGUID('98fb5c')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('f57fb2')
+  gameBox.putObject(currentObj)
+
+  -- P2-1
+  currentObj = getObjectFromGUID('b61975')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('a90f1b')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('ee2276')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('bb1fd3')
+  gameBox.putObject(currentObj)
+
+  -- P1-1
+  currentObj = getObjectFromGUID('3e4207')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('cf437f')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('73ffa4')
+  gameBox.putObject(currentObj)
+
+  -- P3-1
+  currentObj = getObjectFromGUID('44828b')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('ccc379')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('570051')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('56e0a2')
+  gameBox.putObject(currentObj)
+
+  -- P4-1
+  currentObj = getObjectFromGUID('54ae83')
+  gameBox.putObject(currentObj)
+
+  -- P5-1
+  currentObj = getObjectFromGUID('09a1b1')
+  gameBox.putObject(currentObj)
+
+  -- P6-1
+  currentObj = getObjectFromGUID('880f43')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('6732da')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('3d93d7')
+  gameBox.putObject(currentObj)
+  --
+  currentObj = getObjectFromGUID('46edbb')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('2c1447')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('6e4072')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('30e4e8')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('3bb1a3')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('e02066')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('2a4264')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('b7b878')
+  gameBox.putObject(currentObj)
+
+  -- R War Rig
+  currentObj = getObjectFromGUID('9019fc')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('51358a')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('6b2997')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('5504ef')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('5fc651')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('ed939d')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('719256')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('5496b1')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('9eed07')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('23ea3d')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('20401a')
+  gameBox.putObject(currentObj)
+
+  --
+  currentObj = getObjectFromGUID('84c0c3')
+  gameBox.putObject(currentObj)
 end
