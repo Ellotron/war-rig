@@ -34,6 +34,12 @@ function setupDecks(gameBox)
 end
 
 function setupBags(gameBox)
+    -- Squad Boards
+    gameBox.takeObject({
+        guid = '1a9852',
+        position = { x = 26.9216613769531, y = 0.948099672794342, z = 6.83267879486084 },
+        rotation = { x = 2.84003181150183E-06, y = -9.72201305557974E-05, z = 1.66527695455443E-06 }
+    })
     -- Biological
     gameBox.takeObject({
     guid = 'e1d805',
@@ -128,6 +134,9 @@ function storeDecks(gameBox)
 end
 
 function storeBags(gameBox)
+    -- Squad Boards
+    currentObj = getObjectFromGUID('1a9852')
+    gameBox.putObject(currentObj)
     -- Chemicals
     currentObj = getObjectFromGUID('657d69')
     gameBox.putObject(currentObj)
@@ -227,7 +236,7 @@ function storePlayers(gameBox)
   gameBox.putObject(currentObj)
 
   --
-  currentObj = getObjectFromGUID('56e0a2')
+  currentObj = getObjectFromGUID('5f8679')
   gameBox.putObject(currentObj)
 
   -- P4-1
@@ -243,11 +252,11 @@ function storePlayers(gameBox)
   gameBox.putObject(currentObj)
 
   --
-  currentObj = getObjectFromGUID('6732da')
+  currentObj = getObjectFromGUID('8c714e')
   gameBox.putObject(currentObj)
 
   --
-  currentObj = getObjectFromGUID('3d93d7')
+  currentObj = getObjectFromGUID('8d7fe3')
   gameBox.putObject(currentObj)
   --
   currentObj = getObjectFromGUID('46edbb')
