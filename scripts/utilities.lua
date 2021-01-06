@@ -4,6 +4,28 @@ function tablelength(T)
     return count
 end
 
+function safeGet(guid)
+    obj = getObjectFromGUID(guid)
+    if (obj == nil) then
+     log(string.format('Object not found: %s', guid))
+    end
+    return obj
+end
+
+function safeTake(container, parameters)
+    found = false
+    for i, v in pairs(container.getObjects()) do
+        if (v['guid'] == parameters['guid']) then
+            found = true
+            break
+        end
+    end
+    if (found ~= true) then
+        log(string.format('Object not found: %s', parameters['guid']))
+    end
+    return container.takeObject(parameters)
+end
+
 function logScriptForSelectedObjects(player)
     log('==========')
     objs = Player[player or "White"].getSelectedObjects()
@@ -19,7 +41,7 @@ function scriptStoreInGameBox(v)
     return
     {
         string.format('  -- %s', v.getName()),
-        string.format("  currentObj = getObjectFromGUID('%s')", v.getGUID()),
+        string.format("  currentObj = safeGet('%s')", v.getGUID()),
         '  gameBox.putObject(currentObj)'
     }
 end
@@ -30,7 +52,7 @@ function scriptTakeObject(v)
     return
     {
         string.format('  -- %s', v.getName()),
-        '  gameBox.takeObject({',
+        '  safeTake(gameBox, {',
         string.format("    guid = '%s',", v.getGUID()),
         string.format("    position = { x = %s, y = %s, z = %s },", p[1], p[2], p[3]),
         string.format("    rotation = { x = %s, y = %s, z = %s }", r[1], r[2], r[3]),
