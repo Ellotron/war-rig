@@ -8,7 +8,8 @@ The object of the game is to become the dominant faction. There are 4 ways to do
 - **Peace through power** - tap into abundant, free power in the **Planet Core**.
 - **Align with the Empire** - build a warp gate in **Deep Space** to summon the empire.
 - **Total Annihilation** - use your War Rig to destroy all other factions.
-    Each of these has its own path to completion discussed in **End Game** but you will need to build your War Rig to have a chance to achieve any of them.
+
+Each of these has its own path to completion discussed in **End Game** but you will need to build your War Rig to have a chance to achieve any of them.
 
 ## End Game
 
@@ -49,7 +50,7 @@ There are various locations for which special rules apply:
 
 ## Setup
 
-Place a supply of coloured resource tokens in near location according to the colours printed in each location. Place all other tokens and the tech deck where every one can reach them.
+Place a supply of coloured resource tokens in each location according to the colours printed in that location. Place all other tokens and the tech deck where every one can reach them.
 
 Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number. Each player starts with the following:
 
@@ -90,12 +91,13 @@ You may attempt to enter any basic location or base, but the squads occupying th
 
 #### Escape
 
-> If a squad escapes capture remove any coercion counters. They are **Repelled** to either the Barren Wastes or if already there to their Home Base. They keep any items they had when captured.
+> If a squad escapes capture remove any coercion counters. They are [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled) to either the Barren Wastes or if already there to their Home Base. They keep any items they had when captured.
 
 ### 2. Gather
 
 A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource tokens and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource on their turn.
-A tech resource can be exchanged for a tech card once it is returned to Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**.
+
+A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**.
 
 ### 3. Encamp/decamp
 
@@ -155,7 +157,7 @@ The card indicates how many of each type of resource is needed.
 Unless otherwise stated any item that grants the holder the construct action e.g. Workshop Tools is the only tool required.
 To successfully construct, turn the item face up (if not already), discard the required resources then:
 
-- For equipment add a squad token flipped to the locked side represent additional stock locked in your inventory. This can be replaced with a numbered token matching a squad you wish to equip when that squad is in Home Base.
+- For equipment add a squad token flipped to the locked side represent additional stock locked in your inventory. This can be replaced with a numbered token matching a squad you wish to equip when that squad is in Home Base. Equipping a squad does not cost an action.
 - For war rig tech place it in the corresponding slot on the chassis
 - For facilities place the card in a facility slot at your home base unless the card states otherwise
 
@@ -182,20 +184,20 @@ When a squad tries to move in to a rival base of player or lesser factions, squa
 
 #### 1. Recruit
 
-Roll a the white dice, if the result is higher than the number of enemy squads in the base you manage to convince a squad to leave with you. Treat the recruited squad as **Captured**. After the roll (regardless of the result) the squad is **Repelled** from the base.
+Roll a the white dice, if the result is higher than the number of enemy squads in the base you manage to convince a squad to leave with you. Treat the recruited squad as **Captured**. After the roll (regardless of the result) the squad is [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled) from the base.
 
 #### 2. Rescue
 
-When a squad is **Captured** and returned to the captor's base it begins to be coerced which will take a number of enemy actions. During this time you can try to rescue them providing you have infiltrated the base where they are located. Rescuing works the same as recruitment except if you succeed the squad **Escape**s. Both the rescued and rescuer are **Repelled**.
+When a squad is **Captured** and returned to the captor's base it begins to be coerced which will take a number of enemy actions. During this time you can try to rescue them providing you have infiltrated the base where they are located. Rescuing works the same as recruitment except if you succeed the squad **Escape**s. Both the rescued and rescuer are [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled).
 
 #### 3. Espionage
 
 Choose one equipment or tech card in the rival player's inventory and look at it and/or turn it face up. In the same action you may attempt to steal plans for the selected item. Roll the green subterfuge dice.
 
-- 🔓 - You break encryption and steal the plans. If the item is equipment leave the card in the rival base and add a locked squad token to it. For any other tech move the card to your inventory. The squad is then **Repelled**.
+- 🔓 - You break encryption and steal the plans. If the item is equipment leave the card in the rival base and add a locked squad token to it. For any other tech move the card to your inventory. The squad is then [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled).
 - 🔗 - your squad is **Captured** and can now be **Coerce**d.
-- 🚨 - the alarm is raised and all infiltrators (not just your own) are **Repelled**
-- 🎯 - your squad is discovered and is attacked as it tries to escape. The normal rules for **Squad Attack** apply if you defend successfully you are still **Repelled**.
+- 🚨 - the alarm is raised and all infiltrators (not just your own) are [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled)
+- 🎯 - your squad is discovered and is attacked as it tries to escape. The normal rules for **Squad Attack** apply if you defend successfully you are still [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled).
 - 🟩 - the espionage fails but the squad remains undiscovered
 
 > You cannot steal parts that are attached to the war rig or facilities that have been constructed.
@@ -204,7 +206,7 @@ Choose one equipment or tech card in the rival player's inventory and look at it
 
 Choose one constructed facility or war rig tech currently present in the base. Roll the green subterfuge dice. Follow the result as in **Espionage** except for:
 
-- 🔓 - You break site security and set a timed explosive. All squads you control are **Repelled** from the base then the charge explodes catching **Fire**.
+- 🔓 - You break site security and set a timed explosive. All squads you control are [**Repelled**](https://github.com/Ellotron/war-rig/tree/main/rules#repelled) from the base then the charge explodes catching **Fire**.
 
 ## War Rig
 
