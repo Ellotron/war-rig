@@ -45,10 +45,11 @@ There are various locations for which special rules apply:
 ### Various
 
 - Lesser Faction - Represent non-player factions that can be more easily recruited to your cause.
+- Inventory - an area near each player where they keep tech cards.
 
 ## Setup
 
-Place the tech cards and coercion counters where everyone can reach them. Place a supply of coloured resource cubes in near location according to the colours printed in each location.
+Place a supply of coloured resource tokens in near location according to the colours printed in each location. Place all other tokens and the tech deck where every one can reach them.
 
 Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number. Each player starts with the following:
 
@@ -93,7 +94,8 @@ You may attempt to enter any basic location or base, but the squads occupying th
 
 ### 2. Gather
 
-A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource cubes and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource on their turn.
+A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource tokens and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource on their turn.
+A tech resource can be exchanged for a tech card once it is returned to Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**.
 
 ### 3. Encamp/decamp
 
@@ -141,7 +143,7 @@ For each remaining 🎯 after subtracting each 🛡 resolve a hit. A squad that 
 
 ### 6. Construct
 
-A squad equipped with the right tools, resources, and tech can construct defences, parts for the war rig, or facilities by using 1 action. The items and conditions required to construct something are indicated on the card for the item you want to construct.
+A squad equipped with the right tools, resources, and tech can construct defences, parts for the war rig, or facilities in their inventory by using 1 action. The items and conditions required to construct something are indicated on the card for the item you want to construct.
 Resources needed are in the top left of the card and are colour coded.
 
 - 🟥 - volatile materials and fuel sources
@@ -153,13 +155,13 @@ The card indicates how many of each type of resource is needed.
 Unless otherwise stated any item that grants the holder the construct action e.g. Workshop Tools is the only tool required.
 To successfully construct, turn the item face up (if not already), discard the required resources then:
 
-- For equipment add a squad token flipped to the locked side represent additional stock locked in your inventory
+- For equipment add a squad token flipped to the locked side represent additional stock locked in your inventory. This can be replaced with a numbered token matching a squad you wish to equip when that squad is in Home Base.
 - For war rig tech place it in the corresponding slot on the chassis
 - For facilities place the card in a facility slot at your home base unless the card states otherwise
 
 #### Stolen items
 
-> If you succeed to steal plans for an item from a Rival Base using the **Espionage** action you may decide to construct it in the normal way at any point by paying the usual resource cost. The card remains in the rival base.
+> If you succeed to steal plans for an item from a Rival Base using the **Espionage** action you may decide to construct it at any point by paying the usual resource cost. Equipment cards remain in the rival base with a locked squad token on them. You must still construct equipment before you can flip this token or gain additional inventory as described above. Other tech is constructed in the normal way.
 
 ### 7. Fight Fire
 
@@ -188,13 +190,15 @@ When a squad is **Captured** and returned to the captor's base it begins to be c
 
 #### 3. Espionage
 
-Choose one equipment or tech card the rival player owns and look at it and/or turn it face up. In the same action you may attempt to steal plans for the selected item. Roll the green subterfuge dice.
+Choose one equipment or tech card in the rival player's inventory and look at it and/or turn it face up. In the same action you may attempt to steal plans for the selected item. Roll the green subterfuge dice.
 
-- 🔓 - You break encryption and steal the plans. The item remains where it is but with a squad marker on flipped to the captured/locked side. See the rules on constructing **Stolen Items**. The squad is then **Repelled**.
-- 🔗 - your squad is **Captured** and their coercion begins.
+- 🔓 - You break encryption and steal the plans. If the item is equipment leave the card in the rival base and add a locked squad token to it. For any other tech move the card to your inventory. The squad is then **Repelled**.
+- 🔗 - your squad is **Captured** and can now be **Coerce**d.
 - 🚨 - the alarm is raised and all infiltrators (not just your own) are **Repelled**
-- 🎯 - your squad is discovered and is attacked as it tries to escape. The normal rules for attack apply if you defend successfully you are still **Repelled**.
+- 🎯 - your squad is discovered and is attacked as it tries to escape. The normal rules for **Squad Attack** apply if you defend successfully you are still **Repelled**.
 - 🟩 - the espionage fails but the squad remains undiscovered
+
+> You cannot steal parts that are attached to the war rig or facilities that have been constructed.
 
 #### 4. Sabotage
 
@@ -206,13 +210,32 @@ Choose one constructed facility or war rig tech currently present in the base. R
 
 The war rig is the faction's ultimate weapon against rivals but must be built before it can be used by **Gather**ing resources and tech and performing **Construction**.
 
+Once an item is constructed it can be attached only when the war-rig chassis is in Home Base. Each item attached to the rig adds weight which affects the **movement** of the rig.
+
 ### Movement
 
-Some items of war rig tech added to the chassis grant movement. The card itself details the type of movement system and three weight tiers the system supports. If the total weight of all the war rig tech on the chassis exceeds what is supported then the war rig cannot move.
+Some items of war rig tech added to the chassis grant movement. The card itself details the type of movement system and three weight tiers the system supports.
+If the rig's total weight is less than or equal to every "Light" tier printed on attached items then the rig is in the light tier. Likewise for "Medium" and "Heavy" tiers.
 
-### Combat
+However if the total weight of all the war rig tech on the chassis exceeds any "Heavy" tier then the war rig cannot move. Being in a lighter tier is beneficial in combat.
 
-Some items of war rig tech added to the chassis grant different attacks. The card itself details which dice and how many to attack with at a time. Each dice is colour coded:
+### Targeting
+
+In order to attack a squad, a facility or another war rig you must target them. This can only be done if the rig has the **Targeting** ability granted by various tech items.
+
+When targeting another war rig there are multiple parts that can be hit. Roll the white dice to determine which part is the target:
+
+- 1-2: Defender chooses a lower target
+- 3-5: Defender chooses an upper target
+- 6: Attacker chooses any target
+
+### Attack
+
+Some items of war rig tech added to the chassis grant different attacks which can be performed in any order. The card itself details which dice and how many to attack with at a time.
+
+Squads defend against attacks as in **Squad Attack**. For facilities and war rigs an armour point is deducted for each hit add a hit token to the target. When that target has no armour points left it catches **Fire**.
+
+Each dice is colour coded, has a number of 🎯 faces which indicate one or more hit and also some special faces:
 
 #### Blue attack dice - accurate/low damage/special function
 
@@ -229,17 +252,7 @@ Some items of war rig tech added to the chassis grant different attacks. The car
 ⚡ - critical hit: refer to the card for the weapon that made the attack
 💀 - weapon malfunction: all rolls for the weapon are ignored and it caches fire
 
-#### Targeting
-
-Each attack can target a squad, a facility or another war rig. Squads defend against attacks as in **Squad Attack**. For facilities and war rigs an armour point is deducted for each hit add a hit token to the target. When that target has no armour points left it catches **Fire**.
-
-When targeting another war rig there are multiple parts that can be hit. Roll the white dice to determine which part is the target:
-
-- 1-2: Defender chooses a lower target
-- 3-5: Defender chooses an upper target
-- 6: Attacker chooses any target
-
-#### Weight Tier
+#### Agility
 
 Defending war rigs in a lighter weight tier than their attacker can use their agile movement make the attacker re-roll one attack dice or the **Targeting** dice for each weapon they attack with. If the defender is two tiers lighter they can make the attacker reroll two dice per attack.
 
@@ -247,6 +260,4 @@ Defending war rigs in a lighter weight tier than their attacker can use their ag
 
 A war rig part or a facility that is on fire can no longer be used. Place a fire token on the affected site. All effects and abilities the site grants are disabled. Players can **Fight Fire** at home base using a squad action or by using equipment in the field. Every subsequent turn that begins with a site on fire causes damage to all adjacent sites if possible. The damage is equal to half the remaining armour of that site rounded up.
 
-### Adjacency
-
-Sites that are adjacent to others have a link icon between them. For example on the chassis every item is adjacent to the central item.
+> Sites that are adjacent to others have a link icon between them. For example on the chassis every item is adjacent to the central item.
