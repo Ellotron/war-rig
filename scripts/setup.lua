@@ -1,6 +1,7 @@
 require("utilities")
 require("setupDice")
 require("setupTwoPlayer")
+require("storePlayer1")
 require("storePlayer2")
 
 function createButton(guid, label, functionName, position, size)
@@ -185,6 +186,8 @@ function storeBags(gameBox)
 end
 
 function storePlayers(gameBox)
+  p1Store(gameBox)
+
   p2Store(gameBox)
   --
   currentObj = safeGet('10f853')
@@ -194,24 +197,8 @@ function storePlayers(gameBox)
   currentObj = safeGet('4c65be')
   gameBox.putObject(currentObj)
 
-  -- P1-4
-  currentObj = safeGet('98fb5c')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('f57fb2')
-  gameBox.putObject(currentObj)
-
   -- P2-1
   currentObj = safeGet('b61975')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('a90f1b')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('ee2276')
   gameBox.putObject(currentObj)
 
   --
@@ -226,20 +213,8 @@ function storePlayers(gameBox)
   currentObj = safeGet('cf437f')
   gameBox.putObject(currentObj)
 
-  --
-  currentObj = safeGet('73ffa4')
-  gameBox.putObject(currentObj)
-
   -- P3-1
   currentObj = safeGet('44828b')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('ccc379')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('570051')
   gameBox.putObject(currentObj)
 
   -- P4-1
