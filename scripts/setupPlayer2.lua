@@ -1,4 +1,27 @@
-function homeBase2()
+function p2LesserFaction(destinationBase)
+  if (destinationBase == 3) then
+    --
+    safeTake(gameBox, {
+        guid = '20401a',
+        position = { x = 7.56989192962646, y = 1.80116438865662, z = -6.57533359527588 },
+        rotation = { x = 4.2123174353037E-06, y = 180.000289916992, z = 179.999954223633 }
+    })
+    --
+    safeTake(gameBox, {
+        guid = '84c0c3',
+        position = { x = 9.00802421569824, y = 1.80118846893311, z = -7.44775772094727 },
+        rotation = { x = -0.00494085112586617, y = 179.863250732422, z = 180.007583618164 }
+    })
+    --
+    safeTake(gameBox, {
+        guid = '23ea3d',
+        position = { x = 8.06408977508545, y = 1.81063890457153, z = -8.01418495178223 },
+        rotation = { x = 0.869659602642059, y = 182.035278320313, z = 179.464920043945 }
+    })
+    end
+end
+
+function p2HomeBase2()
       --
   safeTake(gameBox, {
     guid = '3bb1a3',

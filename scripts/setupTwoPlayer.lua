@@ -4,50 +4,15 @@ require("setupPlayer2")
 function setupTwoPlayer(gameBox)
   techDeck = getObjectFromGUID('35e89c')
   dealTwoPlayer(techDeck)
-  homeBase1()
-  homeBase2()
-  --
-  safeTake(gameBox, {
-    guid = '84c0c3',
-    position = { x = 9.00631904602051, y = 1.80116438865662, z = -7.44814348220825 },
-    rotation = { x = 5.35296931047924E-06, y = 179.871688842773, z = 180.000015258789 }
-  })
-  --
-  safeTake(gameBox, {
-    guid = '23ea3d',
-    position = { x = 8.08317947387695, y = 1.80116438865662, z = -8.02925872802734 },
-    rotation = { x = -6.092294370319E-06, y = 179.988525390625, z = 179.999984741211 }
-  })
-  --
-  safeTake(gameBox, {
-    guid = '20401a',
-    position = { x = 7.56989145278931, y = 1.8011646270752, z = -6.57533407211304 },
-    rotation = { x = -5.97716871197918E-06, y = 180.000122070313, z = 180 }
-  })
+  p1HomeBase1()
+  p1LesserFaction(4)
+  p2HomeBase2()
+  p2LesserFaction(3)
   --
   safeTake(gameBox, {
     guid = '46edbb',
     position = { x = 4.56795835494995, y = 1.41273319721222, z = -14.614595413208 },
     rotation = { x = 7.27185821533203, y = 180.016494750977, z = -1.96402070287149E-05 }
-  })
-  -- P4-1
-  safeTake(gameBox, {
-    guid = '54ae83',
-    position = { x = -10.9750967025757, y = 1.80116438865662, z = 6.04125881195068 },
-    rotation = { x = 0.00052535836584866, y = 359.979248046875, z = 179.999252319336 }
-  })
-  -- P5-1
-  safeTake(gameBox, {
-    guid = '09a1b1',
-    position = { x = -11.4030103683472, y = 1.80116522312164, z = 8.14149475097656 },
-    rotation = { x = -9.07824050955242E-06, y = 0.00266035879030824, z = 180 }
-  })
-
-  -- P6-1
-  safeTake(gameBox, {
-    guid = '880f43',
-    position = { x = -11.5228471755981, y = 1.86547982692719, z = 6.68801546096802 },
-    rotation = { x = 5.36274576187134, y = 0.233148276805878, z = 184.195007324219 }
   })
   --
   safeTake(gameBox, {
