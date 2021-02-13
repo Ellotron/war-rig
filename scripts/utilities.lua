@@ -30,7 +30,7 @@ function logScriptForSelectedObjects(player)
     log('==========')
     objs = Player[player or "White"].getSelectedObjects()
     for i, v in pairs(objs) do
-        t = scriptTakeObject(v)
+        t = scriptStoreInGameBox(v)
         s = ''
         for i=1,tablelength(t) do s = string.format('%s\n%s', s, t[i]) end
         log(s)
