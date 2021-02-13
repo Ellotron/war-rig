@@ -4,22 +4,14 @@ require("setupPlayer2")
 function setupTwoPlayer(gameBox)
   techDeck = getObjectFromGUID('35e89c')
   dealTwoPlayer(techDeck)
+
+  p1Hand()
   p1HomeBase1()
   p1LesserFaction(4)
+
+  p2Hand()
   p2HomeBase2()
   p2LesserFaction(3)
-  --
-  safeTake(gameBox, {
-    guid = '46edbb',
-    position = { x = 4.56795835494995, y = 1.41273319721222, z = -14.614595413208 },
-    rotation = { x = 7.27185821533203, y = 180.016494750977, z = -1.96402070287149E-05 }
-  })
-  --
-  safeTake(gameBox, {
-    guid = 'ccc379',
-    position = { x = -6.68559074401855, y = 1.41631150245667, z = 14.5665473937988 },
-    rotation = { x = 7.32344341278076, y = 0.0149995042011142, z = 0.000732915825210512 }
-  })
 end
 
 function dealTwoPlayer(techDeck)

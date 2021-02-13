@@ -1,3 +1,12 @@
+function p1Hand()
+  -- war rig card
+  safeTake(gameBox, {
+    guid = 'ccc379',
+    position = { x = 17.6636505126953, y = 1.37655484676361, z = 14.9224767684937 },
+    rotation = { x = 7.21038389205933, y = 0.0187978595495224, z = 0.00266618141904473 }
+  })
+end
+
 function p1LesserFaction(destinationBase)
     if (destinationBase == 4) then
         -- P6-1

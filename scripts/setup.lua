@@ -1,4 +1,5 @@
 require("utilities")
+require("setupDice")
 require("setupTwoPlayer")
 
 function createButton(guid, label, functionName, position, size)
@@ -21,6 +22,7 @@ end
 function setup2()
     gameBox = safeGet('5578eb')
     setupBags(gameBox)
+    setupDice(gameBox)
     setupTwoPlayer(gameBox)
 end
 
@@ -114,6 +116,7 @@ end
 function storeInBox()
     gameBox = safeGet('5578eb')
     storeBags(gameBox)
+    storeDice(gameBox)
     storeDecks(gameBox)
     storePlayers(gameBox)
 end
