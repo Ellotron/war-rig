@@ -95,9 +95,11 @@ You may attempt to enter any basic location or base, but the squads occupying th
 
 ### 2. Gather
 
-A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource tokens and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource on their turn.
+A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource tokens and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource for free on their turn.
 
-A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**.
+#### Deposit
+
+Normal and scrap resources are stored in Home Base on arrival. Four scrap can be swapped for one normal resource. A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**. Captive squads are locked in cells and can be [Coerce](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce)d.
 
 ### 3. Encamp/decamp
 
@@ -155,7 +157,11 @@ Resources needed are in the top left of the card and are colour coded.
 
 The card indicates how many of each type of resource is needed.
 Unless otherwise stated any item that grants the holder the construct action e.g. Workshop Tools is the only tool required.
-To successfully construct, turn the item face up (if not already), discard the required resources then:
+To successfully construct, turn the item face up (if not already), discard the required resources then assign it.
+
+#### Assign
+
+You can only assign to a squad, or rig when it is in Home Base. You can only construct a facility in the location printed on the card.
 
 - For equipment add a squad token flipped to the locked side represent additional stock locked in your inventory. This can be replaced with a numbered token matching a squad you wish to equip when that squad is in Home Base. Equipping a squad does not cost an action.
 - For war rig tech place it in the corresponding slot on the chassis
@@ -235,24 +241,21 @@ When targeting another war rig there are multiple parts that can be hit. Roll th
 
 Some items of war rig tech added to the chassis grant different attacks which can be performed in any order. The card itself details which dice and how many to attack with at a time.
 
-Squads defend against attacks as in **Squad Attack**. For facilities and war rigs an armour point is deducted for each hit add a hit token to the target. When that target has no armour points left it catches **Fire**.
+Squads defend against attacks as in **Squad Attack** except instead of surrender they are destroyed and removed from the game. For facilities and war rigs an armour point is deducted for each hit add a hit token to the target. When that target has no armour points left it catches **Fire**.
 
 Each dice is colour coded, has a number of 🎯 faces which indicate one or more hit and also some special faces:
 
-#### Blue attack dice - accurate/low damage/special function
+#### Dice Type
 
-🤖 - special function: refer to the card for the weapon that made the attack
-
-#### Red attack dice - mid-accuracy/graded damage/overheat
-
-⚡ - critical hit: refer to the card for the weapon that made the attack
-🌫 - overheat: all rolls for this weapon are ignored
-
-#### Black attack dice - inaccurate/high damage/spread effect
-
-💥 - splash damage: choose one additional target in the same location. This attack affects that target as well with the same number of hits.
-⚡ - critical hit: refer to the card for the weapon that made the attack
-💀 - weapon malfunction: all rolls for the weapon are ignored and it caches fire
+- Blue attack dice - accurate/low damage/special function
+  - 🤖 - special function: refer to the card for the weapon that made the attack
+- Red attack dice - mid-accuracy/graded damage/overheat
+  - ⚡ - critical hit: refer to the card for the weapon that made the attack
+  - 🌫 - overheat: all rolls for this weapon are ignored
+- Black attack dice - inaccurate/high damage/spread effect
+  - 💥 - splash damage: choose one additional target in the same location. This attack affects that target as well with the same number of hits.
+  - ⚡ - critical hit: refer to the card for the weapon that made the attack
+  - 💀 - weapon malfunction: all rolls for the weapon are ignored and it caches fire
 
 #### Agility
 
