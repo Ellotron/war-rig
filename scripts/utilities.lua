@@ -26,11 +26,11 @@ function safeTake(container, parameters)
     return container.takeObject(parameters)
 end
 
-function logScriptForSelectedObjects(player)
+function logScriptForSelectedObjects(f, player)
     log('==========')
-    objs = Player[player or "White"].getSelectedObjects()
+    objs = Player[player or "Red"].getSelectedObjects()
     for i, v in pairs(objs) do
-        t = scriptTakeObject(v)
+        t = f(v)
         s = ''
         for i=1,tablelength(t) do s = string.format('%s\n%s', s, t[i]) end
         log(s)

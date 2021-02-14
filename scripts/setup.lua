@@ -4,7 +4,7 @@ require("setupTwoPlayer")
 require("storePlayer1")
 require("storePlayer2")
 
-function createButton(guid, label, functionName, position, size)
+function createButton(guid, label, functionName, position, size, font_size)
     position = position or {0,0.2,0}
     size = size or 500
     but = safeGet(guid)
@@ -16,16 +16,43 @@ function createButton(guid, label, functionName, position, size)
        rotation       = {0,0,0},
        width          = size,
        height         = size,
-       font_size      = 200,
+       font_size      = font_size or 200,
     })
 end
 
+function initialise()
+  gameBox = safeGet('5578eb')
+  showHideSetup(gameBox, true)
+end
+
+function setup3()
+  print("TODO: 3 Player scripting")
+end
 
 function setup2()
     gameBox = safeGet('5578eb')
+    showHideSetup(gameBox, false)
     setupBags(gameBox)
     setupDice(gameBox)
     setupTwoPlayer(gameBox)
+end
+
+function showHideSetup(gameBox, show)
+    if (show) then
+      -- Setup card
+      safeTake(gameBox, {
+        guid = 'bd071d',
+        position = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 },
+        rotation = { x = 1.21824878078769E-05, y = 180.018188476563, z = -5.90269344513672E-08 }
+      })
+
+      createButton('bd071d', '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
+      createButton('bd071d', '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
+    else
+      -- Setup card
+      currentObj = safeGet('bd071d')
+      gameBox.putObject(currentObj)
+    end
 end
 
 function setupBags(gameBox)
@@ -121,6 +148,7 @@ function storeInBox()
     storeDice(gameBox)
     storeDecks(gameBox)
     storePlayers(gameBox)
+    showHideSetup(gameBox, true)
 end
 
 function storeDecks(gameBox)
