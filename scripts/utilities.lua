@@ -26,6 +26,31 @@ function safeTake(container, parameters)
     return container.takeObject(parameters)
 end
 
+function safeStore(guidTable, store, next)
+    objs = {}
+    for i=1,tablelength(guidTable) do
+        objs[i] = safeGet(guidTable[i])
+        if objs[i] ~= nil then
+            store.putObject(objs[i])
+        end
+    end
+    objs[tablelength(objs)+1] = store
+    if next ~= nil then
+        local allResting = function ()
+            for i=1,tablelength(objs) do
+                if objs[i] ~= nil then
+                    if objs[i].resting == false then
+                        return false
+                    end
+                end
+            end
+            return true
+        end
+        Wait.condition(next, allResting);
+    end
+    return true;
+end
+
 function logScriptForSelectedObjects(f, player)
     log('==========')
     objs = Player[player or "Red"].getSelectedObjects()

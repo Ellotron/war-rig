@@ -34,6 +34,7 @@ function setup2()
     showHideSetup(gameBox, false)
     setupBags(gameBox)
     setupDice(gameBox)
+    setupDecks(gameBox)
     setupTwoPlayer(gameBox)
 end
 
@@ -142,6 +143,15 @@ function setupBags(gameBox)
   })
 end
 
+function setupDecks(gameBox)
+  -- Tech Deck
+  safeTake(gameBox, {
+    guid = '35e89c',
+    position = { x = -11.8115930557251, y = 1.99835515022278, z = 0.642340362071991 },
+    rotation = { x = 6.50481479169684E-06, y = 180.024291992188, z = 180 }
+  })
+end
+
 function storeInBox()
     gameBox = safeGet('5578eb')
     storeBags(gameBox)
@@ -154,18 +164,8 @@ end
 function storeDecks(gameBox)
     -- Tech Deck
     techDeck = safeGet('35e89c')
-    currentObj = safeGet('45df75')
-    techDeck.putObject(currentObj)
-    currentObj = safeGet('664491')
-    techDeck.putObject(currentObj)
-    currentObj = safeGet('f0a89d')
-    techDeck.putObject(currentObj)
-    currentObj = safeGet('409ecd')
-    techDeck.putObject(currentObj)
-    currentObj = safeGet('dad860')
-    techDeck.putObject(currentObj)
-    currentObj = safeGet('911e20')
-    techDeck.putObject(currentObj)
+    cards = { '45df75', '664491', 'f0a89d', '409ecd', 'dad860', '911e20'}
+    safeStore(cards, techDeck, function() gameBox.putObject(techDeck) end)
 end
 
 function storeBags(gameBox)
