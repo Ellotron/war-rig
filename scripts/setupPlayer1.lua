@@ -1,10 +1,30 @@
-function p1Hand()
+function p1Hand(gameBox, techDeck)
   -- war rig card
   safeTake(gameBox, {
     guid = 'ccc379',
     position = { x = 17.6636505126953, y = 1.37655484676361, z = 14.9224767684937 },
     rotation = { x = 7.21038389205933, y = 0.0187978595495224, z = 0.00266618141904473 }
   })
+    -- P-rifles
+    safeTake(techDeck, {
+      guid = '45df75',
+      position = { x = 1.21173810958862, y = 1.40910482406616, z = 13.161865234375 },
+      rotation = { x = 16.5244255065918, y = 359.896881103516, z = 359.970672607422 }
+    })
+
+    -- P-scanner
+    safeTake(techDeck, {
+      guid = '664491',
+      position = { x = 3.46852898597717, y = 1.42439246177673, z = 13.0664472579956 },
+      rotation = { x = 17.1446437835693, y = 0.0114705413579941, z = 0.000357135111698881 }
+    })
+
+    -- P-tools
+    safeTake(techDeck, {
+      guid = 'f0a89d',
+      position = { x = 5.754723072052, y = 1.43597638607025, z = 13.0001955032349 },
+      rotation = { x = 17.5920352935791, y = 359.947662353516, z = 359.983764648438 }
+    })
     -- Purple 1
     safeTake(gameBox, {
         guid = 'b11235',
@@ -48,7 +68,7 @@ function p1Hand()
       })
 end
 
-function p1LesserFaction(destinationBase)
+function p1LesserFaction(destinationBase, gameBox)
     if (destinationBase == 4) then
         -- P6-1
         safeTake(gameBox, {
@@ -71,9 +91,31 @@ function p1LesserFaction(destinationBase)
             rotation = { x = -2.02003448066534E-05, y = 0.00264669861644506, z = 180 }
         })
     end
+    if destinationBase == 6 then
+        -- P6-1
+        safeTake(gameBox, {
+          guid = '880f43',
+          position = { x = 17.5578708648682, y = 1.80116498470306, z = 1.4036511182785 },
+          rotation = { x = 7.75255648477469E-06, y = 0.0334337763488293, z = 180 }
+        })
+
+        -- P5-1
+        safeTake(gameBox, {
+          guid = '09a1b1',
+          position = { x = 19.6346912384033, y = 1.80116510391235, z = 1.52125334739685 },
+          rotation = { x = -7.48338425182737E-06, y = 0.00262279249727726, z = 180.000015258789 }
+        })
+
+        -- P4-1
+        safeTake(gameBox, {
+          guid = '54ae83',
+          position = { x = 18.6400489807129, y = 1.80116486549377, z = -0.270787417888641 },
+          rotation = { x = -2.34928074860363E-06, y = 359.989135742188, z = 180 }
+        })
+    end
 end
 
-function p1HomeBase1()
+function p1HomeBase1(gameBox)
 
   --
   safeTake(gameBox, {

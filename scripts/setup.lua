@@ -1,6 +1,7 @@
 require("utilities")
 require("setupDice")
-require("setupTwoPlayer")
+require("setupPlayer1")
+require("setupPlayer2")
 require("storePlayer1")
 require("storePlayer2")
 
@@ -25,17 +26,38 @@ function initialise()
   showHideSetup(gameBox, true)
 end
 
+function setup(numberOfPlayers)
+  gameBox = safeGet('5578eb')
+  showHideSetup(gameBox, false)
+  setupBags(gameBox)
+  setupDice(gameBox)
+  setupDecks(gameBox)
+  techDeck = getObjectFromGUID('35e89c')
+
+
+  p1Hand(gameBox, techDeck)
+  p1HomeBase1(gameBox)
+
+  p2Hand(gameBox, techDeck)
+  p2HomeBase2(gameBox)
+
+  if numberOfPlayers == 2 then
+    p1LesserFaction(4, gameBox)
+    p2LesserFaction(3, gameBox)
+  end
+  if numberOfPlayers == 3 then
+    p1LesserFaction(6, gameBox)
+    p2LesserFaction(5, gameBox)
+  end
+end
+
 function setup3()
+  setup(3)
   print("TODO: 3 Player scripting")
 end
 
 function setup2()
-    gameBox = safeGet('5578eb')
-    showHideSetup(gameBox, false)
-    setupBags(gameBox)
-    setupDice(gameBox)
-    setupDecks(gameBox)
-    setupTwoPlayer(gameBox)
+    setup(2)
 end
 
 function showHideSetup(gameBox, show)
