@@ -4,9 +4,9 @@ function tablelength(T)
     return count
 end
 
-function safeGet(guid)
+function safeGet(guid, shouldLog)
     obj = getObjectFromGUID(guid)
-    if (obj == nil) then
+    if (obj == nil and shouldLog == true) then
      log(string.format('Object not found: %s', guid))
     end
     return obj
@@ -29,7 +29,7 @@ end
 function safeStore(guidTable, store, next)
     objs = {}
     for i=1,tablelength(guidTable) do
-        objs[i] = safeGet(guidTable[i])
+        objs[i] = safeGet(guidTable[i], false)
         if objs[i] ~= nil then
             store.putObject(objs[i])
         end
@@ -53,13 +53,20 @@ end
 
 function logScriptForSelectedObjects(f, player)
     log('==========')
-    objs = Player[player or "Red"].getSelectedObjects()
+    objs = Player[player or "White"].getSelectedObjects()
     for i, v in pairs(objs) do
         t = f(v)
         s = ''
         for i=1,tablelength(t) do s = string.format('%s\n%s', s, t[i]) end
         log(s)
     end
+end
+
+function scriptGuidList(v)
+    return
+    {
+        string.format("  '%s',", v.getGUID()),
+    }
 end
 
 function scriptStoreInGameBox(v)

@@ -2,8 +2,10 @@ require("utilities")
 require("setupDice")
 require("setupPlayer1")
 require("setupPlayer2")
+require("setupPlayer3")
 require("storePlayer1")
 require("storePlayer2")
+require("storePlayer3")
 
 function createButton(guid, label, functionName, position, size, font_size)
     position = position or {0,0.2,0}
@@ -48,12 +50,15 @@ function setup(numberOfPlayers)
   if numberOfPlayers == 3 then
     p1LesserFaction(6, gameBox)
     p2LesserFaction(5, gameBox)
+    p3LesserFaction(4, gameBox)
+
+    p3Hand(gameBox, techDeck)
+    p3HomeBase(gameBox)
   end
 end
 
 function setup3()
   setup(3)
-  print("TODO: 3 Player scripting")
 end
 
 function setup2()
@@ -186,7 +191,7 @@ end
 function storeDecks(gameBox)
     -- Tech Deck
     techDeck = safeGet('35e89c')
-    cards = { '45df75', '664491', 'f0a89d', '409ecd', 'dad860', '911e20'}
+    cards = { '45df75', '664491', 'f0a89d', '409ecd', 'dad860', '911e20', '1821f3','6cf398', 'c97347' }
     safeStore(cards, techDeck, function() gameBox.putObject(techDeck) end)
 end
 
@@ -239,6 +244,9 @@ function storePlayers(gameBox)
   p1Store(gameBox)
 
   p2Store(gameBox)
+
+  p3Store(gameBox)
+
   --
   currentObj = safeGet('10f853')
   gameBox.putObject(currentObj)
