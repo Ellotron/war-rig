@@ -98,7 +98,7 @@ end
 function p3HomeBase(gameBox)
     -- O War Rig
     safeTake(gameBox, {
-      guid = 'b919e2',
+      guid = '967acb',
       position = { x = 10.9875679016113, y = 1.91522669792175, z = -9.86923027038574 },
       rotation = { x = 7.75176613387885E-06, y = 135.002563476563, z = -3.66126778317266E-06 }
     })

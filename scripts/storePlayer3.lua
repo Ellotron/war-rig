@@ -15,7 +15,7 @@ end
 
 function p3StoreHomeBase(gameBox)
  local homeBaseObjects = {
-  'b919e2',
+  '967acb',
   'b68a22',
   'f7b016',
   '2bf815',

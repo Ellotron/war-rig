@@ -133,7 +133,7 @@ function p1HomeBase1(gameBox)
 
   -- P War Rig
   safeTake(gameBox, {
-    guid = '4c65be',
+    guid = 'c1857f',
     position = { x = 12.5218629837036, y = 1.91522860527039, z = 10.5660467147827 },
     rotation = { x = -3.50004984284169E-06, y = 45.0212821960449, z = -4.51064715889515E-06 }
   })

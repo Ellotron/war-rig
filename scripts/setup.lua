@@ -252,7 +252,7 @@ function storePlayers(gameBox)
   gameBox.putObject(currentObj)
 
   -- P War Rig
-  currentObj = safeGet('4c65be')
+  currentObj = safeGet('c1857f')
   gameBox.putObject(currentObj)
 
   -- P2-1
@@ -304,7 +304,7 @@ function storePlayers(gameBox)
   gameBox.putObject(currentObj)
 
   -- R War Rig
-  currentObj = safeGet('9019fc')
+  currentObj = safeGet('05711e')
   gameBox.putObject(currentObj)
 
   --

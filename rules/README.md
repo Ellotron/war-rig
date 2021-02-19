@@ -21,6 +21,17 @@ The game ends when any one of these conditions is met:
 
 ### Empire Invasion
 
+When the empire invades, three drop-ships land random locations chosen by rolling the white dice for each drop-ship. Place the drop-ship in the first location clockwise from the base with the number shown on the dice. If that location already contains a drop-ship choose the next non-base location clockwise from that.
+
+The drop-ships release waves of "suppression squadrons" to capture and convert the squads it considers hostile (all players except the one that summoned the invasion). This starts the moment they land with any hostile squads in drop-ship locations being immediately captured. Each subsequent turn after all player's actions, the suppressors move clockwise to another location skipping over bases, with new ones disembarking the drop-ship as well until all outer areas are held. Squads entering a held area are immediately captured.
+
+After they hold all outer areas the Empire will take the Barren Wastes on the final turn. If this happens the players' bases are discovered by the Empire and the game ends, with the summoning player winning the game.
+
+The only way to stop the Empire is to focus enough fire power on the drop-ships but these are heavily fortified. Drop-ships each have 12 🛡 and return fire whenever attacked. Return fire is rolled on 3 blue attack dice with 🤖 indicating 2 hits on a part of the summoning player's choosing.
+
+As soon as a drop-ship reaches 0 🛡 it is destroyed. Destroy enough drop-ships and the Empire retreats releasing its captives.
+For a 2 player game 1 ship must be destroyed, for 3 player 2 ships and for 4 player all three must be destroyed to cause a retreat.
+
 ### Infinite Power
 
 ## Glossary
