@@ -12,6 +12,24 @@ function safeGet(guid, shouldLog)
     return obj
 end
 
+function safePlace(container, parameters)
+    obj = safeGet(parameters.guid, false)
+    if obj == nil then
+        safeTake(container, parameters)
+    else
+        if parameters.position then
+            obj.setPositionSmooth(parameters.position, false, false)
+        end
+        if parameters.rotation then
+            obj.setRotationSmooth(parameters.rotation, false, false)
+        end
+        if parameters.callback_function then
+            local objResting = function () return obj.resting end
+            Wait.condition(parameters.callback_function, objResting, 10)
+        end
+    end
+end
+
 function safeTake(container, parameters)
     found = false
     for i, v in pairs(container.getObjects()) do

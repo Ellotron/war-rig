@@ -6,6 +6,7 @@ require("setupPlayer3")
 require("storePlayer1")
 require("storePlayer2")
 require("storePlayer3")
+require("empire")
 
 function createButton(guid, label, functionName, position, size, font_size)
     position = position or {0,0.2,0}
@@ -65,21 +66,35 @@ function setup2()
     setup(2)
 end
 
-function showHideSetup(gameBox, show)
-    if (show) then
-      -- Setup card
-      safeTake(gameBox, {
-        guid = 'bd071d',
-        position = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 },
-        rotation = { x = 1.21824878078769E-05, y = 180.018188476563, z = -5.90269344513672E-08 }
-      })
+function infinitePower()
+  print("TODO")
+end
 
-      createButton('bd071d', '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
-      createButton('bd071d', '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
+function showHideSetup(gameBox, show)
+    local gameCardGuid =  'bd071d'
+    gameCard = safeGet(gameCardGuid, false)
+
+    if (show) then
+      local pos = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 }
+      if gameCard then
+        gameCard.setPositionSmooth(pos, false, true)
+        else
+        -- Setup card
+        safeTake(gameBox, {
+          guid = gameCardGuid,
+          position = pos,
+          rotation = { x = 1.21824878078769E-05, y = 180.018188476563, z = -5.90269344613672E-08 }
+        })
+
+        createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
+        createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
+        createButton(gameCardGuid, 'Reset', 'reset', {0,0.2,0.38}, 150, 35)
+        createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.65}, 135, 30)
+        createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.65}, 135, 30)
+      end
     else
       -- Setup card
-      currentObj = safeGet('bd071d')
-      gameBox.putObject(currentObj)
+      gameCard.setPositionSmooth({ x = -21.8093719482422, y = 3.62151789665222, z = 19.8184719085693 }, false, true)
     end
 end
 
@@ -185,6 +200,7 @@ function storeInBox()
     storeDice(gameBox)
     storeDecks(gameBox)
     storePlayers(gameBox)
+    storeEmpire(gameBox)
     showHideSetup(gameBox, true)
 end
 
