@@ -49,10 +49,14 @@ function forEach(array, func)
 end
 
 function concat(a, b)
-    for _, v in pairs(b) do
-        table.insert(a, v)
+    c = {}
+    for _, v in pairs(a) do
+        table.insert(c, v)
     end
-    return a
+    for _, v in pairs(b) do
+        table.insert(c, v)
+    end
+    return c
 end
 
 function createButton(guid, label, functionName, position, size, font_size)

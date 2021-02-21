@@ -1,21 +1,44 @@
+standardEquipTokens1 = {
+  --
+  {
+    guid = 'd61641',
+    position = { x = 5.7401385307312, y = 1.64524924755096, z = 12.55051612854 },
+    rotation = { x = 17.6202983856201, y = 0.0267729070037603, z = 180.006896972656 }
+  },
+  --
+  {
+    guid = '131510',
+    position = { x = 3.54453563690186, y = 1.6035567522049, z = 12.7015419006348 },
+    rotation = { x = 17.1596298217773, y = 0.0402608886361122, z = 180.007202148438 }
+  },
+  --
+  {
+    guid = '5c282b',
+    position = { x = 1.15451717376709, y = 1.59446084499359, z = 12.7601804733276 },
+    rotation = { x = 16.547779083252, y = 0.0479310601949692, z = 180.040573120117 }
+  },
+}
 standardEquipment1 = {
   -- P-rifles
   {
     guid = '45df75',
-    position = { x = 1.21173810958862, y = 1.40910482406616, z = 13.161865234375 },
-    rotation = { x = 16.5244255065918, y = 359.896881103516, z = 359.970672607422 }
+    position = { x = 5.754723072052, y = 1.43597638607025, z = 13.0001955032349 },
+    rotation = { x = 17.5920352935791, y = 359.947662353516, z = 359.983764648438 },
+    thenPlace = standardEquipTokens1[1]
   },
   -- P-scanner
   {
     guid = '664491',
     position = { x = 3.46852898597717, y = 1.42439246177673, z = 13.0664472579956 },
-    rotation = { x = 17.1446437835693, y = 0.0114705413579941, z = 0.000357135111698881 }
+    rotation = { x = 17.1446437835693, y = 0.0114705413579941, z = 0.000357135111698881 },
+    thenPlace = standardEquipTokens1[2]
   },
   -- P-tools
   {
     guid = 'f0a89d',
-    position = { x = 5.754723072052, y = 1.43597638607025, z = 13.0001955032349 },
-    rotation = { x = 17.5920352935791, y = 359.947662353516, z = 359.983764648438 }
+    position = { x = 1.21173810958862, y = 1.40910482406616, z = 13.161865234375 },
+    rotation = { x = 16.5244255065918, y = 359.896881103516, z = 359.970672607422 },
+    thenPlace = standardEquipTokens1[3],
   },
 }
 
@@ -155,6 +178,7 @@ baseItems1 = {
 }
 
 player1 = {
+  standardEquipTokens = standardEquipTokens1,
   standardEquipment = standardEquipment1,
   playerAreaItems = playerAreaItems1,
   lesserFactions = lesserFactions1,

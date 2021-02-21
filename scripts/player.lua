@@ -3,7 +3,7 @@ function playerStore(player, gameBox)
     safeStore(player.baseItems, gameBox)
     safeStore(player.playerAreaItems, gameBox)
     safeStore(player.lesserFactions, gameBox)
-    safeStore(player.standardEquipTokens or {}, gameBox)
+    safeStore(player.standardEquipTokens, gameBox)
 end
 
 function playerHand(player, gameBox, techDeck)
