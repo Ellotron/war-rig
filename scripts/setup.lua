@@ -53,35 +53,33 @@ end
 
 function showHideSetup(gameBox, show)
     local gameCardGuid =  'bd071d'
-    gameCard = safeGet(gameCardGuid, false)
-
+    local initialised = safeGet(gameCardGuid, false)
+    local pos = nil
     if (show) then
-      local pos = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 }
-      if gameCard then
-        gameCard.setPositionSmooth(pos, false, true)
-        else
-        -- Setup card
-        safeTake(gameBox, {
-          guid = gameCardGuid,
-          position = pos,
-          rotation = { x = 1.21824878078769E-05, y = 180.018188476563, z = -5.90269344613672E-08 }
-        })
-
-        createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
-        createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
-        createButton(gameCardGuid, 'Reset', 'reset', {0,0.2,0.38}, 150, 35)
-        createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.65}, 135, 30)
-        createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.65}, 135, 30)
-      end
+      pos = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 }
     else
-      -- Setup card
-      gameCard.setPositionSmooth({ x = -21.8093719482422, y = 3.62151789665222, z = 19.8184719085693 }, false, true)
+      pos = { x = -21.8093719482422, y = 3.62151789665222, z = 19.8184719085693 }
+    end
+
+    -- Setup card
+    safePlace(gameBox, {
+      guid = gameCardGuid,
+      position = pos,
+      rotation = { x = 1.21824878078769E-05, y = 180.018188476563, z = -5.90269344613672E-08 }
+    })
+
+    if initialised == nil then
+      createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
+      createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
+      createButton(gameCardGuid, 'Reset', 'reset', {0,0.2,0.38}, 150, 35)
+      createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.65}, 135, 30)
+      createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.65}, 135, 30)
     end
 end
 
 function setupDecks(gameBox)
   -- Tech Deck
-  safeTake(gameBox, {
+  safePlace(gameBox, {
     guid = '35e89c',
     position = { x = -11.8115930557251, y = 1.99835515022278, z = 0.642340362071991 },
     rotation = { x = 6.50481479169684E-06, y = 180.024291992188, z = 180 }
