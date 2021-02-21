@@ -12,7 +12,19 @@ function safeGet(guid, shouldLog)
     return obj
 end
 
+function addAnySubsequentPlacement(container, parameters)
+    local callback = nil
+    if parameters.thenPlace ~= nil then
+      callback = function ()
+        safePlace(container, parameters.thenPlace)
+      end
+      parameters.callback_function = callback
+    end
+end
+
 function safePlace(container, parameters)
+    addAnySubsequentPlacement(container, parameters)
+
     obj = safeGet(parameters.guid, false)
     if obj == nil then
         safeTake(container, parameters)

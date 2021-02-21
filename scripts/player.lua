@@ -23,19 +23,5 @@ function playerLesserFaction(player, destinationBase, gameBox)
 end
 
 function playerHomeBase(player, gameBox)
-    forEach(player.baseItems,function(baseItem)
-      local callback = nil
-      if baseItem.thenPlace ~= nil then
-        callback = function ()
-          safePlace(gameBox, baseItem.thenPlace)
-        end
-      end
-
-      safePlace(gameBox, {
-        guid = baseItem.guid,
-        position = baseItem.position,
-        rotation = baseItem.rotation,
-        callback_function = callback
-      })
-    end)
+    forEach(player.baseItems,function(baseItem) safePlace(gameBox, baseItem) end)
 end
