@@ -1,27 +1,10 @@
 require("utilities")
-require("setupDice")
 require("pieces")
 require("player")
 require("player1")
 require("player2")
 require("player3")
 require("empire")
-
-function createButton(guid, label, functionName, position, size, font_size)
-    position = position or {0,0.2,0}
-    size = size or 500
-    but = safeGet(guid)
-    but.createButton({
-       click_function = functionName,
-       function_owner = nil,
-       label          = label,
-       position       = position,
-       rotation       = {0,0,0},
-       width          = size,
-       height         = size,
-       font_size      = font_size or 200,
-    })
-end
 
 function initialise()
   gameBox = safeGet('5578eb')
@@ -31,8 +14,8 @@ end
 function setup(numberOfPlayers)
   gameBox = safeGet('5578eb')
   showHideSetup(gameBox, false)
-  setupBags(gameBox)
-  setupDice(gameBox)
+  forEach(gameBags, function(bag) safePlace(gameBox, bag) end)
+  forEach(gameDice, function(dice) safePlace(gameBox, dice) end)
   setupDecks(gameBox)
   techDeck = getObjectFromGUID('35e89c')
 
@@ -96,10 +79,6 @@ function showHideSetup(gameBox, show)
     end
 end
 
-function setupBags(gameBox)
-    forEach(gameBags, function(bag) safeTake(gameBox, bag) end)
-end
-
 function setupDecks(gameBox)
   -- Tech Deck
   safeTake(gameBox, {
@@ -111,8 +90,8 @@ end
 
 function storeInBox()
     gameBox = safeGet('5578eb')
-    storeBags(gameBox)
-    storeDice(gameBox)
+    safeStore(gameBags, gameBox)
+    safeStore(gameDice, gameBox)
     storeDecks(gameBox)
     storePlayers(gameBox)
     storeEmpire(gameBox)
@@ -126,14 +105,8 @@ function storeDecks(gameBox)
     safeStore(cards, techDeck, function() gameBox.putObject(techDeck) end)
 end
 
-function storeBags(gameBox)
-  safeStore(gameBags, gameBox)
-end
-
 function storePlayers(gameBox)
   playerStore(player1, gameBox)
-
   playerStore(player2, gameBox)
-
   playerStore(player3, gameBox)
 end

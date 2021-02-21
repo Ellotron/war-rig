@@ -43,6 +43,22 @@ function concat(a, b)
     return a
 end
 
+function createButton(guid, label, functionName, position, size, font_size)
+    position = position or {0,0.2,0}
+    size = size or 500
+    but = safeGet(guid)
+    but.createButton({
+       click_function = functionName,
+       function_owner = nil,
+       label          = label,
+       position       = position,
+       rotation       = {0,0,0},
+       width          = size,
+       height         = size,
+       font_size      = font_size or 200,
+    })
+end
+
 function safeTake(container, parameters)
     found = false
     for i, v in pairs(container.getObjects()) do
