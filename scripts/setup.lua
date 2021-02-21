@@ -39,16 +39,16 @@ function setup(numberOfPlayers)
   p1Hand(gameBox, techDeck)
   p1HomeBase1(gameBox)
 
-  p2Hand(gameBox, techDeck)
-  p2HomeBase2(gameBox)
+  playerHand(player2, gameBox, techDeck)
+  playerHomeBase(player2, gameBox)
 
   if numberOfPlayers == 2 then
     p1LesserFaction(4, gameBox)
-    p2LesserFaction(3, gameBox)
+    playerLesserFaction(player2, 3, gameBox)
   end
   if numberOfPlayers == 3 then
     p1LesserFaction(6, gameBox)
-    p2LesserFaction(5, gameBox)
+    playerLesserFaction(player2, 5, gameBox)
     playerLesserFaction(player3, 4, gameBox)
 
     playerHand(player3, gameBox, techDeck)
@@ -257,7 +257,7 @@ end
 function storePlayers(gameBox)
   p1Store(gameBox)
 
-  p2Store(gameBox)
+  playerStore(player2, gameBox)
 
   playerStore(player3, gameBox)
 
