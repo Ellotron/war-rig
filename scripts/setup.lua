@@ -36,18 +36,18 @@ function setup(numberOfPlayers)
   techDeck = getObjectFromGUID('35e89c')
 
 
-  p1Hand(gameBox, techDeck)
-  p1HomeBase1(gameBox)
+  playerHand(player1, gameBox, techDeck)
+  playerHomeBase(player1, gameBox)
 
   playerHand(player2, gameBox, techDeck)
   playerHomeBase(player2, gameBox)
 
   if numberOfPlayers == 2 then
-    p1LesserFaction(4, gameBox)
+    playerLesserFaction(player1, 4, gameBox)
     playerLesserFaction(player2, 3, gameBox)
   end
   if numberOfPlayers == 3 then
-    p1LesserFaction(6, gameBox)
+    playerLesserFaction(player1, 6, gameBox)
     playerLesserFaction(player2, 5, gameBox)
     playerLesserFaction(player3, 4, gameBox)
 
@@ -255,89 +255,9 @@ function storeBags(gameBox)
 end
 
 function storePlayers(gameBox)
-  p1Store(gameBox)
+  playerStore(player1, gameBox)
 
   playerStore(player2, gameBox)
 
   playerStore(player3, gameBox)
-
-  --
-  currentObj = safeGet('10f853')
-  gameBox.putObject(currentObj)
-
-  -- P War Rig
-  currentObj = safeGet('c1857f')
-  gameBox.putObject(currentObj)
-
-  -- P2-1
-  currentObj = safeGet('b61975')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('bb1fd3')
-  gameBox.putObject(currentObj)
-
-  -- P1-1
-  currentObj = safeGet('3e4207')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('cf437f')
-  gameBox.putObject(currentObj)
-
-  -- P3-1
-  currentObj = safeGet('44828b')
-  gameBox.putObject(currentObj)
-
-  -- P4-1
-  currentObj = safeGet('54ae83')
-  gameBox.putObject(currentObj)
-
-  -- P5-1
-  currentObj = safeGet('09a1b1')
-  gameBox.putObject(currentObj)
-
-  -- P6-1
-  currentObj = safeGet('880f43')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('3bb1a3')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('e02066')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('2a4264')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('b7b878')
-  gameBox.putObject(currentObj)
-
-  -- R War Rig
-  currentObj = safeGet('05711e')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('51358a')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('6b2997')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('23ea3d')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('20401a')
-  gameBox.putObject(currentObj)
-
-  --
-  currentObj = safeGet('84c0c3')
-  gameBox.putObject(currentObj)
 end
