@@ -22,10 +22,10 @@ function addAnySubsequentPlacement(container, parameters)
     end
 end
 
-function safePlace(container, parameters)
-    addAnySubsequentPlacement(container, parameters)
+function safePlace(container, parameters, thenContainer)
+    addAnySubsequentPlacement(thenContainer or container, parameters)
 
-    obj = safeGet(parameters.guid, false)
+    local obj = safeGet(parameters.guid, false)
     if obj == nil then
         safeTake(container, parameters)
     else
@@ -80,7 +80,7 @@ function safeTake(container, parameters)
         end
     end
     if (found ~= true) then
-        log(string.format('Object not found: %s', parameters['guid']))
+        log(string.format('Object %s not found in %s', parameters['guid'], container.guid))
     end
     return container.takeObject(parameters)
 end
@@ -139,17 +139,17 @@ function scriptStoreInGameBox(v)
     }
 end
 
-function scriptTakeObject(v)
+function scriptObjectDef(v)
     p = v.getPosition()
     r = v.getRotation()
     return
     {
         string.format('  -- %s', v.getName()),
-        '  safeTake(gameBox, {',
+        '  {',
         string.format("    guid = '%s',", v.getGUID()),
         string.format("    position = { x = %s, y = %s, z = %s },", p[1], p[2], p[3]),
         string.format("    rotation = { x = %s, y = %s, z = %s }", r[1], r[2], r[3]),
-        '  })'
+        '  },'
     }
 end
 

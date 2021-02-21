@@ -3,10 +3,11 @@ function playerStore(player, gameBox)
     safeStore(player.baseItems, gameBox)
     safeStore(player.playerAreaItems, gameBox)
     safeStore(player.lesserFactions, gameBox)
+    safeStore(player.standardEquipTokens or {}, gameBox)
 end
 
 function playerHand(player, gameBox, techDeck)
-    forEach(player.standardEquipment, function(card) safePlace(techDeck, card) end)
+    forEach(player.standardEquipment, function(card) safePlace(techDeck, card, gameBox) end)
     forEach(player.playerAreaItems, function(item) safePlace(gameBox, item) end)
 end
 

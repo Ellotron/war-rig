@@ -1,21 +1,45 @@
+standardEquipTokens2 = {
+    --
+    {
+      guid = '3cb851',
+      position = { x = -4.63050174713135, y = 1.037113904953, z = -14.9604177474976 },
+      rotation = { x = -0.00162584928330034, y = 179.999954223633, z = 179.997650146484 }
+    },
+    --
+    {
+      guid = 'cda4b8',
+      position = { x = -2.19919371604919, y = 1.03712093830109, z = -14.9544229507446 },
+      rotation = { x = -0.00140970689244568, y = 180, z = 179.998886108398 }
+    },
+    --
+    {
+      guid = 'a51929',
+      position = { x = 0.108976542949677, y = 1.03711926937103, z = -14.9259147644043 },
+      rotation = { x = -0.00187117652967572, y = 180.000091552734, z = 179.998092651367 }
+    },
+}
+
 standardEquipment2 = {
   -- R-tools
   {
     guid = '409ecd',
     position = { x = -4.62264919281006, y = 0.973604738712311, z = -15.3960847854614 },
-    rotation = { x = 1.13526220957283E-06, y = 179.98193359375, z = -5.20910703016852E-07 }
+    rotation = { x = 1.13526220957283E-06, y = 179.98193359375, z = -5.20910703016852E-07 },
+    thenPlace = standardEquipTokens2[1]
   },
   -- R-scanner
   {
     guid = 'dad860',
     position = { x = -2.19708466529846, y = 0.9736048579216, z = -15.4823808670044 },
-    rotation = { x = 1.0888423958022E-06, y = 179.985702514648, z = 8.10850167454191E-07 }
+    rotation = { x = 1.0888423958022E-06, y = 179.985702514648, z = 8.10850167454191E-07 },
+    thenPlace = standardEquipTokens2[2]
   },
   -- R-rifles
   {
     guid = '911e20',
     position = { x = 0.0983505249023438, y = 0.9736048579216, z = -15.3319940567017 },
-    rotation = { x = -5.19667537446367E-07, y = 179.985702514648, z = -2.70911499455906E-07 }
+    rotation = { x = -5.19667537446367E-07, y = 179.985702514648, z = -2.70911499455906E-07 },
+    thenPlace = standardEquipTokens2[3]
   }
 }
 
@@ -156,6 +180,7 @@ baseItems2 = {
 
 player2 = {
   standardEquipment = standardEquipment2,
+  standardEquipTokens = standardEquipTokens2,
   playerAreaItems = playerAreaItems2,
   lesserFactions = lesserFactions2,
   baseItems = baseItems2,
