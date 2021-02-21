@@ -36,6 +36,13 @@ function forEach(array, func)
     end
 end
 
+function concat(a, b)
+    for _, v in pairs(b) do
+        table.insert(a, v)
+    end
+    return a
+end
+
 function safeTake(container, parameters)
     found = false
     for i, v in pairs(container.getObjects()) do
