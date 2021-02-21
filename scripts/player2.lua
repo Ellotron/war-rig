@@ -1,3 +1,11 @@
+function p2Store(gameBox) p2StoreHand(gameBox) end
+
+function p2StoreHand(gameBox)
+    safeStore({
+        'fbfd3d', 'ab3b3d', 'd2bb62', 'cf32d3', '358d93', '0ddb43', '46edbb'
+    }, gameBox)
+end
+
 function p2Hand(gameBox, techDeck)
   -- war rig card
   safeTake(gameBox, {

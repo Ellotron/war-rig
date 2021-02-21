@@ -30,6 +30,12 @@ function safePlace(container, parameters)
     end
 end
 
+function forEach(array, func)
+    for i=1,tablelength(array) do
+        func(array[i], i)
+    end
+end
+
 function safeTake(container, parameters)
     found = false
     for i, v in pairs(container.getObjects()) do
@@ -47,7 +53,9 @@ end
 function safeStore(guidTable, store, next)
     objs = {}
     for i=1,tablelength(guidTable) do
-        objs[i] = safeGet(guidTable[i], false)
+        local guid = guidTable[i].guid
+        if guid == nil then guid = guidTable[i] end
+        objs[i] = safeGet(guid, false)
         if objs[i] ~= nil then
             store.putObject(objs[i])
         end
