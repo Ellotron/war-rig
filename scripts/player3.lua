@@ -139,44 +139,10 @@ baseItems3 = {
   },
 }
 
-function p3Store(gameBox)
-    safeStore(baseTokens3, gameBox)
-    safeStore(baseItems3, gameBox)
-    safeStore(playerAreaItems3, gameBox)
-    safeStore(lesserFactions3, gameBox)
-end
-
-function p3Hand(gameBox, techDeck)
-    forEach(standardEquipment3, function(card) safePlace(techDeck, card) end)
-    forEach(playerAreaItems3, function(item) safePlace(gameBox, item) end)
-end
-
-function p3LesserFaction(destinationBase, gameBox)
-    forEach(
-      lesserFactions3,
-      function(faction)
-        safePlace(gameBox, {
-            guid = faction.guid,
-            position = faction.positions[destinationBase].position,
-            rotation = faction.positions[destinationBase].rotation,
-        })
-      end)
-end
-
-function p3HomeBase(gameBox)
-    forEach(baseItems3,function(baseItem)
-      local callback = nil
-      if baseItem.thenPlace ~= nil then
-        callback = function ()
-          safePlace(gameBox, baseItem.thenPlace)
-        end
-      end
-
-      safePlace(gameBox, {
-        guid = baseItem.guid,
-        position = baseItem.position,
-        rotation = baseItem.rotation,
-        callback_function = callback
-      })
-    end)
-end
+player3 = {
+  standardEquipment = standardEquipment3,
+  playerAreaItems = playerAreaItems3,
+  lesserFactions = lesserFactions3,
+  baseItems = baseItems3,
+  baseTokens = baseTokens3
+}

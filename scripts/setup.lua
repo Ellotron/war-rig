@@ -1,5 +1,6 @@
 require("utilities")
 require("setupDice")
+require("player")
 require("player1")
 require("player2")
 require("player3")
@@ -48,10 +49,10 @@ function setup(numberOfPlayers)
   if numberOfPlayers == 3 then
     p1LesserFaction(6, gameBox)
     p2LesserFaction(5, gameBox)
-    p3LesserFaction(4, gameBox)
+    playerLesserFaction(player3, 4, gameBox)
 
-    p3Hand(gameBox, techDeck)
-    p3HomeBase(gameBox)
+    playerHand(player3, gameBox, techDeck)
+    playerHomeBase(player3, gameBox)
   end
 end
 
@@ -258,7 +259,7 @@ function storePlayers(gameBox)
 
   p2Store(gameBox)
 
-  p3Store(gameBox)
+  playerStore(player3, gameBox)
 
   --
   currentObj = safeGet('10f853')
