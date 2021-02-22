@@ -5,6 +5,7 @@ require("player1")
 require("player2")
 require("player3")
 require("empire")
+require("infinite")
 
 function initialise()
   gameBox = safeGet('5578eb')
@@ -12,6 +13,7 @@ function initialise()
 end
 
 function setup(numberOfPlayers)
+  playerNum = numberOfPlayers
   gameBox = safeGet('5578eb')
   showHideSetup(gameBox, false)
   forEach(gameBags, function(bag) safePlace(gameBox, bag) end)
@@ -48,7 +50,11 @@ function setup2()
 end
 
 function infinitePower()
-  print("TODO")
+  if playerNum == nil then
+    print("Select number of players first")
+  else
+    deployInfinitePower(playerNum)
+  end
 end
 
 function showHideSetup(gameBox, show)
@@ -57,6 +63,7 @@ function showHideSetup(gameBox, show)
     local pos = nil
     if (show) then
       pos = { x = -0.276353687047958, y = 1.75116384029388, z = -9.73142337799072 }
+      playerNum = nil
     else
       pos = { x = -21.8093719482422, y = 3.62151789665222, z = 19.8184719085693 }
     end
@@ -82,8 +89,13 @@ function setupDecks(gameBox)
   safePlace(gameBox, {
     guid = '35e89c',
     position = { x = -11.8115930557251, y = 1.99835515022278, z = 0.642340362071991 },
-    rotation = { x = 6.50481479169684E-06, y = 180.024291992188, z = 180 }
+    rotation = { x = 6.50481479169684E-06, y = 180.024291992188, z = 180 },
+    callback_function = function ()
+      techDeck = safeGet('35e89c')
+      techDeck.shuffle()
+    end
   })
+
 end
 
 function storeInBox()
@@ -93,14 +105,15 @@ function storeInBox()
     storeDecks(gameBox)
     storePlayers(gameBox)
     storeEmpire(gameBox)
+    storeInfinite(gameBox)
     showHideSetup(gameBox, true)
 end
 
 function storeDecks(gameBox)
     -- Tech Deck
-    techDeck = safeGet('35e89c')
-    cards = concat(player1.standardEquipment, concat(player2.standardEquipment, player3.standardEquipment))
-    safeStore(cards, techDeck, function() gameBox.putObject(techDeck) end)
+    techDeck.reset()
+    local watchDeck = function () return techDeck.resting end
+    Wait.condition(function() safeStore({ techDeck }, gameBox) end, watchDeck)
 end
 
 function storePlayers(gameBox)

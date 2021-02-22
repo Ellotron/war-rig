@@ -34,6 +34,17 @@ For a 2 player game 1 ship must be destroyed, for 3 player 2 ships and for 4 pla
 
 ### Infinite Power
 
+Once infinite power has been discovered, destroying its facility has no effect. The player who created the power source is now the **Controller**. They earn political sway by providing the correct power needs to each other faction. Place 2 coercion counters on the base of every player that is **not** the controller to represent the progress of this sway.
+
+At the start of the turn the players and the controller each secretly place a single token numbered 1, 2 or 3 in the facility. Once all players have done this reveal all tokens. If a player's token matches the controller's token then the controller has successfully generated power for their needs and the player can generate resources. The number of resources generated can be up to the number shown on the matched token. The resource can be of any basic resource type and is placed directly in the player's base.
+
+For each successful match the controller removes a coercion counter from the base of the player they matched. When a base has no more coercion counters, it becomes **loyal** to the controller's faction. Those factions can no longer attack each other directly.
+
+If the controller wins enough factions loyalty before anyone else wins the game, then they win.
+
+- 2 - 3 players - 1 faction's loyalty required
+- 4 players - 2 faction's loyalty required
+
 ## Glossary
 
 ### Basic Locations
@@ -114,7 +125,7 @@ A faction squad can gather resources or tech from a basic location by using 1 ac
 
 #### Deposit
 
-Normal and scrap resources are stored in Home Base on arrival. Four scrap can be swapped for one normal resource. A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**. Captive squads are locked in cells and can be [Coerce](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce)d.
+Normal and scrap resources are stored in Home Base on arrival. Four scrap can be swapped for one normal resource. A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**. A captive squad can be locked in the cells if they are free and can be [Coerce](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce)d on subsequent turns. The cells will hold one captive squad at a time.
 
 ### 3. Encamp/decamp
 
@@ -137,7 +148,7 @@ An unequipped squad cannot roll to attack or defend.
 - 🎯 - One hit
 - 🎯🎯 - Two hits
 - 🌫 - Overheat: the squads' weapons overheat. The attack is cancelled and the attacking squad cannot participate in any further attacks this turn
-- ⚡ - Backfire: the squad's weapons fail. The attack is cancelled and they suffer a hit
+- ⚡ - Backfire: the squad's weapons fail. As with Overheat but the squad also suffers a hit.
 
 ### Defence dice symbols
 
@@ -158,7 +169,7 @@ For each remaining 🎯 after subtracting each 🛡 resolve a hit. A squad that 
 
 ### 5. Coerce
 
-**Captured** squads that are moved to the captor's home base can be coerced into joining the captors faction. For **Lesser Factions** this takes one action, for player factions two. Mark the squad being coerced with a number of coercion block counters, removing one each time a squad in the same base uses an action to coerce them. When there are no more counters next to the squad it becomes a normal faction squad controlled by the captor. While a squad is being coerced it does not count towards rolls and has no actions.
+**Captured** squads that are moved to the captor's home base can be coerced into joining the captors faction. For **Lesser Factions** this takes two actions, for player factions three. Mark the squad being coerced with a number of coercion block counters, removing one each time a squad in the same base uses an action to coerce them. When there are no more counters next to the squad it becomes a normal faction squad controlled by the captor. While a squad is being coerced it does not count towards rolls and has no actions.
 
 ### 6. Construct
 
@@ -201,7 +212,7 @@ Special locations allow you to perform specific actions there by using 1 action:
 
 ### Rival Base
 
-When a squad tries to move in to a rival base of player or lesser factions, squads there try to **Repel** them. If the move is not repelled, the squad is considered infiltrated and have a number of additional actions available to them. Each costs 1 action:
+When a squad tries to move in to a rival base of player or lesser factions, squads there try to **Repel** them. If the move is not repelled, the squad is considered infiltrated. Infiltrated squads cannot attack or be attacked but have a number of additional actions available to them. Each costs 1 action:
 
 #### 1. Recruit
 
@@ -241,6 +252,14 @@ Some items of war rig tech added to the chassis grant movement. The card itself 
 If the rig's total weight is less than or equal to every "Light" tier printed on attached items then the rig is in the light tier. Likewise for "Medium" and "Heavy" tiers.
 
 However if the total weight of all the war rig tech on the chassis exceeds any "Heavy" tier then the war rig cannot move. Being in a lighter tier is beneficial in combat.
+
+#### Crash
+
+Certain card effects can cause a rig to crash. If a rig crashes it suffers massive damage. For each attached part roll the white dice:
+
+- 1: The part catches fire
+- 2-3: The part loses half it remaining armour
+- 4-6: The part loses 1 armour
 
 ### Targeting
 
