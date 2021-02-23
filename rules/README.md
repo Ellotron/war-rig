@@ -105,7 +105,7 @@ You may attempt to enter any basic location or base, but the squads occupying th
 1. They have at least double the squads you have in that area (including the one you are moving in)
 2. They roll a number equal or less than the number of squads they have in that area on the white dice.
 
-> Equipment may grant bonuses or penalties to this roll.
+> Bases always count as if there is one extra repelling squad. Equipment may grant additional bonuses or penalties to this roll.
 
 #### Repelled
 
