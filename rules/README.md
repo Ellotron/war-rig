@@ -89,7 +89,7 @@ Place your remaining 3 faction squad counters (4-6) in a vacant base. These repr
 
 ## Order of play
 
-Starting with player 1, each faction squad you control can perform 2 Actions (e.g. movement, gather, attack). Each squad must use both their actions at once or pass. Once you use or pass all the actions of all your squads, play passes to the next player number (e.g. player 1 to 2 to 3 etc). Play repeats in this fashion until one of the **End Game** conditions is met.
+The game is played out in a number of turns. In each turn there are a number of rounds determined by the highest number of squads a player controls. Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. The next round is the same except each player uses squads with the number 2 token. This repeats until there are no more rounds. If in a round a player does not control a squad with that number token play skips past them until a round where they do control a squad. Play repeats for a number of turns until one of the **End Game** conditions is met.
 
 ## Basic Actions
 
