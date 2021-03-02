@@ -48,6 +48,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+canvas-multiline-text@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/canvas-multiline-text/-/canvas-multiline-text-1.0.3.tgz#7ac51af6eb1e35e937e8e53a4c8b270b52a4d4b7"
+  integrity sha512-AVgcWhCBVRP7M9Kw1RBrD9S5gCn1R2jgLjaJPrYywl94x+SMAUAHjB8EtWYopCe4Lj/0ugNsZFKgE3SBR1uY4A==
+  dependencies:
+    words-array "^1.0.1"
+
 canvas@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/canvas/-/canvas-2.6.1.tgz#0d087dd4d60f5a5a9efa202757270abea8bef89e"
@@ -533,6 +540,11 @@ wide-align@^1.1.0:
   integrity sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
   dependencies:
     string-width "^1.0.2 || 2"
+
+words-array@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/words-array/-/words-array-1.0.1.tgz#fcd695587744f9bd1c7fe2a05e9d8f87cdd87bac"
+  integrity sha512-hIe554G5rHAIa2HeIPcvl4zzIeS9DCSLjFM6HbqzTEGmyCZVqMffXpxEGZwweT+ZxbkTdNg78YwwzhQsA7jjPw==
 
 wrappy@1:
   version "1.0.2"

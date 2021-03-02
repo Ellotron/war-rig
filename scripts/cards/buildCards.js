@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { createCanvas, loadImage, registerFont } = require("canvas");
 const csv = require("csvtojson");
+const drawMultilineText = require("canvas-multiline-text");
 
 registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 
@@ -9,23 +10,6 @@ const loadAssets = async () => {
     base: await loadImage("./assets/cards/card-base.png"),
     content: await csv().fromFile("./scripts/cards/content.csv"),
   };
-};
-
-const wordsToLines = (words, thresh, context) => {
-  var lines = [];
-  var line = "";
-  var wordIndex = 0;
-  while (wordIndex < words.length) {
-    var textWidth = context.measureText(line).width;
-    while (textWidth < thresh && wordIndex < words.length) {
-      const lineWithSpace = `${line} `;
-      line = `${line == "" ? "" : lineWithSpace}${words[wordIndex++]}`;
-      textWidth = context.measureText(line).width;
-    }
-    lines.push(line);
-    line = "";
-  }
-  return lines;
 };
 
 const page = {
@@ -41,17 +25,15 @@ const cards = {
   hGap: 2,
   vGap: 1,
   title: {
-    maxWidth: 278,
-    single: {
-      hOffset: 240,
-      vOffset: 68,
-    },
-    double: {
-      vOffset1: 51,
-      vOffset2: 85,
-    },
-    font: "22pt Copperplate Gothic",
+    width: 278,
+    height: 40,
+    xOffset: 240,
+    yOffset: 35,
+    minFontSize: 25,
+    maxFontSize: 100,
+    font: "Copperplate Gothic",
     align: "center",
+    baseline: "alphabetic",
     colour: "#000",
   },
 };
@@ -91,32 +73,20 @@ loadAssets().then((assets) => {
     context.drawImage(assets.base, loc.x, loc.y, cards.width, cards.height);
     context.font = cards.title.font;
     context.textAlign = cards.title.align;
+    context.textBaseline = cards.title.baseline;
     context.fillStyle = cards.title.colour;
 
-    const words = content[i].title.split(" ");
-    const lines = wordsToLines(words, cards.title.maxWidth / 2, context);
-    const titleCentre = loc.x + cards.title.single.hOffset;
-    if (lines.length == 1) {
-      context.fillText(
-        lines[0],
-        titleCentre,
-        loc.y + cards.title.single.vOffset
-      );
-    } else if (lines.length == 2) {
-      context.fillText(
-        lines[0],
-        titleCentre,
-        loc.y + cards.title.double.vOffset1
-      );
-      context.fillText(
-        lines[1],
-        titleCentre,
-        loc.y + cards.title.double.vOffset2
-      );
-    } else {
-      console.error(`No handling for ${lines.length} line titles ${lines}`);
-    }
-
+    drawMultilineText(context, content[i].title, {
+      rect: {
+        x: loc.x + cards.title.xOffset,
+        y: loc.y + cards.title.yOffset,
+        width: cards.title.width,
+        height: cards.title.height,
+      },
+      font: cards.title.font,
+      minFontSize: cards.title.minFontSize,
+      maxFontSize: cards.title.maxFontSize,
+    });
     count--;
   });
 

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Ellotron/war-rig#readme",
   "devDependencies": {
     "canvas": "^2.6.1",
-    "csvtojson": "^2.0.10"
+    "csvtojson": "^2.0.10",
+    "canvas-multiline-text": "^1.0.3"
   }
 }
