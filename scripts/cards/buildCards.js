@@ -36,6 +36,13 @@ const cards = {
     baseline: "alphabetic",
     colour: "#000",
   },
+  cost: {
+    x1Offset: 38,
+    y1Offset: 48,
+    x2Offset: 78,
+    y2Offset: 88,
+    colour: "#FFF",
+  },
 };
 
 loadAssets().then((assets) => {
@@ -76,6 +83,7 @@ loadAssets().then((assets) => {
     context.textBaseline = cards.title.baseline;
     context.fillStyle = cards.title.colour;
 
+    // title
     drawMultilineText(context, content[i].title, {
       rect: {
         x: loc.x + cards.title.xOffset,
@@ -87,6 +95,29 @@ loadAssets().then((assets) => {
       minFontSize: cards.title.minFontSize,
       maxFontSize: cards.title.maxFontSize,
     });
+
+    // cost
+    context.fillStyle = cards.cost.colour;
+    context.fillText(
+      content[i].red,
+      loc.x + cards.cost.x1Offset,
+      loc.y + cards.cost.y1Offset
+    );
+    context.fillText(
+      content[i].green,
+      loc.x + cards.cost.x2Offset,
+      loc.y + cards.cost.y1Offset
+    );
+    context.fillText(
+      content[i].brown,
+      loc.x + cards.cost.x2Offset,
+      loc.y + cards.cost.y2Offset
+    );
+    context.fillText(
+      content[i].blue,
+      loc.x + cards.cost.x1Offset,
+      loc.y + cards.cost.y2Offset
+    );
     count--;
   });
 
