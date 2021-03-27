@@ -19,7 +19,7 @@ function setup(numberOfPlayers)
   forEach(gameBags, function(bag) safePlace(gameBox, bag) end)
   forEach(gameDice, function(dice) safePlace(gameBox, dice) end)
   setupDecks(gameBox)
-  techDeck = safeGet('6b38f9')
+  techDeck = safeGet('fdc0ef')
 
   playerHand(player1, gameBox, techDeck)
   playerHomeBase(player1, gameBox)
@@ -87,11 +87,11 @@ end
 function setupDecks(gameBox)
   -- Tech Deck
   safePlace(gameBox, {
-    guid = '6b38f9',
+    guid = 'fdc0ef',
     position = { x = -11.8115930557251, y = 1.99835515022278, z = 0.642340362071991 },
     rotation = { x = 6.50481479169684E-06, y = 180.024291992188, z = 180 },
     callback_function = function ()
-      techDeck = safeGet('6b38f9')
+      techDeck = safeGet('fdc0ef')
       techDeck.shuffle()
     end
   })

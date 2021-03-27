@@ -21,21 +21,21 @@ standardEquipTokens1 = {
 standardEquipment1 = {
   -- P-rifles
   {
-    guid = '3d1cae',
+    guid = '9de979',
     position = { x = 5.754723072052, y = 1.43597638607025, z = 13.0001955032349 },
     rotation = { x = 17.5920352935791, y = 359.947662353516, z = 359.983764648438 },
     thenPlace = standardEquipTokens1[1]
   },
   -- P-scanner
   {
-    guid = '388d5d',
+    guid = 'df4d0d',
     position = { x = 3.46852898597717, y = 1.42439246177673, z = 13.0664472579956 },
     rotation = { x = 17.1446437835693, y = 0.0114705413579941, z = 0.000357135111698881 },
     thenPlace = standardEquipTokens1[2]
   },
   -- P-tools
   {
-    guid = 'eec45f',
+    guid = 'a6d93f',
     position = { x = 1.21173810958862, y = 1.40910482406616, z = 13.161865234375 },
     rotation = { x = 16.5244255065918, y = 359.896881103516, z = 359.970672607422 },
     thenPlace = standardEquipTokens1[3],

@@ -21,19 +21,19 @@ standardEquipTokens2 = {
 
 standardEquipment2 = {
   {
-    guid = '78b624',
+    guid = '228eb4',
     position = { x = -4.62264919281006, y = 0.973604738712311, z = -15.3960847854614 },
     rotation = { x = 1.13526220957283E-06, y = 179.98193359375, z = -5.20910703016852E-07 },
     thenPlace = standardEquipTokens2[1]
   },
   {
-    guid = 'baa646',
+    guid = '6c3d07',
     position = { x = -2.19708466529846, y = 0.9736048579216, z = -15.4823808670044 },
     rotation = { x = 1.0888423958022E-06, y = 179.985702514648, z = 8.10850167454191E-07 },
     thenPlace = standardEquipTokens2[2]
   },
   {
-    guid = '805940',
+    guid = 'b2693f',
     position = { x = 0.0983505249023438, y = 0.9736048579216, z = -15.3319940567017 },
     rotation = { x = -5.19667537446367E-07, y = 179.985702514648, z = -2.70911499455906E-07 },
     thenPlace = standardEquipTokens2[3]
