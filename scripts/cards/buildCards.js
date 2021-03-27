@@ -7,7 +7,38 @@ registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 
 const loadAssets = async () => {
   return {
-    base: await loadImage("./assets/cards/card-base.png"),
+    baseImages: [
+      await loadImage("./assets/cards/card-hidden.png"),
+      await loadImage("./assets/cards/eqp-std-1.png"),
+      await loadImage("./assets/cards/eqp-std-2.png"),
+      await loadImage("./assets/cards/eqp-std-3.png"),
+      await loadImage("./assets/cards/rig-wep-1.png"),
+      await loadImage("./assets/cards/rig-wep-2.png"),
+      await loadImage("./assets/cards/rig-wep-3.png"),
+      await loadImage("./assets/cards/rig-low-1.png"),
+      await loadImage("./assets/cards/rig-low-2.png"),
+      await loadImage("./assets/cards/rig-low-3.png"),
+      await loadImage("./assets/cards/rig-tgt-1.png"),
+      await loadImage("./assets/cards/fac-spc-1.png"),
+      await loadImage("./assets/cards/fac-spc-2.png"),
+      await loadImage("./assets/cards/fac-spc-3.png"),
+      await loadImage("./assets/cards/fac-spc-4.png"),
+      await loadImage("./assets/cards/fac-spc-5.png"),
+      await loadImage("./assets/cards/fac-cre-1.png"),
+      await loadImage("./assets/cards/fac-cre-2.png"),
+      await loadImage("./assets/cards/fac-cre-3.png"),
+      await loadImage("./assets/cards/fac-cre-4.png"),
+      await loadImage("./assets/cards/fac-cre-5.png"),
+      await loadImage("./assets/cards/eqp-ext-1.png"),
+      await loadImage("./assets/cards/eqp-ext-2.png"),
+      await loadImage("./assets/cards/eqp-ext-3.png"),
+      await loadImage("./assets/cards/fac-ext-1.png"),
+      await loadImage("./assets/cards/fac-ext-2.png"),
+      await loadImage("./assets/cards/fac-ext-3.png"),
+      await loadImage("./assets/cards/rig-tgt-2.png"),
+      await loadImage("./assets/cards/rig-tgt-3.png"),
+      await loadImage("./assets/cards/rig-tgt-4.png"),
+    ],
     content: await csv().fromFile("./scripts/cards/content.csv"),
   };
 };
@@ -50,7 +81,7 @@ loadAssets().then((assets) => {
   const totalCards = content
     .map((x) => parseInt(x.count))
     .reduce((a, c) => a + c);
-  console.log(totalCards);
+  console.log("Deck size:", totalCards);
 
   const canvas = createCanvas(page.width, page.height);
   const context = canvas.getContext("2d");
@@ -77,65 +108,64 @@ loadAssets().then((assets) => {
       i++;
       count = content[i].count;
     }
-    context.drawImage(assets.base, loc.x, loc.y, cards.width, cards.height);
+    context.drawImage(
+      assets.baseImages[content[i].base],
+      loc.x,
+      loc.y,
+      cards.width,
+      cards.height
+    );
     context.font = cards.title.font;
     context.textAlign = cards.title.align;
     context.textBaseline = cards.title.baseline;
     context.fillStyle = cards.title.colour;
+    if (content[i].title !== "hidden") {
+      // title
+      drawMultilineText(context, content[i].title, {
+        rect: {
+          x: loc.x + cards.title.xOffset,
+          y: loc.y + cards.title.yOffset,
+          width: cards.title.width,
+          height: cards.title.height,
+        },
+        font: cards.title.font,
+        minFontSize: cards.title.minFontSize,
+        maxFontSize: cards.title.maxFontSize,
+      });
 
-    // title
-    drawMultilineText(context, content[i].title, {
-      rect: {
-        x: loc.x + cards.title.xOffset,
-        y: loc.y + cards.title.yOffset,
-        width: cards.title.width,
-        height: cards.title.height,
-      },
-      font: cards.title.font,
-      minFontSize: cards.title.minFontSize,
-      maxFontSize: cards.title.maxFontSize,
-    });
-
-    // cost
-    context.fillStyle = cards.cost.colour;
-    context.fillText(
-      content[i].red,
-      loc.x + cards.cost.x1Offset,
-      loc.y + cards.cost.y1Offset
-    );
-    context.fillText(
-      content[i].green,
-      loc.x + cards.cost.x2Offset,
-      loc.y + cards.cost.y1Offset
-    );
-    context.fillText(
-      content[i].brown,
-      loc.x + cards.cost.x2Offset,
-      loc.y + cards.cost.y2Offset
-    );
-    context.fillText(
-      content[i].blue,
-      loc.x + cards.cost.x1Offset,
-      loc.y + cards.cost.y2Offset
-    );
+      // cost
+      context.fillStyle = cards.cost.colour;
+      if (content[i].red > 0) {
+        context.fillText(
+          content[i].red,
+          loc.x + cards.cost.x1Offset,
+          loc.y + cards.cost.y1Offset
+        );
+      }
+      if (content[i].green > 0) {
+        context.fillText(
+          content[i].green,
+          loc.x + cards.cost.x2Offset,
+          loc.y + cards.cost.y1Offset
+        );
+      }
+      if (content[i].brown > 0) {
+        context.fillText(
+          content[i].brown,
+          loc.x + cards.cost.x2Offset,
+          loc.y + cards.cost.y2Offset
+        );
+      }
+      if (content[i].blue > 0) {
+        context.fillText(
+          content[i].blue,
+          loc.x + cards.cost.x1Offset,
+          loc.y + cards.cost.y2Offset
+        );
+      }
+    }
     count--;
   });
-
-  // context.font = '22pt Copperplate Gothic'
-  // context.textAlign = 'center'
-  // context.textBaseline = 'top'
-  // context.fillStyle = '#3574d4'
-
-  // const text = 'Hello, World!'
-
-  // const textWidth = context.measureText(text).width
-  // context.fillRect(600 - textWidth / 2 - 10, 170 - 5, textWidth + 20, 120)
-  // context.fillStyle = '#fff'
-  // context.fillText(text, 600, 170)
-
-  // context.fillStyle = '#fff'
-  // context.font = 'bold 30pt Menlo'
-  // context.fillText('flaviocopes.com', 600, 530)
 
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync("./assets/tech.png", buffer);
