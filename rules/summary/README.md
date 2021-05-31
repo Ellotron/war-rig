@@ -8,9 +8,9 @@ Move your squads round the board to collect resources to build your War Rig. Use
 - **War or Peace** - Discover, construct and activate a unique facility in the Planet Core or Deep Space bringing lasting peace or all-consuming war.
 - **Annihilate** - Capture and coerce, or kill all other faction squads using a War Rig.
 
-## Squad Actions
+## Squad Rounds & Actions
 
-Each squad can perform two actions per turn. Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto).
+Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform two actions per turn. Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto). After round 1 advance the round marker to round 2 and repeat.
 
 ### Basic Locations
 
