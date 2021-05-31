@@ -1,8 +1,10 @@
 # Rules Summary
 
+Move your squads round the board to collect resources to build your War Rig. Use the Rig to help you win the game.
+
 ## Winning
 
-- **Dominate** - Control the Methane Sea, Oil Sands and Volcanic Region by having a strong enough presence there that you would [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) anyone automatically.
+- **Dominate** - Control the Methane Sea, Oil Sands and Volcanic Region by having a strong enough presence there that you would [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) other squads automatically.
 - **War or Peace** - Discover, construct and activate a unique facility in the Planet Core or Deep Space bringing lasting peace or all-consuming war.
 - **Annihilate** - Capture and coerce, or kill all other faction squads using a War Rig.
 
@@ -12,7 +14,7 @@ Each squad can perform two actions per turn. Actions are summarised below. Most 
 
 ### Basic Locations
 
-- [**Move**](https://github.com/Ellotron/war-rig/tree/main/rules#1-move) (1) - move to a [**Basic Location**](https://github.com/Ellotron/war-rig/tree/main/rules#basic-locations). Rival factions may [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) you.
+- [**Move**](https://github.com/Ellotron/war-rig/tree/main/rules#1-move) (1) - move to a [**Basic Location**](https://github.com/Ellotron/war-rig/tree/main/rules#basic-locations). Rival factions in that location may [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) you.
 - [**Gather**](https://github.com/Ellotron/war-rig/tree/main/rules#2-gather) (1) - collect 1 resource, scrap or tech token available in the location you are in if you have room to carry it.
 - [**Encamp**](https://github.com/Ellotron/war-rig/tree/main/rules#3-encampdecamp) (1) - increase the rate at which you gather and your chance to [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) rival factions by 1 at the cost of not being able to move.
 - [**Decamp**](https://github.com/Ellotron/war-rig/tree/main/rules#3-encampdecamp) (1) - removes bonuses to gather and [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) but restores the movement ability.
@@ -20,9 +22,9 @@ Each squad can perform two actions per turn. Actions are summarised below. Most 
 
 ### Home base
 
-- [**Deposit**](https://github.com/Ellotron/war-rig/tree/main/rules#deposit) (auto) - store resources you've gathered, swap tech tokens for tech cards and imprison your captives in the cells.
+- [**Deposit**](https://github.com/Ellotron/war-rig/tree/main/rules#deposit) (auto) - store resources the squad has gathered, swap tech tokens for tech cards and imprison your captives in the cells.
 - [**Construct**](https://github.com/Ellotron/war-rig/tree/main/rules#6-construct) (1) - use tools to convert resources into facilities, war-rig tech and equipment you own (or jointly own).
-- [**Assign**](https://github.com/Ellotron/war-rig/tree/main/rules#assign) (free) - Add equipment from the inventory to any squads, attach constructed tech to the war-rig chassis, deploy constructed facilities.
+- [**Assign**](https://github.com/Ellotron/war-rig/tree/main/rules#assign) (free) - Add equipment from the inventory to any squads at Home base, attach constructed tech to the war-rig chassis, deploy constructed facilities.
 - [**Coerce**](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce) (1) - Reduce the coercion counters on a squad you have captured by 1 to coerce them over to your faction.
 - [**Fight Fire**](https://github.com/Ellotron/war-rig/tree/main/rules#7-fight-fire) (1) - Attempt to put out a fire on the war-rig or a facility.
 
@@ -48,3 +50,7 @@ Each war rig can perform two actions per turn. The actions it can perform depend
      1. Squads defend as in [**Squad Attack**](https://github.com/Ellotron/war-rig/tree/main/rules#4-squad-attack) but cannot surrender and are destroyed instead.
      1. War rigs and facilities deduct armour points until a [**Fire**](https://github.com/Ellotron/war-rig/tree/main/rules#fire) breaks out.
   1. Repeat for additional weapons on the rig.
+
+## Full rules
+
+The full explanations for all the rules mentioned above can be found [here](https://github.com/Ellotron/war-rig/tree/main/rules)

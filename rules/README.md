@@ -15,7 +15,7 @@ Each of these has its own path to completion discussed in **End Game** but you w
 
 The game ends when any one of these conditions is met:
 
-- A single player has control of all 3 resource locations simultaneously. A player controls a resource when they would win outright any roll to **Repel** other players from that location.
+- A single player has control of all 3 resource locations simultaneously. A player controls a resource when they would win outright any roll to **Repel** other squads from that location.
 - All but one player's factions are destroyed. A faction is destroyed when it no longer controls any squads and has no functioning war rig.
 - A player discovers and builds either special structure in **Deep Space** or the **Planet Core** satisfying all the requirements on the corresponding cards, then uses it to successfully perform the **Empire Invasion** or to discover **Infinite Power**.
 
