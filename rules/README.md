@@ -123,9 +123,13 @@ You may attempt to enter any basic location or base, but the squads occupying th
 
 A faction squad can gather resources or tech from a basic location by using 1 action. Take one of the available resource tokens and add it to that squad board on a space in the white resource section. That resource is now carried by the squad that gathered it. If however the squad has no free spaces leave it on the board in that location. Any squad can claim this resource for free on their turn.
 
+> If you control a squad in the same location that is [**Encamped**](https://github.com/Ellotron/war-rig/tree/main/rules#encamp/decamp) you may take 2 resources instead of 1.
+
 #### Deposit
 
 Normal and scrap resources are stored in Home Base on arrival. Four scrap can be swapped for one normal resource. A tech resource can be exchanged for a tech card once it is returned to your Home Base. To do this discard the token, take two cards from the tech deck, choose one placing it in your inventory and place the other at the bottom of the deck. Other resources are used in **Construction**. A captive squad can be locked in the cells if they are free and can be [Coerce](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce)d on subsequent turns. The cells will hold one captive squad at a time.
+
+> Recapture: If the captive token is the same colour as the Home base it is deposited in, then it is immediately coerced and comes under control of the captor.
 
 ### 3. Encamp/decamp
 

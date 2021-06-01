@@ -12,6 +12,8 @@ Move your squads round the board to collect resources to build your War Rig. Use
 
 Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform two actions per turn. Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto). After round 1 advance the round marker to round 2 and repeat.
 
+> Hint: Squads can be captured if they cannot give up resources or equipment as a trade. Protect your squads by stocking them well.
+
 ### Basic Locations
 
 - [**Move**](https://github.com/Ellotron/war-rig/tree/main/rules#1-move) (1) - move to a [**Basic Location**](https://github.com/Ellotron/war-rig/tree/main/rules#basic-locations). Rival factions in that location may [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) you.
