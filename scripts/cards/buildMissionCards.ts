@@ -1,4 +1,9 @@
-import { buildCards, getDeckSize, getLocations } from "./buildCards";
+import {
+  buildCards,
+  getDeckSize,
+  getLocations,
+  getTypeDeckContent,
+} from "./buildCards";
 import {
   missionSpec,
   missionBaseImages,
@@ -26,8 +31,7 @@ const loadAssets = async () => {
   };
 };
 
-loadAssets().then((assets) => {
-  const content = assets.content;
+const buildMissions = (outputName: string, content: any[], assets: any) => {
   const totalCards = getDeckSize(content);
   console.log("Deck size:", totalCards);
 
@@ -56,5 +60,12 @@ loadAssets().then((assets) => {
   ]);
 
   const buffer = canvas.toBuffer("image/png");
-  fs.writeFileSync("./assets/cards/missions.png", buffer);
+  fs.writeFileSync(`./assets/cards/${outputName}.png`, buffer);
+};
+
+loadAssets().then((assets) => {
+  const content = assets.content;
+  buildMissions("missions1", getTypeDeckContent("Level 1", content), assets);
+  buildMissions("missions2", getTypeDeckContent("Level 2", content), assets);
+  buildMissions("missions3", getTypeDeckContent("Level 3", content), assets);
 });

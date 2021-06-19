@@ -73,7 +73,7 @@ export const costSpec: CostSpec = {
 };
 
 export const missionBaseImages = [
-  "./assets/cards/card-hidden.png",
+  "./assets/cards/mission-hidden.png",
   "./assets/cards/card-base.png",
 ];
 

@@ -19,6 +19,12 @@ export const getLocations = (
   return locations;
 };
 
+export const getTypeDeckContent = (type: string, content: any[]) => {
+  return content
+    .filter((c) => c.type.includes(type))
+    .concat([{ title: "hidden", count: 1, base: 0 }]);
+};
+
 export const buildCards = (
   cardLocations: CardLocation[],
   cardContent: CardContent[],
