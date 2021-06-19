@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "rootDir": "./scripts/cards",
+    "outDir": "./scripts/cards/build/"
+  }
+}

@@ -3,3 +3,4 @@
 *.vscode/*
 *.ods
 node_modules
+build

@@ -4,9 +4,9 @@
   "description": "Assets for War Rig",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "push": "aws s3 sync ./assets s3://war-rig-borderlands",
-    "cards": "node ./scripts/cards/buildCards.js"
+    "cards": "tsc && node ./scripts/cards/build/buildTechCards.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/Ellotron/war-rig#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "canvas": "^2.6.1",
+    "canvas-multiline-text": "^1.0.3",
     "csvtojson": "^2.0.10",
-    "canvas-multiline-text": "^1.0.3"
+    "jest": "^27.0.4",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.4"
   }
 }
