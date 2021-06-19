@@ -12,7 +12,7 @@ export const techCardSpec: CardSpec = {
   vGap: 1,
 };
 
-export const titleSpec: TitleSpec = {
+export const titleSpec: TextSpec = {
   width: 278,
   height: 40,
   xOffset: 240,
@@ -25,6 +25,45 @@ export const titleSpec: TitleSpec = {
   colour: "#000",
 };
 
+export const typeSpec: TextSpec = {
+  width: 278,
+  height: 40,
+  xOffset: 203,
+  yOffset: 285,
+  minFontSize: 15,
+  maxFontSize: 20,
+  font: "Corbel",
+  align: "center",
+  baseline: "alphabetic",
+  colour: "#000",
+};
+
+export const missionSpec: TextSpec = {
+  width: 278,
+  height: 40,
+  xOffset: 203,
+  yOffset: 315,
+  minFontSize: 20,
+  maxFontSize: 40,
+  font: "Corbel",
+  align: "center",
+  baseline: "alphabetic",
+  colour: "#000",
+};
+
+export const rewardSpec: TextSpec = {
+  width: 278,
+  height: 40,
+  xOffset: 203,
+  yOffset: 395,
+  minFontSize: 20,
+  maxFontSize: 40,
+  font: "Corbel",
+  align: "center",
+  baseline: "alphabetic",
+  colour: "#000",
+};
+
 export const costSpec: CostSpec = {
   x1Offset: 38,
   y1Offset: 48,
@@ -32,6 +71,11 @@ export const costSpec: CostSpec = {
   y2Offset: 88,
   colour: "#FFF",
 };
+
+export const missionBaseImages = [
+  "./assets/cards/card-hidden.png",
+  "./assets/cards/card-base.png",
+];
 
 export const techBaseImages = [
   "./assets/cards/card-hidden.png",

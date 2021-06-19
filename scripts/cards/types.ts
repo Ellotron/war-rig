@@ -19,7 +19,7 @@ type CostSpec = {
   colour: string;
 };
 
-type TitleSpec = {
+type TextSpec = {
   width: number;
   height: number;
   xOffset: number;

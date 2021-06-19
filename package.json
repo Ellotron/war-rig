@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "push": "aws s3 sync ./assets s3://war-rig-borderlands",
-    "cards": "tsc && node ./scripts/cards/build/buildTechCards.js"
+    "t-cards": "tsc && node ./scripts/cards/build/buildTechCards.js",
+    "m-cards": "tsc && node ./scripts/cards/build/buildMissionCards.js"
   },
   "repository": {
     "type": "git",

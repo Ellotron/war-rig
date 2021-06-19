@@ -1,30 +1,28 @@
 import { buildCards, getDeckSize, getLocations } from "./buildCards";
 import {
-  costSpec,
-  techBaseImages,
+  missionSpec,
+  missionBaseImages,
+  rewardSpec,
   techCardSpec,
   techPageSpec,
   titleSpec,
+  typeSpec,
 } from "./constants";
-import {
-  drawCardBase,
-  drawCanvas,
-  drawCardCost,
-  drawCardText,
-} from "./drawCards";
+import { drawCardBase, drawCanvas, drawCardText } from "./drawCards";
 
 const fs = require("fs");
 const { loadImage, registerFont } = require("canvas");
 const csv = require("csvtojson");
 
 registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
+registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 
 const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
-      techBaseImages.map(async (image) => await loadImage(image))
+      missionBaseImages.map(async (image) => await loadImage(image))
     ),
-    content: await csv().fromFile("./scripts/cards/techContent.csv"),
+    content: await csv().fromFile("./scripts/cards/missionContent.csv"),
   };
 };
 
@@ -41,10 +39,22 @@ loadAssets().then((assets) => {
   const endIfHidden = (_, card) => card.title !== "hidden";
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
-  const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
+  const drawType = (loc, card) =>
+    drawCardText(loc, card.type, typeSpec, context);
+  const drawDescription = (loc, card) =>
+    drawCardText(loc, `Mission: ${card.mission}`, missionSpec, context);
+  const drawReward = (loc, card) =>
+    drawCardText(loc, `Reward: ${card.reward}`, rewardSpec, context);
 
-  buildCards(locations, content, [drawBase, endIfHidden, drawTitle, drawCost]);
+  buildCards(locations, content, [
+    drawBase,
+    endIfHidden,
+    drawTitle,
+    drawType,
+    drawDescription,
+    drawReward,
+  ]);
 
   const buffer = canvas.toBuffer("image/png");
-  fs.writeFileSync("./assets/tech.png", buffer);
+  fs.writeFileSync("./assets/cards/missions.png", buffer);
 });

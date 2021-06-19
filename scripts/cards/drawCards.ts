@@ -28,26 +28,26 @@ export const drawCardBase = (
   return true;
 };
 
-export const drawCardTitle = (
+export const drawCardText = (
   cardLocation: CardLocation,
-  cardContent: any,
-  titleSpec: TitleSpec,
+  text: string,
+  textSpec: TextSpec,
   context
 ) => {
-  context.font = titleSpec.font;
-  context.textAlign = titleSpec.align;
-  context.textBaseline = titleSpec.baseline;
-  context.fillStyle = titleSpec.colour;
-  drawMultilineText(context, cardContent.title, {
+  context.font = textSpec.font;
+  context.textAlign = textSpec.align;
+  context.textBaseline = textSpec.baseline;
+  context.fillStyle = textSpec.colour;
+  drawMultilineText(context, text, {
     rect: {
-      x: cardLocation.x + titleSpec.xOffset,
-      y: cardLocation.y + titleSpec.yOffset,
-      width: titleSpec.width,
-      height: titleSpec.height,
+      x: cardLocation.x + textSpec.xOffset,
+      y: cardLocation.y + textSpec.yOffset,
+      width: textSpec.width,
+      height: textSpec.height,
     },
-    font: titleSpec.font,
-    minFontSize: titleSpec.minFontSize,
-    maxFontSize: titleSpec.maxFontSize,
+    font: textSpec.font,
+    minFontSize: textSpec.minFontSize,
+    maxFontSize: textSpec.maxFontSize,
   });
   return true;
 };
