@@ -16,7 +16,7 @@ function setup(numberOfPlayers)
   playerNum = numberOfPlayers
   gameBox = safeGet('5578eb')
   showHideSetup(gameBox, false)
-  forEach(gameBags, function(bag) safePlace(gameBox, bag) end)
+  forEach(gameTokens, function(bag) safePlace(gameBox, bag) end)
   forEach(gameDice, function(dice) safePlace(gameBox, dice) end)
   setupDecks(gameBox)
   techDeck = safeGet('fdc0ef')
@@ -85,6 +85,37 @@ function showHideSetup(gameBox, show)
 end
 
 function setupDecks(gameBox)
+  -- Missions 1
+  safePlace(gameBox,   {
+    guid = '23d5eb',
+    position = { x = 13.1496429443359, y = 1.82023596763611, z = 3.34581780433655 },
+    rotation = { x = 7.34382228984032E-06, y = 180.01936340332, z = 180 },
+    callback_function = function ()
+      m1Deck = safeGet('23d5eb')
+      m1Deck.shuffle()
+      m1Deck.deal(1)
+    end
+  })
+  -- Missions 2
+  safePlace(gameBox,   {
+    guid = '2d58fe',
+    position = { x = 13.1729412078857, y = 1.81060779094696, z = -0.149963244795799 },
+    rotation = { x = 5.63130060982076E-06, y = 179.999954223633, z = 180 },
+    callback_function = function ()
+      m2Deck = safeGet('2d58fe')
+      m2Deck.shuffle()
+    end
+  })
+  -- Missions 3
+  safePlace(gameBox,   {
+    guid = 'f8bd3e',
+    position = { x = 13.231912612915, y = 1.80097949504852, z = -3.58059477806091 },
+    rotation = { x = 5.92514697927982E-06, y = 180, z = 180 },
+    callback_function = function ()
+      m3Deck = safeGet('f8bd3e')
+      m3Deck.shuffle()
+    end
+  })
   -- Tech Deck
   safePlace(gameBox, {
     guid = 'fdc0ef',
@@ -100,7 +131,7 @@ end
 
 function storeInBox()
     gameBox = safeGet('5578eb')
-    safeStore(gameBags, gameBox)
+    safeStore(gameTokens, gameBox)
     safeStore(gameDice, gameBox)
     storeDecks(gameBox)
     storePlayers(gameBox)
@@ -110,10 +141,16 @@ function storeInBox()
 end
 
 function storeDecks(gameBox)
-    -- Tech Deck
-    techDeck.reset()
-    local watchDeck = function () return techDeck.resting end
-    Wait.condition(function() safeStore({ techDeck }, gameBox) end, watchDeck)
+  storeDeck(m1Deck)
+  storeDeck(m2Deck)
+  storeDeck(m3Deck)
+  storeDeck(techDeck)
+end
+
+function storeDeck(deck)
+  deck.reset()
+  local watchDeck = function () return deck.resting end
+  Wait.condition(function() safeStore({ deck }, gameBox) end, watchDeck)
 end
 
 function storePlayers(gameBox)
