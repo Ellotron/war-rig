@@ -1,5 +1,7 @@
 # Rules v0.1
 
+For a quick start and reference see the [**Rules Summary**](https://github.com/Ellotron/war-rig/tree/main/rules/summary)
+
 ## Object
 
 The object of the game is to become the dominant faction. There are 4 ways to do this:
@@ -45,7 +47,7 @@ If the controller wins enough factions loyalty before anyone else wins the game,
 - 2 - 3 players - 1 faction's loyalty required
 - 4 players - 2 faction's loyalty required
 
-## Glossary
+## Definitions
 
 ### Basic Locations
 
@@ -76,13 +78,14 @@ There are various locations for which special rules apply:
 
 ## Setup
 
-Place a supply of coloured resource tokens in each location according to the colours printed in that location. Place all other tokens and the tech deck where every one can reach them.
+Place a supply of coloured resource tokens in each location according to the colours printed in that location. Place all other tokens and the tech deck where every one can reach them. Place the three mission decks and the round and mission counters. Place a token on the round counter at the 1 position and the mission counter at the 4 position.
 
 Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number. Each player starts with the following:
 
 - 1 empty War Rig chassis in their Home Base
 - 3 faction squad boards in their Home Base each with number token (1-3) to identify it.
 - 1 set of standard issue equipment cards face up in their play area
+- 1 level 1 mission card is dealt to each player
 
 Assign equipment to your squads in any order by placing numbered tokens on the equipment card that match the squad you want to equip.
 Place your remaining 3 faction squad counters (4-6) in a vacant base. These represent the **Lesser Factions**.
@@ -90,6 +93,10 @@ Place your remaining 3 faction squad counters (4-6) in a vacant base. These repr
 ## Order of play
 
 The game is played out in a number of turns. In each turn there are a number of rounds determined by the highest number of squads a player controls. Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. The next round is the same except each player uses squads with the number 2 token. This repeats until there are no more rounds. If in a round a player does not control a squad with that number token play skips past them until a round where they do control a squad. Play repeats for a number of turns until one of the **End Game** conditions is met.
+
+After each set of 4 turns the players reveal their current mission cards. If a player has completed their mission they collect and apply their rewards. A new mission is then selected at random from the level of the players choosing.
+
+> Note some mission levels are only available if you meet certain prerequisites which are printed on the mission card backs.
 
 ## Basic Actions
 

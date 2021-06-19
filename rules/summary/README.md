@@ -8,9 +8,13 @@ Move your squads round the board to collect resources to build your War Rig. Use
 - **War or Peace** - Discover, construct and activate a unique facility in the Planet Core or Deep Space bringing lasting peace or all-consuming war.
 - **Annihilate** - Capture and coerce, or kill all other faction squads using a War Rig.
 
-## Squad Rounds & Actions
+## Rounds, Turns, Actions and Missions
 
-Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform two actions per turn. Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto). After round 1 advance the round marker to round 2 and repeat.
+Starting with squad round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform 2 actions per turn. At the end of a squad round move the squad counter to the next number and repeat. At the end of all available squad rounds move the squad counter back to 1 and reduce the mission counter by 1. This represents a full turn.
+
+Mission cards contain optional tasks with associated rewards. Players start the game with a level 1 mission. At the end of the turn where the mission counter was on 1, players receive the rewards for successfully completed missions. All players now take a new mission from a level of their choosing for which they meet the prerequisites printed on the back of the cards.
+
+Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto).
 
 > Hint: Squads can be captured if they cannot give up resources or equipment as a trade. Protect your squads by stocking them well.
 
@@ -55,4 +59,4 @@ Each war rig can perform two actions per turn. The actions it can perform depend
 
 ## Full rules
 
-The full explanations for all the rules mentioned above can be found [here](https://github.com/Ellotron/war-rig/tree/main/rules)
+The full explanations for all the rules mentioned above and game setup can be found [here](https://github.com/Ellotron/war-rig/tree/main/rules)
