@@ -90,6 +90,8 @@ Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number
 Assign equipment to your squads in any order by placing numbered tokens on the equipment card that match the squad you want to equip.
 Place your remaining 3 faction squad counters (4-6) in a vacant base. These represent the **Lesser Factions**.
 
+> Note in a four player game only the first two players place lesser factions.
+
 ## Order of play
 
 The game is played out in a number of turns. In each turn there are a number of rounds determined by the highest number of squads a player controls. Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. The next round is the same except each player uses squads with the number 2 token. This repeats until there are no more rounds. If in a round a player does not control a squad with that number token play skips past them until a round where they do control a squad. Play repeats for a number of turns until one of the **End Game** conditions is met.

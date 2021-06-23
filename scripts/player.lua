@@ -1,9 +1,20 @@
 function playerStore(player, gameBox)
-    safeStore(player.baseTokens, gameBox)
-    safeStore(player.baseItems, gameBox)
-    safeStore(player.playerAreaItems, gameBox)
-    safeStore(player.lesserFactions, gameBox)
-    safeStore(player.standardEquipTokens, gameBox)
+    if player.baseTokens ~= nil then
+        safeStore(player.baseTokens, gameBox)
+    end
+    if player.baseItems ~= nil then
+        safeStore(player.baseItems, gameBox)
+    end
+    if player.playerAreaItems ~= nil then
+        safeStore(player.playerAreaItems, gameBox)
+    end
+    if player.lesserFactions ~= nil then
+        safeStore(player.lesserFactions, gameBox)
+    end
+    if player.standardEquipTokens ~= nil then
+        safeStore(player.standardEquipTokens, gameBox)
+    end
+
 end
 
 function playerHand(player, gameBox, techDeck)

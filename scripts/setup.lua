@@ -4,6 +4,7 @@ require("player")
 require("player1")
 require("player2")
 require("player3")
+require("player4")
 require("empire")
 require("infinite")
 
@@ -39,6 +40,18 @@ function setup(numberOfPlayers)
     playerHand(player3, gameBox, techDeck)
     playerHomeBase(player3, gameBox)
   end
+  if numberOfPlayers == 4 then
+    playerHand(player3, gameBox, techDeck)
+    playerHomeBase(player3, gameBox)
+    playerHand(player4, gameBox, techDeck)
+    playerHomeBase(player4, gameBox)
+    playerLesserFaction(player1, 6, gameBox)
+    playerLesserFaction(player2, 5, gameBox)
+  end
+end
+
+function setup4()
+  setup(4)
 end
 
 function setup3()
@@ -78,6 +91,7 @@ function showHideSetup(gameBox, show)
     if initialised == nil then
       createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
       createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
+      createButton(gameCardGuid, '4 Player', 'setup4', {0,0.2,-0.38}, 150, 35)
       createButton(gameCardGuid, 'Reset', 'reset', {0,0.2,0.38}, 150, 35)
       createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.65}, 135, 30)
       createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.65}, 135, 30)
@@ -157,4 +171,5 @@ function storePlayers(gameBox)
   playerStore(player1, gameBox)
   playerStore(player2, gameBox)
   playerStore(player3, gameBox)
+  playerStore(player4, gameBox)
 end
