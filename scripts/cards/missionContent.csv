@@ -1,13 +1,13 @@
-title,type,mission,reward,count,base
-Supply Shortage,Mission • Level 1,Obtain and return to Home Base 2 of each resource type,Choose any 2 of the top 5 tech cards then reshuffle the tech deck,2,1
-Sleeper Cell,Mission • Level 1,Infiltrate 1 or more enemy player bases,Check or reveal any tech held by players you infiltrated,2,1
-Intensive Salvage,Mission • Level 1,Discover and return to Home Base 4 tech items,The cost of the next item you construct is halved,2,1
-Aggressive Retaliation,Mission • Level 1,Cause 1 or more hits on at least 3 enemy squads,Any of your squads that are captured escape,2,1
-Establish Outpost,Mission • Level 1,Setup and hold at least 1 camp for 2 turns,This squad produces twice as much resource until it decamps,2,1
-Rapid Expansion,Mission • Level 2,Construct 2 facilities or equipment,Choose and repel 2 enemy squads from any location,2,1
-Arms Race,Mission • Level 2,Construct and assign 1 piece of war rig tech,Search for any 1 war rig tech card then reshuffle the tech deck,2,1
-Indoctrination,Mission • Level 2,Recruit an enemy squad or lesser faction,Duplicate any 2 equipment you own,2,1
-Incendiary Negotiations,Mission • Level 2,Sabotage 1 or more enemy sites,The site owners must fight the fires with all available squads,2,1
-Offensive Bombardment,Mission • Level 3,Disable an enemy war rig,Choose two sites and bring them back to full armour,2,1
-Seek and Destroy,Mission • Level 3,Destroy an enemy squad,Choose and steal plans for any item from the target player. If you do the squad is not destroyed ,2,1
-New Frontiers,Mission • Level 3,Build a facility in Deep Space or the Planet Core,Search the tech deck for 2 cards then reshuffle the tech deck,2,1
+title,type,mission,reward,count,base,image
+Supply Shortage,Mission • Level 1,Obtain and return to Home Base 2 of each resource type,Choose any 2 of the top 5 tech cards then reshuffle the tech deck,2,1,0
+Sleeper Cell,Mission • Level 1,Infiltrate 1 or more enemy player bases,Check or reveal any tech held by players you infiltrated,2,1,1
+Intensive Salvage,Mission • Level 1,Discover and return to Home Base 4 tech items,The cost of the next item you construct is halved,2,1,2
+Aggressive Retaliation,Mission • Level 1,Cause 1 or more hits on at least 3 enemy squads,Any of your squads that are captured escape,2,1,3
+Establish Outpost,Mission • Level 1,Setup and hold at least 1 camp for 2 turns,This squad produces twice as much resource until it decamps,2,1,4
+Rapid Expansion,Mission • Level 2,Construct 2 facilities or equipment,Choose and repel 2 enemy squads from any location,2,1,5
+Arms Race,Mission • Level 2,Construct and assign 1 piece of war rig tech,Search for any 1 war rig tech card then reshuffle the tech deck,2,1,6
+Indoctrination,Mission • Level 2,Recruit an enemy squad or lesser faction,Duplicate any 2 equipment you own,2,1,7
+Incendiary Negotiations,Mission • Level 2,Sabotage 1 or more enemy sites,The site owners must fight the fires with all available squads,2,1,8
+Offensive Bombardment,Mission • Level 3,Disable an enemy war rig,Choose two sites and bring them back to full armour,2,1,9
+Seek and Destroy,Mission • Level 3,Destroy an enemy squad,Choose and steal plans for any item from the target player. If you do the squad is not destroyed ,2,1,10
+New Frontiers,Mission • Level 3,Build a facility in Deep Space or the Planet Core,Search the tech deck for 2 cards then reshuffle the tech deck,2,1,11

@@ -12,8 +12,15 @@ import {
   techPageSpec,
   titleSpec,
   typeSpec,
+  missionCardImages,
+  imageSpec,
 } from "./constants";
-import { drawCardBase, drawCanvas, drawCardText } from "./drawCards";
+import {
+  drawCardBase,
+  drawCanvas,
+  drawCardText,
+  drawCardImage,
+} from "./drawCards";
 
 const fs = require("fs");
 const { loadImage, registerFont } = require("canvas");
@@ -26,6 +33,9 @@ const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
       missionBaseImages.map(async (image) => await loadImage(image))
+    ),
+    cardImages: await Promise.all(
+      missionCardImages.map(async (image) => await loadImage(image))
     ),
     content: await csv().fromFile("./scripts/cards/missionContent.csv"),
   };
@@ -43,6 +53,8 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
   const endIfHidden = (_, card) => card.title !== "hidden";
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
+  const drawImage = (loc, card) =>
+    drawCardImage(loc, card.image, imageSpec, context, assets);
   const drawType = (loc, card) =>
     drawCardText(loc, card.type, typeSpec, context);
   const drawDescription = (loc, card) =>
@@ -54,6 +66,7 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
     drawBase,
     endIfHidden,
     drawTitle,
+    drawImage,
     drawType,
     drawDescription,
     drawReward,

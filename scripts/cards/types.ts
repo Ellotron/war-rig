@@ -19,11 +19,9 @@ type CostSpec = {
   colour: string;
 };
 
-type TextSpec = {
+type TextSpec = Offset & {
   width: number;
   height: number;
-  xOffset: number;
-  yOffset: number;
   minFontSize: number;
   maxFontSize: number;
   font: string;
@@ -36,6 +34,13 @@ type CardSpec = Size & {
   perRow: number;
   hGap: number;
   vGap: number;
+};
+
+type ImageSpec = Size & Offset;
+
+type Offset = {
+  xOffset: number;
+  yOffset: number;
 };
 
 type CardLocation = {

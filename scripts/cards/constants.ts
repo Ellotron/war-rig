@@ -72,9 +72,31 @@ export const costSpec: CostSpec = {
   colour: "#FFF",
 };
 
+export const imageSpec: ImageSpec = {
+  xOffset: 22,
+  yOffset: 104,
+  width: 363,
+  height: 178,
+};
+
 export const missionBaseImages = [
   "./assets/cards/mission-hidden.png",
   "./assets/cards/card-base.png",
+];
+
+export const missionCardImages = [
+  "./assets/cards/mis-1-1.png",
+  "./assets/cards/mis-1-2.png",
+  "./assets/cards/mis-1-3.png",
+  "./assets/cards/mis-1-4.png",
+  "./assets/cards/mis-1-5.png",
+  "./assets/cards/mis-2-1.png",
+  "./assets/cards/mis-2-2.png",
+  "./assets/cards/mis-2-3.png",
+  "./assets/cards/mis-2-4.png",
+  "./assets/cards/mis-3-1.png",
+  "./assets/cards/mis-3-2.png",
+  "./assets/cards/mis-3-3.png",
 ];
 
 export const techBaseImages = [

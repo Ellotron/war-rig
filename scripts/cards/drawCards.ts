@@ -28,6 +28,23 @@ export const drawCardBase = (
   return true;
 };
 
+export const drawCardImage = (
+  cardLocation: CardLocation,
+  cardImage: number,
+  imageSpec: ImageSpec,
+  context,
+  assets
+) => {
+  context.drawImage(
+    assets.cardImages[cardImage],
+    cardLocation.x + imageSpec.xOffset,
+    cardLocation.y + imageSpec.yOffset,
+    imageSpec.width,
+    imageSpec.height
+  );
+  return true;
+};
+
 export const drawCardText = (
   cardLocation: CardLocation,
   text: string,
