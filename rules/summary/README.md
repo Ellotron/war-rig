@@ -10,7 +10,7 @@ Move your squads round the board to collect resources to build your War Rig. Use
 
 ## Rounds, Turns, Actions and Missions
 
-Starting with squad round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform 2 actions per turn. At the end of a squad round move the squad counter to the next number and repeat. At the end of all available squad rounds move the squad counter back to 1 and reduce the mission counter by 1. This represents a full turn.
+Starting with squad round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform 2 actions per turn. At the end of a squad round move the round counter to the next number and repeat. At the end of all available squad rounds, move the round counter back to 1 and reduce the mission counter by 1. This represents a full turn.
 
 Mission cards contain optional tasks with associated rewards. Players start the game with a level 1 mission. At the end of the turn where the mission counter was on 1, players receive the rewards for successfully completed missions. All players now take a new mission from a level of their choosing for which they meet the prerequisites printed on the back of the cards.
 
@@ -18,7 +18,7 @@ Actions are summarised below. Most of these cost one action (1). Some actions ha
 
 > Hint: Squads can be captured if they cannot give up resources or equipment as a trade. Protect your squads by stocking them well.
 
-### Basic Locations
+### Basic Location Actions
 
 - [**Move**](https://github.com/Ellotron/war-rig/tree/main/rules#1-move) (1) - move to a [**Basic Location**](https://github.com/Ellotron/war-rig/tree/main/rules#basic-locations). Rival factions in that location may [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) you.
 - [**Gather**](https://github.com/Ellotron/war-rig/tree/main/rules#2-gather) (1) - collect 1 resource, scrap or tech token available in the location you are in if you have room to carry it.
@@ -26,7 +26,7 @@ Actions are summarised below. Most of these cost one action (1). Some actions ha
 - [**Decamp**](https://github.com/Ellotron/war-rig/tree/main/rules#3-encampdecamp) (1) - removes bonuses to gather and [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) but restores the movement ability.
 - [**Attack**](https://github.com/Ellotron/war-rig/tree/main/rules#4-squad-attack) (1) - attack another squad in the same location to make them give up their items and/or to capture them.
 
-### Home base
+### Home Base Actions
 
 - [**Deposit**](https://github.com/Ellotron/war-rig/tree/main/rules#deposit) (auto) - store resources the squad has gathered, swap tech tokens for tech cards and imprison your captives in the cells.
 - [**Construct**](https://github.com/Ellotron/war-rig/tree/main/rules#6-construct) (1) - use tools to convert resources into facilities, war-rig tech and equipment you own (or jointly own).
@@ -34,7 +34,7 @@ Actions are summarised below. Most of these cost one action (1). Some actions ha
 - [**Coerce**](https://github.com/Ellotron/war-rig/tree/main/rules#5-coerce) (1) - Reduce the coercion counters on a squad you have captured by 1 to coerce them over to your faction.
 - [**Fight Fire**](https://github.com/Ellotron/war-rig/tree/main/rules#7-fight-fire) (1) - Attempt to put out a fire on the war-rig or a facility.
 
-### Rival base
+### Rival Base Actions
 
 - [**Recruit**](https://github.com/Ellotron/war-rig/tree/main/rules#1-recruit) (1) - attempt to convince a rival squad to be initiated into your faction.
 - [**Rescue**](https://github.com/Ellotron/war-rig/tree/main/rules#2-rescue) (1) - attempt to rescue one of your squads that has been recruited or captured.
@@ -43,11 +43,11 @@ Actions are summarised below. Most of these cost one action (1). Some actions ha
 
 ## War Rig Actions
 
-Each war rig can perform two actions per turn. The actions it can perform depend on the type and condition of tech that is attached to it.
+Each war rig can perform two actions per turn on a squad round of the owner's choosing. The actions it can perform depend on the type and condition of tech that is attached to it.
 
 - [**Movement**](https://github.com/Ellotron/war-rig/tree/main/rules#movement) - War rigs cannot move into a rival base but cannot be repelled from other locations. They may only move if they have tech attached that is working and allows them to do so.
 
-- [Attack](https://github.com/Ellotron/war-rig/tree/main/rules#attack) - War rigs can attack squads, facilities and other war rigs in the same location as them. In one action a war rig can:
+- [**Attack**](https://github.com/Ellotron/war-rig/tree/main/rules#attack) - War rigs can attack squads, facilities and other war rigs in the same location as them. In one action a war rig can:
 
   1. Select one weapon to fire.
   1. Use the [**targeting**](https://github.com/Ellotron/war-rig/tree/main/rules#targeting) ability to lock on to a target.
