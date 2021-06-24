@@ -1,4 +1,4 @@
-# Rules v0.1
+# Rules v0.2
 
 For a quick start and reference see the [**Rules Summary**](https://github.com/Ellotron/war-rig/tree/main/rules/summary)
 
@@ -6,20 +6,20 @@ For a quick start and reference see the [**Rules Summary**](https://github.com/E
 
 The object of the game is to become the dominant faction. There are 4 ways to do this:
 
-- **Dominate all resources** - control undeniably all 3 resource-rich **Basic Locations**.
-- **Peace through power** - tap into abundant, free power in the **Planet Core**.
-- **Align with the Empire** - build a warp gate in **Deep Space** to summon the empire.
+- **Dominate all resources** - control undeniably all 3 resource-rich [**Basic Locations**](https://github.com/Ellotron/war-rig/tree/main/rules#basic-locations).
+- **Peace through power** - tap into abundant, free power in the [**Planet Core**](https://github.com/Ellotron/war-rig/tree/main/rules#special-locations).
+- **Align with the Empire** - build a warp gate in [**Deep Space**](https://github.com/Ellotron/war-rig/tree/main/rules#special-locations) to summon the empire.
 - **Total Annihilation** - use your War Rig to destroy all other factions.
 
-Each of these has its own path to completion discussed in **End Game** but you will need to build your War Rig to have a chance to achieve any of them.
+Each of these has its own path to completion discussed in [**End Game**](https://github.com/Ellotron/war-rig/tree/main/rules#end-game) but you will need to build your War Rig to have a chance to achieve any of them.
 
 ## End Game
 
 The game ends when any one of these conditions is met:
 
-- A single player has control of all 3 resource locations simultaneously. A player controls a resource when they would win outright any roll to **Repel** other squads from that location.
+- A single player has control of all 3 resource locations simultaneously. A player controls a resource when they would win outright any roll to [**Repel**](https://github.com/Ellotron/war-rig/tree/main/rules#repel) other squads from that location.
 - All but one player's factions are destroyed. A faction is destroyed when it no longer controls any squads and has no functioning war rig.
-- A player discovers and builds either special structure in **Deep Space** or the **Planet Core** satisfying all the requirements on the corresponding cards, then uses it to successfully perform the **Empire Invasion** or to discover **Infinite Power**.
+- A player discovers and builds either special structure in [**Deep Space**](https://github.com/Ellotron/war-rig/tree/main/rules#special-locations) or the [**Planet Core**](https://github.com/Ellotron/war-rig/tree/main/rules#special-locations) satisfying all the requirements on the corresponding cards, then uses it to successfully perform the [**Empire Invasion**](https://github.com/Ellotron/war-rig/tree/main/rules#empire-invasion) or to discover [**Infinite Power**](https://github.com/Ellotron/war-rig/tree/main/rules#infinite-power).
 
 ### Empire Invasion
 
@@ -47,35 +47,6 @@ If the controller wins enough factions loyalty before anyone else wins the game,
 - 2 - 3 players - 1 faction's loyalty required
 - 4 players - 2 faction's loyalty required
 
-## Definitions
-
-### Basic Locations
-
-There are six map locations where basic resources can be gathered
-Three tech-rich(T) and three resource-rich (R):
-
-- Ancient City - (T) - known to contain caches of ancient alien tech
-- Methane Sea - (R) - an abundant source of chemical materials
-- Deep Trenches - (T) - uncover buried tech and access the planet core
-- Volcanic Range - (R) - a source of geothermal power and raw materials
-- Low Orbit - (T) - find abandoned tech by aerial reconnaissance and access deep space
-- Oil Sands - (R) - a rich source of fuel and silicon
-
-### Special Locations
-
-There are various locations for which special rules apply:
-
-- Home Base - your faction's center of operations
-- Rival Base - any other base controlled by a player or a **Lesser Faction**
-- Planet Core - can only be accessed from Deep Trenches. With the right materials you can construct an infinite power source that will bring a lasting peace.
-- Deep Space - can only be accessed from Low Orbit. With the right materials you can construct a warp gate that will bring you an alliance with the empire.
-- Barren Wastes - players scavenge for scrap or ambush other players.
-
-### Various
-
-- Lesser Faction - Represent non-player factions that can be more easily recruited to your cause.
-- Inventory - an area near each player where they keep tech cards.
-
 ## Setup
 
 Place a supply of coloured resource tokens in each location according to the colours printed in that location. Place all other tokens and the tech deck where every one can reach them. Place the three mission decks and the round and mission counters. Place a token on the round counter at the 1 position and the mission counter at the 4 position.
@@ -88,13 +59,13 @@ Decide who will go first, 2nd, 3rd etc and sit by the Home Base with that number
 - 1 level 1 mission card is dealt to each player
 
 Assign equipment to your squads in any order by placing numbered tokens on the equipment card that match the squad you want to equip.
-Place your remaining 3 faction squad counters (4-6) in a vacant base. These represent the **Lesser Factions**.
+Place your remaining 3 faction squad counters (4-6) in a vacant base. These represent the [**Lesser Factions**](https://github.com/Ellotron/war-rig/tree/main/rules#various).
 
 > Note in a four player game only the first two players place lesser factions.
 
 ## Order of play
 
-The game is played out in a number of turns. In each turn there are a number of rounds determined by the highest number of squads a player controls. Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. The next round is the same except each player uses squads with the number 2 token. This repeats until there are no more rounds. If in a round a player does not control a squad with that number token play skips past them until a round where they do control a squad. Play repeats for a number of turns until one of the **End Game** conditions is met.
+The game is played out in a number of turns. In each turn there are a number of rounds determined by the highest number of squads a player controls. Starting with round 1, each player performs 2 actions with squads they control that have the number 1 token. The next round is the same except each player uses squads with the number 2 token. This repeats until there are no more rounds. If in a round a player does not control a squad with that number token play skips past them until a round where they do control a squad. Play repeats for a number of turns until one of the **End Game** conditions is met. If a player controls an active war rig it performs two actions on a squad round of that player's choosing.
 
 After each set of 4 turns the players reveal their current mission cards. If a player has completed their mission they collect and apply their rewards. A new mission is then selected at random from the level of the players choosing.
 
@@ -255,7 +226,7 @@ Choose one constructed facility or war rig tech currently present in the base. R
 
 ## War Rig
 
-The war rig is the faction's ultimate weapon against rivals but must be built before it can be used by **Gather**ing resources and tech and performing **Construction**.
+The war rig is the faction's ultimate weapon against rivals but must be built before it can be used by **Gather**ing resources and tech and performing **Construction**. One constructed it can perform 2 actions per turn on a round of the owning player's choosing.
 
 Once an item is constructed it can be attached only when the war-rig chassis is in Home Base. Each item attached to the rig adds weight which affects the **movement** of the rig.
 
@@ -313,3 +284,32 @@ Defending war rigs in a lighter weight tier than their attacker can use their ag
 A war rig part or a facility that is on fire can no longer be used. Place a fire token on the affected site. All effects and abilities the site grants are disabled. Players can **Fight Fire** at home base using a squad action or by using equipment in the field. Every subsequent turn that begins with a site on fire causes damage to all adjacent sites if possible. The damage is equal to half the remaining armour of that site rounded up.
 
 > Sites that are adjacent to others have a link icon between them. For example on the chassis every item is adjacent to the central item.
+
+## Definitions
+
+### Basic Locations
+
+There are six map locations where basic resources can be gathered
+Three tech-rich(T) and three resource-rich (R):
+
+- Ancient City - (T) - known to contain caches of ancient alien tech
+- Methane Sea - (R) - an abundant source of chemical materials
+- Deep Trenches - (T) - uncover buried tech and access the planet core
+- Volcanic Range - (R) - a source of geothermal power and raw materials
+- Low Orbit - (T) - find abandoned tech by aerial reconnaissance and access deep space
+- Oil Sands - (R) - a rich source of fuel and silicon
+
+### Special Locations
+
+There are various locations for which special rules apply:
+
+- Home Base - your faction's center of operations
+- Rival Base - any other base controlled by a player or a **Lesser Faction**
+- Planet Core - can only be accessed from Deep Trenches. With the right materials you can construct an infinite power source that will bring a lasting peace.
+- Deep Space - can only be accessed from Low Orbit. With the right materials you can construct a warp gate that will bring you an alliance with the empire.
+- Barren Wastes - players scavenge for scrap or ambush other players.
+
+### Various
+
+- Lesser Faction - Represent non-player factions that can be more easily recruited to your cause.
+- Inventory - an area near each player where they keep tech cards.
