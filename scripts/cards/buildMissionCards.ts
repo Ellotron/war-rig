@@ -14,6 +14,7 @@ import {
   typeSpec,
   missionCardImages,
   imageSpec,
+  flavourSpec,
 } from "./constants";
 import {
   drawCardBase,
@@ -28,6 +29,7 @@ const csv = require("csvtojson");
 
 registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 registerFont("./fonts/corbel.ttf", { family: "Corbel" });
+registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
 const loadAssets = async () => {
   return {
@@ -61,6 +63,8 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
     drawCardText(loc, `Mission: ${card.mission}`, missionSpec, context);
   const drawReward = (loc, card) =>
     drawCardText(loc, `Reward: ${card.reward}`, rewardSpec, context);
+  const drawFlavour = (loc, card) =>
+    drawCardText(loc, card.flavour, flavourSpec, context);
 
   buildCards(locations, content, [
     drawBase,
@@ -70,6 +74,7 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
     drawType,
     drawDescription,
     drawReward,
+    drawFlavour,
   ]);
 
   const buffer = canvas.toBuffer("image/png");
