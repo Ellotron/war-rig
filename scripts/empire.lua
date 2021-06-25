@@ -3,6 +3,11 @@ require("customProperties")
 locationKey = 'Location'
 whiteDiceGuid = '6e98b9'
 dropGuids = {'68ae9c', 'd5ba72','4190d8'}
+tokenMapping = {
+    [dropGuids[1]] = { '9cbd15', '127750',  '12dff0' },
+    [dropGuids[2]] = { '191c36', 'f40fea', '86e520' },
+    [dropGuids[3]] = { '0dee0a', '8539b8', '624b70' }
+}
 
 function empireInvasion()
     gameBox = safeGet('5578eb')
@@ -16,8 +21,17 @@ function empireInvasion()
 end
 
 function storeEmpire(gameBox)
-    safeStore(dropGuids, gameBox)
+    forEach(dropGuids, function(dropGuid) storeDropship(dropGuid, tokenMapping[dropGuid], gameBox) end)
 end
+
+function storeDropship(dropGuid, tokenGuids, gameBox)
+    dropship = safeGet(dropGuid)
+    if dropship ~= nil then
+        safeStore(tokenGuids, dropship)
+        local watchDeck = function () return dropship.resting end
+        Wait.condition(function() safeStore({ dropGuid }, gameBox) end, watchDeck)
+    end
+  end
 
 function placeDropships()
     whiteDice = safeGet(whiteDiceGuid)
