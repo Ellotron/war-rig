@@ -30,3 +30,5 @@ CCO_LEG_Y = 'leg_y'
 CCO_LEFT_LEG_X = 'left_leg_x'
 CCO_RIGHT_LEG_X = 'right_leg_x'
 
+ALERT_COLOUR = {r=1, g=0, b=1}
+

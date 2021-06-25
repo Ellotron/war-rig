@@ -1,4 +1,5 @@
 require("customProperties")
+require("constants")
 
 locationKey = 'Location'
 whiteDiceGuid = '6e98b9'
@@ -10,6 +11,7 @@ tokenMapping = {
 }
 
 function empireInvasion()
+    broadcastToAll("The Empire invades! Destroy the dropships or be supressed!", ALERT_COLOUR)
     gameBox = safeGet('5578eb')
     readyDropships()
     -- place dice then drop ships
