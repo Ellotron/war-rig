@@ -64,7 +64,7 @@ end
 
 function infinitePower()
   if playerNum == nil then
-    print("Select number of players first")
+    broadcastToAll("Select number of players first")
   else
     deployInfinitePower(playerNum)
   end
@@ -92,9 +92,11 @@ function showHideSetup(gameBox, show)
       createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
       createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
       createButton(gameCardGuid, '4 Player', 'setup4', {0,0.2,-0.38}, 150, 35)
-      createButton(gameCardGuid, 'Reset', 'reset', {0,0.2,0.38}, 150, 35)
-      createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.65}, 135, 30)
-      createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.65}, 135, 30)
+      createButton(gameCardGuid, 'Reset\nGame', 'reset', {0,0.2,0.38}, 150, 35)
+      createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.60}, 135, 30)
+      createButton(gameCardGuid, 'Reset', 'resetEmpire', {-0.47,0.2,0.83}, 85, 30)
+      createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.60}, 135, 30)
+      createButton(gameCardGuid, 'Reset', 'resetInfinite', {0.45,0.2,0.83}, 85, 30)
     end
 end
 
@@ -141,6 +143,14 @@ function setupDecks(gameBox)
     end
   })
 
+end
+
+function resetInfinite()
+  storeInfinite(gameBox)
+end
+
+function resetEmpire()
+  storeEmpire(gameBox)
 end
 
 function storeInBox()
