@@ -155,16 +155,18 @@ function storeInBox()
 end
 
 function storeDecks(gameBox)
-  storeDeck(m1Deck)
-  storeDeck(m2Deck)
-  storeDeck(m3Deck)
-  storeDeck(techDeck)
+  storeDeck(m1Deck, gameBox)
+  storeDeck(m2Deck, gameBox)
+  storeDeck(m3Deck, gameBox)
+  storeDeck(techDeck, gameBox)
 end
 
-function storeDeck(deck)
-  deck.reset()
-  local watchDeck = function () return deck.resting end
-  Wait.condition(function() safeStore({ deck }, gameBox) end, watchDeck)
+function storeDeck(deck, gameBox)
+  if deck ~= nil then
+    deck.reset()
+    local watchDeck = function () return deck.resting end
+    Wait.condition(function() safeStore({ deck }, gameBox) end, watchDeck)
+  end
 end
 
 function storePlayers(gameBox)
