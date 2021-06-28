@@ -5,7 +5,7 @@ Workshop Tools,Equipment,1,0,1,0,3,4,3
 Mass Driver,Rig,1,0,2,2,3,4,4
 Linked Lasers,Rig,0,0,1,2,2,4,5
 Tracker Cannon,Rig,0,1,2,1,2,4,6
-Pitson Actuated Walker,Rig,1,0,2,1,3,4,7
+Piston Actuated Walker,Rig,1,0,2,1,3,4,7
 All-terrain Track,Rig,0,0,1,2,2,4,8
 Flight Boosters,Rig,1,0,0,1,2,4,9
 Utility Cockpit,Rig,0,1,1,1,3,4,10
@@ -21,11 +21,11 @@ Planetary Hyperloop,Facility,1,2,2,0,4,1,19
 Arc Shield Generator,Facility,1,0,2,2,4,1,20
 Fire Control Drones,Equipment,0,0,1,1,3,2,21
 Smoke Grenades,Equipment,1,0,0,1,2,2,22
-Amoured Haulage,Equipment,1,0,1,0,3,2,23
+Armoured Haulage,Equipment,1,0,1,0,3,2,23
 Re-education centre,Facility,0,2,1,0,3,2,24
 Ion Canon,Facility,2,1,1,0,3,2,25
 Resource Refinery,Facility,0,2,1,0,3,2,26
 Redundancy Systems,Rig,0,2,1,1,4,2,27
-CO2 Disperal System,Rig,0,2,1,1,4,3,28
+CO2 Dispersal System,Rig,0,2,1,1,4,3,28
 Impact Gel Deployment,Rig,0,2,1,1,3,2,29
 hidden,,,,,,,1,0
