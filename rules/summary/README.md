@@ -10,9 +10,11 @@ Move your squads round the board to collect resources to build your War Rig. Use
 
 ## Rounds, Turns, Actions and Missions
 
-Starting with squad round 1, each player performs 2 actions with squads they control that have the number 1 token. Each squad can perform 2 actions per turn. At the end of a squad round move the round counter to the next number and repeat. At the end of all available squad rounds, move the round counter back to 1 and reduce the mission counter by 1. This represents a full turn.
-
-Mission cards contain optional tasks with associated rewards. Players start the game with a level 1 mission. At the end of the turn where the mission counter was on 1, players receive the rewards for successfully completed missions. All players now take a new mission from a level of their choosing for which they meet the prerequisites printed on the back of the cards.
+- Each player performs 2 actions with their squads that have the same number as the current round.
+- Once each squad has performed actions, increase the round counter by one and repeat.
+- Once all rounds are complete reset the round counter and move the mission counter down. This is a mission turn.
+- At the end of the last mission turn, resolve your current mission card and then pick a new one. 
+- Collect resources & tech, complete missions, build your war rig and win using one of the above methods.
 
 Actions are summarised below. Most of these cost one action (1). Some actions have no cost and optional (free) or happen automatically at no cost (auto).
 
