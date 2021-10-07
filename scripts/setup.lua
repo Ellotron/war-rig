@@ -1,4 +1,5 @@
 require("utilities")
+require("buttons")
 require("pieces")
 require("player")
 require("player1")
