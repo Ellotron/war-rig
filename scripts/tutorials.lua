@@ -55,10 +55,10 @@ function showHideTutorials(gameBox, show)
         rotation = { x = 6.40326504708355E-07, y = 180.000091552734, z = 4.83890244140639E-06 }
       })
     else
-      safeStore({ { guid = tutorialCardGuid}})
+      safeStore({ tutorialCardGuid }, gameBox)
     end
 
-    if initialised == nil then
+    if show and initialised == nil then
       local size = 200
       local font_size = 40
       createToggle(tutorialCardGuid, '✔', '✘', true, {0.6, 0.2, 0.8}, 100, font_size)

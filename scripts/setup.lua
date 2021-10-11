@@ -170,6 +170,7 @@ function storeInBox()
     storeEmpire(gameBox)
     storeInfinite(gameBox)
     showHideSetup(gameBox, true)
+    showHideTutorials(gameBox, false)
 end
 
 function storeDecks(gameBox)
