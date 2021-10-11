@@ -29,6 +29,8 @@ function safePlace(container, parameters, thenContainer)
     if obj == nil then
         safeTake(container, parameters)
     else
+        local oldPostition = obj.getPosition()
+        local oldRotation= obj.getRotation()
         if parameters.position then
             obj.setPositionSmooth(parameters.position, false, false)
         end
@@ -36,7 +38,9 @@ function safePlace(container, parameters, thenContainer)
             obj.setRotationSmooth(parameters.rotation, false, false)
         end
         if parameters.callback_function then
-            local objResting = function () return obj.resting end
+            local objResting = function ()
+                local hasMoved = obj.getPosition() ~= oldPostition or obj.getRotation() ~= oldRotation
+                return hasMoved and obj.resting end
             Wait.condition(parameters.callback_function, objResting, 10)
         end
     end
