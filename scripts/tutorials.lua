@@ -51,8 +51,8 @@ function showHideTutorials(gameBox, show)
     if (show) then
       safePlace(gameBox, {
         guid = tutorialCardGuid,
-        position = { x = -25.7643852233887, y = 3.62151622772217, z = -17.346773147583 },
-        rotation = { x = 6.40326504708355E-07, y = 180.000091552734, z = 4.83890244140639E-06 }
+        position = { x = -28.3385753631592, y = 3.62151598930359, z = -11.9862651824951 },
+        rotation = { x = -2.37896801991155E-06, y = 179.999206542969, z = 0.000402836682042107 }
       })
     else
       safeStore({ tutorialCardGuid }, gameBox)

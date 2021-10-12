@@ -23,11 +23,15 @@ function addAnySubsequentPlacement(container, parameters)
 end
 
 function safePlace(container, parameters, thenContainer)
-    addAnySubsequentPlacement(thenContainer or container, parameters)
+    local target = parameters.containerGuid or container
+    if (type(target) == "string") then
+        target = safeGet(target, false)
+    end
+    addAnySubsequentPlacement(thenContainer or target, parameters)
 
     local obj = safeGet(parameters.guid, false)
     if obj == nil then
-        safeTake(container, parameters)
+        safeTake(target, parameters)
     else
         local oldPostition = obj.getPosition()
         local oldRotation= obj.getRotation()
@@ -64,6 +68,10 @@ function concat(a, b)
 end
 
 function safeTake(container, parameters)
+    if parameters.guid == nil then
+        return container.takeObject(parameters)
+    end
+
     found = false
     for i, v in pairs(container.getObjects()) do
         if (v['guid'] == parameters['guid']) then

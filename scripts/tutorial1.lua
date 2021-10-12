@@ -28,12 +28,18 @@ player1BaseToWasteToSand =
 
 player2BaseToWatesAndGather = {
   {
-    guid = 'e02066',
+    guid = '3bb1a3',
     position = { x = -0.429877638816834, y = 1.89118826389313, z = 0.182901248335838 },
     rotation = { x = -0.000534872582647949, y = 180.001129150391, z = 180.000366210938 },
+    thenPlace =
+        {
+            containerGuid = '5f986f',
+            position = { x = -0.410172432661057, y = 1.99107754230499, z = 0.188939526677132 },
+            rotation = { x = -0.000761659583076835, y = 180.000717163086, z = -0.00332035194151104 }
+        },
   },
   {
-    guid = '96727e',
+    guid = '5a7b17',
     position = { x = 0.696883141994476, y = 1.89104223251343, z = 1.23953485488892 },
     rotation = { x = -0.00456802733242512, y = 179.99186706543, z = 0.00127844186499715 }
   },
@@ -86,6 +92,16 @@ tutorial1 =
         {
             stepType = STEP_TYPE_MOVE,
             objects = player2BaseToWatesAndGather
+        },
+        {
+            stepType = STEP_TYPE_TEXT,
+            text =
+            {
+                'Player 2 moves to the Barren Wastes and gathers',
+                'Scrap can be used in construction',
+                'and to barter for safe passage when attacked',
+            },
+            delaySeconds = 3.5
         },
     }
 }
