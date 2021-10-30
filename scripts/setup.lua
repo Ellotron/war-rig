@@ -1,4 +1,6 @@
 require("utilities")
+require("tutorials")
+require("buttons")
 require("pieces")
 require("player")
 require("player1")
@@ -92,12 +94,18 @@ function showHideSetup(gameBox, show)
       createButton(gameCardGuid, '2 Player', 'setup2', {-0.41,0.2,-0.20}, 150, 35)
       createButton(gameCardGuid, '3 Player', 'setup3', {0.41,0.2,-0.20}, 150, 35)
       createButton(gameCardGuid, '4 Player', 'setup4', {0,0.2,-0.38}, 150, 35)
+      createButton(gameCardGuid, 'Tutorials', 'showTutorials', {0,0.2,-0.78}, 150, 35)
+
       createButton(gameCardGuid, 'Reset\nGame', 'reset', {0,0.2,0.38}, 150, 35)
       createButton(gameCardGuid, 'Empire\nInvasion', 'empireInvasion', {-0.47,0.2,0.60}, 135, 30)
       createButton(gameCardGuid, 'Reset', 'resetEmpire', {-0.47,0.2,0.83}, 85, 30)
       createButton(gameCardGuid, 'Infinite\nPower', 'infinitePower', {0.45,0.2,0.60}, 135, 30)
       createButton(gameCardGuid, 'Reset', 'resetInfinite', {0.45,0.2,0.83}, 85, 30)
     end
+end
+
+function showTutorials()
+  showHideTutorials(gameBox, true)
 end
 
 function setupDecks(gameBox)
@@ -153,8 +161,14 @@ function resetEmpire()
   storeEmpire(gameBox)
 end
 
+function destroyTokens()
+  local isToken = function (obj) return hasTag(obj, "TKN") end
+  destroyBy(isToken)
+end
+
 function storeInBox()
     gameBox = safeGet('5578eb')
+    destroyTokens()
     safeStore(gameTokens, gameBox)
     safeStore(gameDice, gameBox)
     storeDecks(gameBox)
@@ -162,6 +176,7 @@ function storeInBox()
     storeEmpire(gameBox)
     storeInfinite(gameBox)
     showHideSetup(gameBox, true)
+    showHideTutorials(gameBox, false)
 end
 
 function storeDecks(gameBox)

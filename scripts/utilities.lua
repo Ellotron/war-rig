@@ -12,6 +12,22 @@ function safeGet(guid, shouldLog)
     return obj
 end
 
+function hasTag(obj, prefix)
+    return string.match(obj.getName(), string.format("<%s>", prefix))
+end
+
+function destroyBy(predicate)
+    destroy =
+    function (obj)
+        if(predicate(obj)) then
+            log(string.format("Destorying %s", obj.guid))
+            destroyObject(obj)
+        end
+    end
+
+    forEach(getAllObjects(), destroy)
+end
+
 function addAnySubsequentPlacement(container, parameters)
     local callback = nil
     if parameters.thenPlace ~= nil then
@@ -23,12 +39,18 @@ function addAnySubsequentPlacement(container, parameters)
 end
 
 function safePlace(container, parameters, thenContainer)
-    addAnySubsequentPlacement(thenContainer or container, parameters)
+    local target = parameters.containerGuid or container
+    if (type(target) == "string") then
+        target = safeGet(target, false)
+    end
+    addAnySubsequentPlacement(thenContainer or target, parameters)
 
     local obj = safeGet(parameters.guid, false)
     if obj == nil then
-        safeTake(container, parameters)
+        safeTake(target, parameters)
     else
+        local oldPostition = obj.getPosition()
+        local oldRotation= obj.getRotation()
         if parameters.position then
             obj.setPositionSmooth(parameters.position, false, false)
         end
@@ -36,7 +58,9 @@ function safePlace(container, parameters, thenContainer)
             obj.setRotationSmooth(parameters.rotation, false, false)
         end
         if parameters.callback_function then
-            local objResting = function () return obj.resting end
+            local objResting = function ()
+                local hasMoved = obj.getPosition() ~= oldPostition or obj.getRotation() ~= oldRotation
+                return hasMoved and obj.resting end
             Wait.condition(parameters.callback_function, objResting, 10)
         end
     end
@@ -59,23 +83,11 @@ function concat(a, b)
     return c
 end
 
-function createButton(guid, label, functionName, position, size, font_size)
-    position = position or {0,0.2,0}
-    size = size or 500
-    but = safeGet(guid)
-    but.createButton({
-       click_function = functionName,
-       function_owner = nil,
-       label          = label,
-       position       = position,
-       rotation       = {0,0,0},
-       width          = size,
-       height         = size,
-       font_size      = font_size or 200,
-    })
-end
-
 function safeTake(container, parameters)
+    if parameters.guid == nil then
+        return container.takeObject(parameters)
+    end
+
     found = false
     for i, v in pairs(container.getObjects()) do
         if (v['guid'] == parameters['guid']) then
