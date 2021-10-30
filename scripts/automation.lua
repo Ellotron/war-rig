@@ -57,7 +57,7 @@ end
 
 function printText(step, index)
     if index <= tablelength(step.text) then
-        broadcastToAll(step.text[index], {r=1, g=0, b=0})
+        broadcastToAll(step.text[index], {r=1, g=1, b=1})
         Wait.time(function() printText(step, index + 1) end, step.delaySeconds)
     end
 end
