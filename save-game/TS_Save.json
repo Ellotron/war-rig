@@ -1,7 +1,7 @@
 {
   "SaveName": "War Rig Setup",
-  "EpochTime": 1635599436,
-  "Date": "10/30/2021 2:10:36 PM",
+  "EpochTime": 1635599779,
+  "Date": "10/30/2021 2:16:19 PM",
   "VersionNumber": "v13.1.1",
   "GameMode": "Custom",
   "GameType": "",
@@ -613,7 +613,7 @@
         "posX": 20.8448467,
         "posY": 3.62151551,
         "posZ": 19.874361,
-        "rotX": -1.836014E-06,
+        "rotX": -1.8360148E-06,
         "rotY": 180.031036,
         "rotZ": -2.03234345E-06,
         "scaleX": 1.0,
@@ -746,7 +746,7 @@
       "GUID": "8a9e21",
       "Name": "Custom_Board",
       "Transform": {
-        "posX": 2.07569659E-17,
+        "posX": 2.09323017E-17,
         "posY": 0.9220247,
         "posZ": 0.0,
         "rotX": 0.0,
@@ -2779,58 +2779,6 @@
               "XmlUI": ""
             }
           ]
-        },
-        {
-          "GUID": "3ec3b5",
-          "Name": "Custom_Tile",
-          "Transform": {
-            "posX": 27.1486435,
-            "posY": 8.406823,
-            "posZ": 18.34615,
-            "rotX": 0.00241831853,
-            "rotY": 179.999969,
-            "rotZ": 355.053345,
-            "scaleX": 3.38051677,
-            "scaleY": 1.0,
-            "scaleZ": 3.38051677
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "file:///C:\\Code\\war-rig\\assets\\tutorial-card.png",
-            "ImageSecondaryURL": "https://war-rig-borderlands.s3.eu-west-2.amazonaws.com/war-rig.png",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomTile": {
-              "Type": 3,
-              "Thickness": 0.1,
-              "Stackable": false,
-              "Stretch": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
         },
         {
           "GUID": "1e4708",
@@ -16589,15 +16537,67 @@
           ]
         },
         {
+          "GUID": "3ec3b5",
+          "Name": "Custom_Tile",
+          "Transform": {
+            "posX": -28.3385754,
+            "posY": 3.6215167,
+            "posZ": -11.9862652,
+            "rotX": -2.26734778E-06,
+            "rotY": 179.9992,
+            "rotZ": 0.000458502764,
+            "scaleX": 3.38051677,
+            "scaleY": 1.0,
+            "scaleZ": 3.38051677
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "https://war-rig-borderlands.s3.eu-west-2.amazonaws.com/tutorial-card.png",
+            "ImageSecondaryURL": "https://war-rig-borderlands.s3.eu-west-2.amazonaws.com/war-rig.png",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomTile": {
+              "Type": 3,
+              "Thickness": 0.1,
+              "Stackable": false,
+              "Stretch": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
           "GUID": "bd071d",
           "Name": "Custom_Tile",
           "Transform": {
-            "posX": 28.6344967,
-            "posY": 8.141047,
-            "posZ": 18.686594,
-            "rotX": 3.64191578E-06,
+            "posX": 27.5865364,
+            "posY": 8.140967,
+            "posZ": 19.0837917,
+            "rotX": 3.39929625E-06,
             "rotY": 180.018173,
-            "rotZ": -1.37407724E-07,
+            "rotZ": -1.3597743E-07,
             "scaleX": 7.27031,
             "scaleY": 1.0,
             "scaleZ": 7.27031
@@ -16606,9 +16606,9 @@
           "Description": "",
           "GMNotes": "",
           "ColorDiffuse": {
-            "r": 0.249994457,
-            "g": 0.249994457,
-            "b": 0.249994457
+            "r": 0.2499944,
+            "g": 0.2499944,
+            "b": 0.2499944
           },
           "LayoutGroupSortIndex": 0,
           "Value": 0,
@@ -16647,11 +16647,11 @@
       "Name": "Tablet",
       "Transform": {
         "posX": -29.8952713,
-        "posY": 3.90851617,
+        "posY": 3.908514,
         "posZ": 20.0220242,
-        "rotX": 1.10318042E-05,
+        "rotX": -4.335106E-06,
         "rotY": 134.994949,
-        "rotZ": 7.314034E-06,
+        "rotZ": 7.9704505E-06,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
