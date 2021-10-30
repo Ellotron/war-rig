@@ -12,6 +12,22 @@ function safeGet(guid, shouldLog)
     return obj
 end
 
+function hasTag(obj, prefix)
+    return string.match(obj.getName(), string.format("<%s>", prefix))
+end
+
+function destroyBy(predicate)
+    destroy =
+    function (obj)
+        if(predicate(obj)) then
+            log(string.format("Destorying %s", obj.guid))
+            destroyObject(obj)
+        end
+    end
+
+    forEach(getAllObjects(), destroy)
+end
+
 function addAnySubsequentPlacement(container, parameters)
     local callback = nil
     if parameters.thenPlace ~= nil then

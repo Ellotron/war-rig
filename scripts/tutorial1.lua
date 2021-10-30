@@ -271,6 +271,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-1",
             text =
             {
                 'Squad Movement and Gathering',
@@ -290,6 +291,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-2",
             text =
             {
                 'Player 1 moves first to the Barren Wastes',
@@ -310,6 +312,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-3",
             text =
             {
                 'Player 2 moves to the Barren Wastes and gathers',
@@ -328,6 +331,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-4",
             text =
             {
                 'The round counter has moved to round 2',
@@ -340,6 +344,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-5",
             text =
             {
                 'The players move to locations via the barren wastes',
@@ -358,6 +363,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-6",
             text =
             {
                 'Players each move their last squad ready to gather next turn',
@@ -377,6 +383,7 @@ tutorial1 =
         },
         {
             stepType = STEP_TYPE_TEXT,
+            audio = "1-7",
             text =
             {
                 'This turn both players gather as much as they can',

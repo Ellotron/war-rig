@@ -161,8 +161,14 @@ function resetEmpire()
   storeEmpire(gameBox)
 end
 
+function destroyTokens()
+  local isToken = function (obj) return hasTag(obj, "TKN") end
+  destroyBy(isToken)
+end
+
 function storeInBox()
     gameBox = safeGet('5578eb')
+    destroyTokens()
     safeStore(gameTokens, gameBox)
     safeStore(gameDice, gameBox)
     storeDecks(gameBox)

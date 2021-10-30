@@ -19,7 +19,7 @@ function runScript(script, state)
     if script == nil or script.steps == nil or tablelength(script.steps) == 0 then
         return 'No script or steps provided'
     end
-
+    MusicPlayer.setPlaylist({})
     setCustomProperty(state, SCRIPT_STATE_STEP, 1)
     return runSteps(script.steps, state)
 end
@@ -51,11 +51,20 @@ function runStep(step, state)
     elseif stepType == STEP_TYPE_FUNC then
         _G[step.funcName]()
     elseif stepType == STEP_TYPE_TEXT then
-        printText(step, 1)
+        printText(step, 1, state)
     end
 end
 
-function printText(step, index)
+function printText(step, index, state)
+
+    if (index == 1 and step.audio and getCustomProperty(state, TOGGLE_PROPERTY)) then
+        local audio = {
+            url = string.format("https://war-rig-borderlands.s3.eu-west-2.amazonaws.com/tutorial/%s.mp3", step.audio),
+            title = step.audio
+        }
+        MusicPlayer.setCurrentAudioclip(audio)
+        MusicPlayer.play()
+    end
     if index <= tablelength(step.text) then
         broadcastToAll(step.text[index], {r=1, g=1, b=1})
         Wait.time(function() printText(step, index + 1) end, step.delaySeconds)
