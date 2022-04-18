@@ -48,7 +48,11 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
   console.log("Deck size:", totalCards);
 
   const { context, canvas } = drawCanvas(techPageSpec);
-  const locations = getLocations(techCardSpec, totalCards);
+  const locations = getLocations(
+    techCardSpec,
+    totalCards,
+    techPageSpec.pageBreak
+  );
 
   const drawBase = (loc, card) =>
     drawCardBase(loc, card, context, assets, techCardSpec);

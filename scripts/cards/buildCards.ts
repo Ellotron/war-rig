@@ -3,7 +3,8 @@ export const getDeckSize = (cardContent: CardContent[]) =>
 
 export const getLocations = (
   cardSpec: CardSpec,
-  totalCards: number
+  totalCards: number,
+  pageBreak?: PageBreak
 ): CardLocation[] => {
   const locations = [];
   var x = 0;
@@ -15,6 +16,8 @@ export const getLocations = (
       x = 0;
       y += cardSpec.height + cardSpec.vGap;
     }
+    if (pageBreak && i > 0 && i % pageBreak.cardsPerPage == 0)
+      y += pageBreak.vGap;
   }
   return locations;
 };
