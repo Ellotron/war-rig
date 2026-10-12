@@ -25,7 +25,23 @@ There are four broad routes to victory:
 
 You do not need to commit to a route immediately. Explore, gather, and build while watching what your opponents are trying to do. The full rules explain the exact end-game requirements and what happens when a special victory route is activated.
 
-## 3. Understand rounds and actions
+## 3. Your first mission: choose a direction
+
+Your starting level 1 mission is there to give you a **clear first objective**, not to add another system you need to master.
+
+Early missions encourage different ways of playing. For example:
+
+- **Supply Shortage:** gather and return two of each resource type. This points you toward resource gathering and building your economy.
+- **Sleeper Cell:** infiltrate an enemy base. This encourages exploration and interaction with another faction.
+- **Intensive Salvage:** discover and return four tech items. This points you toward exploring for technology and improving your equipment.
+- **Aggressive Retaliation:** cause hits on at least three enemy squads. This encourages a more confrontational opening.
+- **Establish Outpost:** set up and hold a camp for two turns. This encourages you to establish a presence away from Home Base.
+
+You do not have to understand every mission before your first turn. **Read your mission, decide whether its objective suits you, and let it suggest what you might try first.** The mission is a prompt for your strategy, not a requirement to ignore the rest of the game.
+
+When the mission cycle comes around, reveal your current mission and collect its reward if you completed it. Then choose a new mission as permitted by the full rules and the prerequisites shown on the mission cards.
+
+## 4. Understand rounds and actions
 
 Players take turns using squads in numbered rounds. In round 1, each player uses their squad numbered **1** to take up to **two actions**. In round 2, use squad 2; then squad 3, and so on for the squads in play. If you do not control a squad with that round's number, skip your actions for that round.
 
@@ -43,17 +59,18 @@ An active War Rig can also take **two actions per turn**, during a squad round o
 
 Some actions are automatic or free. In particular, resources and tech are deposited when a squad returns to Home Base, and assigning available equipment to a squad at Home Base does not cost an action. See the Rules Summary for the wider action list.
 
-## 4. A useful first-turn plan
+## 5. A useful first-turn plan
 
 This is a learning pattern, not a mandatory opening:
 
-1. **Check your equipment.** Identify which squad can gather, defend itself, and help with construction. Unequipped squads cannot attack or defend.
-2. **Send a squad to gather.** Move toward a resource-rich location or a tech-rich location, keeping the route through the Barren Wastes in mind.
-3. **Bring supplies home.** A squad deposits carried resources on arrival at its Home Base. Tech tokens can be exchanged for two tech cards; choose one to keep and put the other on the bottom of the deck.
-4. **Look for a construction opportunity.** Use the cards in your inventory to see whether you can build equipment, War Rig tech, or a facility. Cards specify their required resources, tools, and any special location.
-5. **Use your other squads deliberately.** One can gather another type of supply, support a location, or protect your route. Keep an eye on rival squads and your mission objective.
+1. **Read your mission.** Let its objective suggest a direction, then decide whether you want to pursue it.
+2. **Check your equipment.** Identify which squad can gather, defend itself, and help with construction. Unequipped squads cannot attack or defend.
+3. **Send a squad to gather.** Move toward a resource-rich location or a tech-rich location, keeping the route through the Barren Wastes in mind.
+4. **Bring supplies home.** A squad deposits carried resources on arrival at its Home Base. Tech tokens can be exchanged for two tech cards; choose one to keep and put the other on the bottom of the deck.
+5. **Look for a construction opportunity.** Use the cards in your inventory to see whether you can build equipment, War Rig tech, or a facility. Cards specify their required resources, tools, and any special location.
+6. **Use your other squads deliberately.** One can gather another type of supply, support a location, or protect your route. Keep an eye on rival squads and your mission objective.
 
-## 5. Gathering, construction, and your War Rig
+## 6. Gathering, construction, and your War Rig
 
 Resource tokens are carried on a squad board until the squad returns to Home Base. If the squad has no free carrying spaces, leave the resource at the location; another squad can claim it for free on its turn.
 
@@ -65,7 +82,7 @@ At Home Base, normal resources are stored. Four scrap can be exchanged for one n
 
 The War Rig begins as an empty chassis. It becomes useful as you construct and attach tech, but it can only perform actions its working attached tech allows. Check movement and weight requirements before expecting it to travel.
 
-## 6. Combat and capture: the essentials
+## 7. Combat and capture: the essentials
 
 A squad can attack a rival squad in the same location, except while infiltrated in a Rival Base. An unequipped squad cannot roll to attack or defend. Follow the full rules for offence, defence, dice symbols, equipment effects, and hits.
 
@@ -73,9 +90,9 @@ When a squad is hit, its player may be able to give up a carried item to avoid t
 
 Keep supplies on your squads when you can: having items to surrender can help protect them from capture. But do not risk valuable equipment without checking what your opponents can do.
 
-## 7. Where to look things up
+## 8. Where to look things up
 
 - [Rules Summary](../summary/README.md) — quick reference for actions and the main systems.
 - [Full rules](../README.md) — setup, movement, repel, combat, construction, War Rig tech, special locations, and victory conditions.
 
-**First game tip:** focus on learning movement, gathering, returning supplies, and constructing one useful item before trying to master every special action.
+**First game tip:** focus on your mission, movement, gathering, returning supplies, and constructing one useful item before trying to master every special action.
