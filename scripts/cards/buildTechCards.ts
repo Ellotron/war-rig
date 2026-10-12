@@ -12,6 +12,7 @@ import {
   drawCanvas,
   drawCardCost,
   drawCardText,
+  drawRichCardText,
 } from "./drawCards";
 
 const fs = require("fs");
@@ -44,7 +45,7 @@ loadAssets().then((assets) => {
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
     if (!card.description || !card.description.trim()) return true;
-    return drawCardText(loc, card.description, techDescriptionSpec, context);
+    return drawRichCardText(loc, card.description, techDescriptionSpec, context);
   };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
 
