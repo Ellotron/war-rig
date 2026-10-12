@@ -1,7 +1,7 @@
 title,type,red,green,brown,blue,power,count,base,description
-ID Scanner,Equipment,0,1,2,1,2,4,1,"Counts as an extra defending squad when rolling for repel or recruit."
-Assault Rifles,Equipment,1,0,1,1,2,4,2,"Counts as an extra squad when rolling for attack or defence."
-Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allow any friendly squad in the same location to perform the construct action."
+ID Scanner,Equipment,0,1,2,1,2,4,1,"Counts as an extra **defending squad** when rolling for **repel** or **recruit**."
+Assault Rifles,Equipment,1,0,1,1,2,4,2,"Counts as an extra **squad** when rolling for **attack** or **defence**."
+Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allows any friendly squad in the same location to perform the **construct action**."
 Mass Driver,Rig,1,0,2,2,3,4,4,
 Linked Lasers,Rig,0,0,1,2,2,4,5,
 Tracker Cannon,Rig,0,1,2,1,2,4,6,
