@@ -4,6 +4,7 @@ import {
   techBaseImages,
   techCardSpec,
   techDescriptionSpec,
+  flavourSpec,
   techPageSpec,
   titleSpec,
 } from "./constants";
@@ -55,6 +56,7 @@ loadAssets().then((assets) => {
     drawTitle,
     drawCost,
     drawDescription,
+    (loc, card) => card.flavour ? drawCardText(loc, card.flavour, flavourSpec, context) : true,
   ]);
 
   const buffer = canvas.toBuffer("image/png");
