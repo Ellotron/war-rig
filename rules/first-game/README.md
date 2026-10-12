@@ -25,6 +25,8 @@ There are four broad routes to victory:
 
 You do not need to commit to a route immediately. Explore, gather, and build while watching what your opponents are trying to do. The full rules explain the exact end-game requirements and what happens when a special victory route is activated.
 
+**Important: discover before you construct.** For the Empire and Infinite Power routes, gathering the resources is not enough. You must first obtain the relevant tech card or plans, then meet the requirements printed on that card—including tools, resources, and the required construction location. Use the Construct action to build the structure, then complete the route's final activation or discovery condition. Tech tokens returned to Home Base can be exchanged for two tech cards; choose one to keep and put the other on the bottom of the deck. The card and full rules determine the exact requirements.
+
 ## 3. Your first mission: choose a direction
 
 Your starting level 1 mission is there to give you a **clear first objective**, not to add another system you need to master.
