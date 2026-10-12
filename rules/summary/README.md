@@ -1,5 +1,7 @@
 # Rules Summary
 
+New to the game? Start with the [**First Game Guide**](../first-game/README.md) for setup and a step-by-step introduction.
+
 Move your squads round the board to collect resources to build your War Rig. Use the Rig to help you win the game.
 
 ## Winning
