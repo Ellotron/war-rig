@@ -1,0 +1,38 @@
+name: Generate technology cards
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/cards/**"
+      - "assets/cards/**"
+      - "fonts/**"
+      - "package.json"
+      - "tsconfig.json"
+      - ".github/workflows/generate-tech-cards.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: Generate technology card sheet
+        run: npm run t-cards
+      - name: Upload generated sheet
+        uses: actions/upload-artifact@v4
+        with:
+          name: tech-card-sheet
+          path: assets/tech.png
+          if-no-files-found: error
+          retention-days: 14
