@@ -79,9 +79,11 @@ export const drawRichCardText = (
   textSpec: TextSpec,
   context
 ) => {
-  const x = cardLocation.x + textSpec.xOffset;
+  // Add a little more horizontal padding between the rules text and the white panel edges.
+  const textInset = 4;
+  const x = cardLocation.x + textSpec.xOffset + textInset;
   const y = cardLocation.y + textSpec.yOffset;
-  const maxWidth = textSpec.width;
+  const maxWidth = Math.max(1, textSpec.width - textInset * 2);
   const maxHeight = textSpec.height;
   const baseFont = textSpec.font || "Arial";
   const colour = textSpec.colour || "#000";
