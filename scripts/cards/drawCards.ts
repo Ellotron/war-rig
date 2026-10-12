@@ -85,6 +85,10 @@ export const drawRichCardText = (
   const maxHeight = textSpec.height;
   const baseFont = textSpec.font || "Arial";
   const colour = textSpec.colour || "#000";
+
+  // Clear the pre-printed rules text while preserving the card's border.
+  context.fillStyle = "#fff";
+  context.fillRect(x + 2, y + 2, maxWidth - 4, maxHeight - 4);
   const parseLine = (line: string) => {
     const segments: { text: string; bold: boolean }[] = [];
     const pattern = /\*\*(.*?)\*\*/g;
