@@ -26,9 +26,9 @@ export const titleSpec: TextSpec = {
 };
 
 export const techDescriptionSpec: TextSpec = {
-  width: 371,
+  width: 351,
   height: 135,
-  xOffset: 18,
+  xOffset: 28,
   yOffset: 315,
   minFontSize: 12,
   maxFontSize: 20,
