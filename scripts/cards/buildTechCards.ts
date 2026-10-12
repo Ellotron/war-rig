@@ -3,6 +3,7 @@ import {
   costSpec,
   techBaseImages,
   techCardSpec,
+  techDescriptionSpec,
   techPageSpec,
   titleSpec,
 } from "./constants";
@@ -41,9 +42,19 @@ loadAssets().then((assets) => {
   const endIfHidden = (_, card) => card.title !== "hidden";
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
+  const drawDescription = (loc, card) => {
+    if (!card.description || !card.description.trim()) return true;
+    return drawCardText(loc, card.description, techDescriptionSpec, context);
+  };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
 
-  buildCards(locations, content, [drawBase, endIfHidden, drawTitle, drawCost]);
+  buildCards(locations, content, [
+    drawBase,
+    endIfHidden,
+    drawTitle,
+    drawCost,
+    drawDescription,
+  ]);
 
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync("./assets/tech.png", buffer);
