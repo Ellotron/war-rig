@@ -12,7 +12,8 @@ on:
       - ".github/workflows/generate-tech-cards.yml"
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   generate:
@@ -20,6 +21,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          persist-credentials: true
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -29,7 +33,42 @@ jobs:
         run: npm install
       - name: Generate technology card sheet
         run: npm run t-cards
-      - name: Upload generated sheet
+      - name: Commit generated sheet to pull request branch
+        if: github.event_name == 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tech.png
+          if git diff --cached --quiet; then
+            echo "Generated sheet has no changes."
+          else
+            git commit -m "Update generated technology card sheet"
+            git push
+          fi
+      - name: Show generated image in pull request description
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const marker = '<!-- generated-tech-card-sheet -->';
+            const imageUrl = 'https://raw.githubusercontent.com/' +
+              context.repo.owner + '/' + context.repo.repo + '/' +
+              pr.head.ref + '/assets/tech.png';
+            const section = marker + '\n### Generated technology card sheet\n\n' +
+              '![Generated technology card sheet](' + imageUrl + ')\n\n' +
+              '[Open the full-size PNG](' + imageUrl + ')';
+            const body = pr.body || '';
+            const updated = body.includes(marker)
+              ? body.replace(new RegExp(marker + '[\\s\\S]*$'), section)
+              : body.trimEnd() + '\n\n' + section;
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              body: updated
+            });
+      - name: Upload generated sheet as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:
           name: tech-card-sheet
