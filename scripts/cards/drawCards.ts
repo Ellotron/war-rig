@@ -86,9 +86,10 @@ export const drawRichCardText = (
   const baseFont = textSpec.font || "Arial";
   const colour = textSpec.colour || "#000";
 
-  // Clear the pre-printed rules text while preserving the card's border.
+  // Clear the full printed rules-text panel, not just the new text bounds.
+  // Keep a small inset to preserve the card outline and stop before flavour text.
   context.fillStyle = "#fff";
-  context.fillRect(x + 2, y + 2, maxWidth - 4, maxHeight - 4);
+  context.fillRect(cardLocation.x + 5, cardLocation.y + 305, 397, 155);
   const parseLine = (line: string) => {
     const segments: { text: string; bold: boolean }[] = [];
     const pattern = /\*\*(.*?)\*\*/g;
