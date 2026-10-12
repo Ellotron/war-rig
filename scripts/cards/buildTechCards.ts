@@ -56,7 +56,18 @@ loadAssets().then((assets) => {
     drawTitle,
     drawCost,
     drawDescription,
-    (loc, card) => card.flavour ? drawCardText(loc, card.flavour, flavourSpec, context) : true,
+    (loc, card) => {
+      if (!card.flavour || !card.flavour.trim()) return true;
+      // Clear the existing printed flavour text before drawing the italic replacement.
+      context.fillStyle = "#fff";
+      context.fillRect(
+        loc.x + flavourSpec.xOffset - 4,
+        loc.y + flavourSpec.yOffset - 24,
+        flavourSpec.width + 8,
+        flavourSpec.height + 30
+      );
+      return drawCardText(loc, card.flavour, flavourSpec, context);
+    },
   ]);
 
   const buffer = canvas.toBuffer("image/png");
