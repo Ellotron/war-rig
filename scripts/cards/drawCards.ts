@@ -69,6 +69,100 @@ export const drawCardText = (
   return true;
 };
 
+/**
+ * Draw description markup. Use **text** for bold and newline characters for
+ * explicit line breaks. Plain text remains supported for existing CSV rows.
+ */
+export const drawRichCardText = (
+  cardLocation: CardLocation,
+  text: string,
+  textSpec: TextSpec,
+  context
+) => {
+  const x = cardLocation.x + textSpec.xOffset;
+  const y = cardLocation.y + textSpec.yOffset;
+  const maxWidth = textSpec.width;
+  const maxHeight = textSpec.height;
+  const baseFont = textSpec.font || "Arial";
+  const colour = textSpec.colour || "#000";
+  const parseLine = (line: string) => {
+    const segments: { text: string; bold: boolean }[] = [];
+    const pattern = /\*\*(.*?)\*\*/g;
+    let cursor = 0;
+    let match;
+    while ((match = pattern.exec(line)) !== null) {
+      if (match.index > cursor) {
+        segments.push({ text: line.slice(cursor, match.index), bold: false });
+      }
+      segments.push({ text: match[1], bold: true });
+      cursor = pattern.lastIndex;
+    }
+    if (cursor < line.length) {
+      segments.push({ text: line.slice(cursor), bold: false });
+    }
+    return segments;
+  };
+
+  const fontFor = (size: number, bold: boolean) =>
+    bold ? `bold ${size}px ${baseFont}` : `${size}px ${baseFont}`;
+
+  for (
+    let size = textSpec.maxFontSize;
+    size >= textSpec.minFontSize;
+    size -= 1
+  ) {
+    const lineHeight = Math.ceil(size * 1.2);
+    const lines: { text: string; bold: boolean }[][] = [];
+    let fits = true;
+
+    for (const explicitLine of String(text || "").split("\n")) {
+      const wrapped: { text: string; bold: boolean }[][] = [[]];
+      for (const segment of parseLine(explicitLine)) {
+        const words = segment.text.match(/\s+|\S+/g) || [];
+        for (const word of words) {
+          const current = wrapped[wrapped.length - 1];
+          const currentText = current.map((part) => part.text).join("");
+          context.font = fontFor(size, segment.bold);
+          const candidate = currentText + word;
+          if (current.length > 0 && context.measureText(candidate).width > maxWidth && !/^\s+$/.test(word)) {
+            wrapped.push([]);
+          }
+          wrapped[wrapped.length - 1].push({ text: word, bold: segment.bold });
+        }
+      }
+      lines.push(...wrapped);
+      if (lines.length * lineHeight > maxHeight) {
+        fits = false;
+        break;
+      }
+    }
+
+    if (!fits) continue;
+
+    context.fillStyle = colour;
+    context.textAlign = "left";
+    context.textBaseline = "top";
+    lines.forEach((line, index) => {
+      let cursorX = x;
+      for (const segment of line) {
+        context.font = fontFor(size, segment.bold);
+        context.fillText(segment.text, cursorX, y + index * lineHeight);
+        cursorX += context.measureText(segment.text).width;
+      }
+    });
+    return true;
+  }
+
+  // Keep the description legible at the configured minimum size if it cannot
+  // fit; callers can then spot and adjust the card layout for unusually long text.
+  context.font = fontFor(textSpec.minFontSize, false);
+  context.fillStyle = colour;
+  context.textAlign = "left";
+  context.textBaseline = "top";
+  context.fillText(String(text || ""), x, y, maxWidth);
+  return true;
+};
+
 export const drawCardCost = (
   loc: CardLocation,
   card: any,
