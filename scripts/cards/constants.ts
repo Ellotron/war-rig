@@ -26,12 +26,12 @@ export const titleSpec: TextSpec = {
 };
 
 export const techDescriptionSpec: TextSpec = {
-  width: 365,
-  height: 105,
-  xOffset: 21,
-  yOffset: 310,
-  minFontSize: 15,
-  maxFontSize: 25,
+  width: 377,
+  height: 135,
+  xOffset: 15,
+  yOffset: 315,
+  minFontSize: 12,
+  maxFontSize: 20,
   font: "Arial",
   align: "left",
   baseline: "top",
