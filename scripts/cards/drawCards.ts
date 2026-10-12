@@ -89,7 +89,7 @@ export const drawRichCardText = (
   // Clear the full printed rules-text panel, not just the new text bounds.
   // Keep a small inset to preserve the card outline and stop before flavour text.
   context.fillStyle = "#fff";
-  context.fillRect(cardLocation.x + 5, cardLocation.y + 305, 397, 155);
+  context.fillRect(cardLocation.x + 12, cardLocation.y + 305, 383, 145);
   const parseLine = (line: string) => {
     const segments: { text: string; bold: boolean }[] = [];
     const pattern = /\*\*(.*?)\*\*/g;
