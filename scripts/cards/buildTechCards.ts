@@ -62,7 +62,7 @@ loadAssets().then((assets) => {
       context.fillStyle = "#fff";
       context.fillRect(
         loc.x + 26,
-        loc.y + 462,
+        loc.y + 467,
         355,
         78
       );
