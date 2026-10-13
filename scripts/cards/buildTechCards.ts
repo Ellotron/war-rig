@@ -61,10 +61,10 @@ loadAssets().then((assets) => {
       // Clear the existing printed flavour text before drawing the italic replacement.
       context.fillStyle = "#fff";
       context.fillRect(
-        loc.x + 18,
-        loc.y + 450,
-        371,
-        90
+        loc.x + 26,
+        loc.y + 462,
+        355,
+        78
       );
       return drawCardText(loc, card.flavour, flavourSpec, context);
     },
