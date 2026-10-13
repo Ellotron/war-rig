@@ -226,6 +226,69 @@ const drawWeaponLayout = (loc, card, context) => {
   return true;
 };
 
+const drawLowerRigMovementLayout = (loc, card, context) => {
+  const x = loc.x + 22;
+  const y = loc.y + 305;
+  const width = 363;
+  const height = 162;
+  context.fillStyle = "#fff";
+  context.fillRect(x, y, width, height);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2.5;
+  context.strokeRect(x, y, width, height);
+
+  context.fillStyle = "#111";
+  context.font = "18px Arial";
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText("Armour:", x + 7, y + 17);
+  const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
+  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 91 + i * 25, y + 16, 9);
+
+  context.fillStyle = "#fff";
+  context.fillRect(x + 229, y + 1, 129, 38);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2.5;
+  context.strokeRect(x + 229, y + 1, 129, 38);
+  context.fillStyle = "#111";
+  context.font = "18px Arial";
+  context.fillText("Weight: " + (card.weight || ""), x + 235, y + 20);
+
+  context.fillStyle = "#fff";
+  context.fillRect(x + 229, y + 40, 129, 82);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2;
+  context.strokeRect(x + 229, y + 40, 129, 82);
+  context.fillStyle = "#111";
+  context.font = "15px Arial";
+  context.fillText("Supports max:", x + 235, y + 51);
+  context.font = "13px Arial";
+  context.fillText("• Light: " + (card.supportLight || "—"), x + 235, y + 67);
+  context.fillText("• Medium: " + (card.supportMedium || "—"), x + 235, y + 83);
+  context.fillText("• Heavy: " + (card.supportHeavy || "—"), x + 235, y + 99);
+
+  const description = (card.description || "").trim();
+  if (description) {
+    context.font = "17px Arial";
+    const maxWidth = 218;
+    const words = description.split(/\\s+/);
+    let line = "";
+    let lineY = y + 45;
+    for (const word of words) {
+      const candidate = line ? line + " " + word : word;
+      if (line && context.measureText(candidate).width > maxWidth) {
+        context.fillText(line, x + 8, lineY);
+        line = word;
+        lineY += 21;
+      } else {
+        line = candidate;
+      }
+    }
+    if (line) context.fillText(line, x + 8, lineY);
+  }
+  return true;
+};
+
 const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
@@ -249,6 +312,9 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
+    if (card.layout === "lowerRigMovement") {
+      return drawLowerRigMovementLayout(loc, card, context);
+    }
     if (card.attackRating || card.armourRating || card.weight || card.specialAbilities) {
       return drawWeaponLayout(loc, card, context);
     }
