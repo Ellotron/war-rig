@@ -24,7 +24,7 @@ registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
-const drawAttackSymbol = (context, cx: number, cy: number, radius = 10) => {
+const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor = "#111") => {
   // A compact faceted d20 silhouette, rather than the old starburst symbol.
   // The light facet lines suggest the triangular faces of a twenty-sided die.
   context.save();
@@ -37,9 +37,9 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10) => {
   context.lineTo(cx - radius, cy + radius * 0.28);
   context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
   context.closePath();
-  context.fillStyle = "#111";
+  context.fillStyle = dieColor;
   context.fill();
-  context.strokeStyle = "#777";
+  context.strokeStyle = dieColor === "#c62828" ? "#7f1515" : "#777";
   context.lineWidth = 1;
   context.stroke();
 
@@ -114,7 +114,8 @@ const drawWeaponLayout = (loc, card, context) => {
   context.textBaseline = "middle";
   context.fillText("Attack:", x + 7, y + 17);
   const attack = Math.max(0, Math.min(10, parseInt(card.attackRating, 10) || 0));
-  for (let i = 0; i < attack; i++) drawAttackSymbol(context, x + 94 + i * 25, y + 17, 10);
+  const attackDieColor = card.attackDieColor === "red" ? "#c62828" : "#111";
+  for (let i = 0; i < attack; i++) drawAttackSymbol(context, x + 94 + i * 25, y + 17, 10, attackDieColor);
 
   context.fillText("Armour:", x + 7, y + 55);
   const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
