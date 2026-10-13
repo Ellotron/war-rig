@@ -6,6 +6,7 @@ on:
     paths:
       - "scripts/cards/**"
       - "assets/cards/**"
+      - "!assets/tech.png"
       - "fonts/**"
       - "package.json"
       - "tsconfig.json"
