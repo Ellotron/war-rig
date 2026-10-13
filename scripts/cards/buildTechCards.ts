@@ -119,10 +119,12 @@ const drawWeaponLayout = (loc, card, context) => {
   context.fillText("Special Abilities:", x + 7, y + 87);
   if (card.specialAbilities && card.specialAbilities.trim()) {
     drawLightning(context, x + 14, y + 107);
+    context.fillStyle = "#111";
+    context.textAlign = "left";
     context.font = "16px Arial";
     const text = card.specialAbilities.trim();
     const maxWidth = width - 62;
-    const words = text.split(/\\s+/);
+    const words = text.split(/\s+/);
     let line = "";
     let lineY = y + 112;
     for (const word of words) {
