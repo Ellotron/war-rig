@@ -282,21 +282,36 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
     context.font = "15px Arial";
     context.textAlign = "left";
     context.textBaseline = "top";
-    const words = description.replace(/\*\*/g, "").split(/\s+/);
-    let line = "";
+    const tokens = (description.match(/\*\*.*?\*\*|\\S+/g) || []).map((token) => ({
+      text: token.replace(/^\*\*|\*\*$/g, ""),
+      bold: token.startsWith("**") && token.endsWith("**"),
+    }));
+    let line: { text: string; bold: boolean }[] = [];
     let lineY = descY;
     const lineHeight = 17;
-    for (const word of words) {
-      const candidate = line ? line + " " + word : word;
-      if (line && context.measureText(candidate).width > descWidth) {
-        context.fillText(line, descX, lineY);
-        line = word;
+    const drawLine = (parts: { text: string; bold: boolean }[], top: number) => {
+      let cursorX = descX;
+      for (const part of parts) {
+        context.font = part.bold ? "bold 15px Arial" : "15px Arial";
+        context.fillText(part.text, cursorX, top);
+        cursorX += context.measureText(part.text + " ").width;
+      }
+    };
+    for (const token of tokens) {
+      const candidate = [...line, token];
+      const candidateWidth = candidate.reduce((total, part) => {
+        context.font = part.bold ? "bold 15px Arial" : "15px Arial";
+        return total + context.measureText(part.text + " ").width;
+      }, 0);
+      if (line.length && candidateWidth > descWidth) {
+        drawLine(line, lineY);
+        line = [token];
         lineY += lineHeight;
       } else {
         line = candidate;
       }
     }
-    if (line && lineY + lineHeight <= descY + descHeight) context.fillText(line, descX, lineY);
+    if (line.length && lineY + lineHeight <= descY + descHeight) drawLine(line, lineY);
     context.restore();
   }
   return true;
