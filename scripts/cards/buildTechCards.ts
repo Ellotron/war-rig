@@ -269,22 +269,35 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
 
   const description = (card.description || "").trim();
   if (description) {
-    context.font = "17px Arial";
-    const maxWidth = 218;
-    const words = description.split(/\\s+/);
+    context.save();
+    // Keep description text inside the left column and never let it enter the support table.
+    const descX = x + 8;
+    const descY = y + 43;
+    const descWidth = 211;
+    const descHeight = 110;
+    context.beginPath();
+    context.rect(descX, descY, descWidth, descHeight);
+    context.clip();
+    context.fillStyle = "#111";
+    context.font = "16px Arial";
+    context.textAlign = "left";
+    context.textBaseline = "top";
+    const words = description.replace(/\\*\\*/g, "").split(/\\s+/);
     let line = "";
-    let lineY = y + 45;
+    let lineY = descY;
+    const lineHeight = 19;
     for (const word of words) {
       const candidate = line ? line + " " + word : word;
-      if (line && context.measureText(candidate).width > maxWidth) {
-        context.fillText(line, x + 8, lineY);
+      if (line && context.measureText(candidate).width > descWidth) {
+        context.fillText(line, descX, lineY);
         line = word;
-        lineY += 21;
+        lineY += lineHeight;
       } else {
         line = candidate;
       }
     }
-    if (line) context.fillText(line, x + 8, lineY);
+    if (line && lineY + lineHeight <= descY + descHeight) context.fillText(line, descX, lineY);
+    context.restore();
   }
   return true;
 };
