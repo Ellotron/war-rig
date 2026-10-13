@@ -47,6 +47,24 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
+    if (card.attackRating || card.armourRating || card.weight || card.specialAbilities) {
+      const parts = [];
+      if (card.attackRating) parts.push(`Attack: ${card.attackRating}`);
+      if (card.armourRating) parts.push(`Armour: ${card.armourRating}`);
+      if (card.weight) parts.push(`Weight: ${card.weight}`);
+      if (card.specialAbilities && card.specialAbilities.trim()) {
+        parts.push(`Special abilities: ${card.specialAbilities.trim()}`);
+      }
+      return drawRichCardText(loc, parts.join("\\n"), {
+        ...techDescriptionSpec,
+        xOffset: 31,
+        yOffset: 315,
+        width: 345,
+        height: 130,
+        minFontSize: 14,
+        maxFontSize: 18,
+      }, context);
+    }
     if (!card.description || !card.description.trim()) return true;
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
   };
