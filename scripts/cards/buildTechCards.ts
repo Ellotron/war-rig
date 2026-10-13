@@ -21,6 +21,8 @@ const { loadImage, registerFont } = require("canvas");
 const csv = require("csvtojson");
 
 registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
+registerFont("./fonts/corbel.ttf", { family: "Corbel" });
+registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
 const loadAssets = async () => {
   return {
