@@ -5,7 +5,7 @@ Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allows any friendly squad in the same lo
 Mass Driver,Rig,1,0,2,2,3,4,4,,,3,5,3T,"Target takes 4 hits cannot perform any action or ability for 1 turn",
 Linked Lasers,Rig,0,0,1,2,2,4,5,,,2,3,1T,"If 2 critical hits are scored, target rig site catches fire",red
 Tracker Cannon,Rig,0,1,2,1,2,4,6,,,2,4,2T,"Re-roll misses for subsequent weapons in this attack",blue
-Piston Actuated Walker,Rig,1,0,2,1,3,4,7,,,,,,,
+Piston Actuated Walker,Rig,1,0,2,1,3,4,7,"Grants movement when paired with any other working walker tech.",,,4,2T,,,lowerRigMovement,6T,8T,12T
 All-terrain Track,Rig,0,0,1,2,2,4,8,"Grants movement. Supported weight doubles when paired with any other working crawler tech.",,,4,1T,,,lowerRigMovement,3T,6T,8T
 Flight Boosters,Rig,1,0,0,1,2,4,9,"Grants movement. If flight boosters ever stop working, it causes the rig to crash.",,,2,2T,,,lowerRigMovement,6T,8T,12T
 Utility Cockpit,Rig,0,1,1,1,3,4,10,,,,,,,
