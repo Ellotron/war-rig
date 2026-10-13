@@ -25,43 +25,68 @@ registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
 const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor = "#111") => {
-  // A compact faceted d20 silhouette, rather than the old starburst symbol.
-  // The light facet lines suggest the triangular faces of a twenty-sided die.
   context.save();
   context.beginPath();
-  context.moveTo(cx, cy - radius);
-  context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
-  context.lineTo(cx + radius, cy + radius * 0.28);
-  context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
-  context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
-  context.lineTo(cx - radius, cy + radius * 0.28);
-  context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
-  context.closePath();
-  context.fillStyle = dieColor;
-  context.fill();
-  context.strokeStyle = dieColor === "#c62828" ? "#7f1515" : "#777";
-  context.lineWidth = 1;
-  context.stroke();
 
-  context.beginPath();
-  context.moveTo(cx, cy - radius);
-  context.lineTo(cx - radius * 0.18, cy - radius * 0.12);
-  context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
-  context.moveTo(cx, cy - radius);
-  context.lineTo(cx + radius * 0.18, cy - radius * 0.12);
-  context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
-  context.moveTo(cx - radius * 0.18, cy - radius * 0.12);
-  context.lineTo(cx - radius * 0.62, cy + radius * 0.34);
-  context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
-  context.moveTo(cx + radius * 0.18, cy - radius * 0.12);
-  context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
-  context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
-  context.moveTo(cx - radius * 0.62, cy + radius * 0.34);
-  context.lineTo(cx, cy + radius * 0.55);
-  context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
-  context.strokeStyle = "#ddd";
-  context.lineWidth = 0.7;
-  context.stroke();
+  if (dieColor === "#c62828") {
+    // Red attack dice are D8s: an octahedral silhouette with triangular facets.
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx + radius, cy);
+    context.lineTo(cx, cy + radius);
+    context.lineTo(cx - radius, cy);
+    context.closePath();
+    context.fillStyle = dieColor;
+    context.fill();
+    context.strokeStyle = "#7f1515";
+    context.lineWidth = 1;
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx - radius, cy);
+    context.lineTo(cx, cy + radius);
+    context.lineTo(cx + radius, cy);
+    context.moveTo(cx - radius, cy);
+    context.lineTo(cx + radius, cy);
+    context.strokeStyle = "#ffb3b3";
+    context.lineWidth = 0.7;
+    context.stroke();
+  } else {
+    // Black attack dice are D20s, shown as a compact faceted polygon.
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
+    context.lineTo(cx + radius, cy + radius * 0.28);
+    context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
+    context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
+    context.lineTo(cx - radius, cy + radius * 0.28);
+    context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
+    context.closePath();
+    context.fillStyle = dieColor;
+    context.fill();
+    context.strokeStyle = "#777";
+    context.lineWidth = 1;
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx - radius * 0.18, cy - radius * 0.12);
+    context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx + radius * 0.18, cy - radius * 0.12);
+    context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
+    context.moveTo(cx - radius * 0.18, cy - radius * 0.12);
+    context.lineTo(cx - radius * 0.62, cy + radius * 0.34);
+    context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
+    context.moveTo(cx + radius * 0.18, cy - radius * 0.12);
+    context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
+    context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
+    context.moveTo(cx - radius * 0.62, cy + radius * 0.34);
+    context.lineTo(cx, cy + radius * 0.55);
+    context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
+    context.strokeStyle = "#ddd";
+    context.lineWidth = 0.7;
+    context.stroke();
+  }
   context.restore();
 };
 
