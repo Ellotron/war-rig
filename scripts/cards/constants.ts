@@ -39,7 +39,7 @@ export const techDescriptionSpec: TextSpec = {
 };
 
 export const flavourSpec: TextSpec = {
-  width: 278,
+  width: 330,
   height: 40,
   xOffset: 203,
   yOffset: 480,
