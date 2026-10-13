@@ -279,7 +279,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
     context.rect(descX, descY, descWidth, descHeight);
     context.clip();
     context.fillStyle = "#111";
-    context.font = "15px Arial";
+    context.font = "16px Arial";
     context.textAlign = "left";
     context.textBaseline = "top";
     // Parse bold spans the same way as drawRichCardText, retaining ordinary text around them.
@@ -296,7 +296,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
       if (cursor < line.length) segments.push({ text: line.slice(cursor), bold: false });
       return segments;
     };
-    const fontFor = (bold: boolean) => bold ? "bold 15px Arial" : "15px Arial";
+    const fontFor = (bold: boolean) => bold ? "bold 16px Arial" : "16px Arial";
     const lines: { text: string; bold: boolean }[][] = [[]];
     for (const segment of parseLine(description)) {
       const words = segment.text.match(/\s+|\S+/g) || [];
@@ -310,7 +310,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
         lines[lines.length - 1].push({ text: word, bold: segment.bold });
       }
     }
-    const lineHeight = 17;
+    const lineHeight = 18;
     lines.forEach((parts, index) => {
       const top = descY + index * lineHeight;
       if (top + lineHeight > descY + descHeight) return;
