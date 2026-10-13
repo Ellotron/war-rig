@@ -282,7 +282,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
     context.font = "16px Arial";
     context.textAlign = "left";
     context.textBaseline = "top";
-    const words = description.replace(/\\*\\*/g, "").split(/\\s+/);
+    const words = description.replace(/\*\*/g, "").split(/\s+/);
     let line = "";
     let lineY = descY;
     const lineHeight = 19;
