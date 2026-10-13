@@ -29,7 +29,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
   context.beginPath();
 
   if (dieColor === "#c62828" || dieColor === "#1565c0") {
-    // Red attack dice are D8s. Give the octahedron distinct triangular facets
+    // Red attack dice are D8s; blue attack dice are D12s. Give the die distinct triangular facets
     // and a small face value so it reads as a die, not just a red diamond.
     context.moveTo(cx, cy - radius);
     context.lineTo(cx + radius, cy);
@@ -42,7 +42,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineWidth = 1;
     context.stroke();
 
-    // Four triangular faces meet at the equator; alternating highlights add depth.
+    // Faceted triangular faces and contrasting highlights make the colored die readable at card size.
     context.beginPath();
     context.moveTo(cx, cy - radius);
     context.lineTo(cx - radius, cy);
@@ -93,7 +93,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.font = `bold ${Math.max(8, radius * 0.9)}px Arial`;
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillText("8", cx, cy + 0.5);
+    context.fillText(dieColor === "#1565c0" ? "12" : "8", cx, cy + 0.5);
   } else {
     // Black attack dice are D20s, shown as a compact faceted polygon.
     context.moveTo(cx, cy - radius);
