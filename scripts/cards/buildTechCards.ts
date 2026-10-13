@@ -25,29 +25,44 @@ registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
 const drawAttackSymbol = (context, cx: number, cy: number, radius = 10) => {
+  // A compact faceted d20 silhouette, rather than the old starburst symbol.
+  // The light facet lines suggest the triangular faces of a twenty-sided die.
+  context.save();
   context.beginPath();
-  for (let i = 0; i < 10; i++) {
-    const angle = -Math.PI / 2 + (i * Math.PI) / 5;
-    const r = i % 2 === 0 ? radius : radius * 0.68;
-    const x = cx + Math.cos(angle) * r;
-    const y = cy + Math.sin(angle) * r;
-    if (i === 0) context.moveTo(x, y);
-    else context.lineTo(x, y);
-  }
+  context.moveTo(cx, cy - radius);
+  context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
+  context.lineTo(cx + radius, cy + radius * 0.28);
+  context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
+  context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
+  context.lineTo(cx - radius, cy + radius * 0.28);
+  context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
   context.closePath();
   context.fillStyle = "#111";
   context.fill();
   context.strokeStyle = "#777";
   context.lineWidth = 1;
   context.stroke();
+
   context.beginPath();
-  context.moveTo(cx, cy - radius * 0.78);
-  context.lineTo(cx - radius * 0.72, cy + radius * 0.55);
-  context.lineTo(cx + radius * 0.72, cy + radius * 0.55);
-  context.closePath();
+  context.moveTo(cx, cy - radius);
+  context.lineTo(cx - radius * 0.18, cy - radius * 0.12);
+  context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
+  context.moveTo(cx, cy - radius);
+  context.lineTo(cx + radius * 0.18, cy - radius * 0.12);
+  context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
+  context.moveTo(cx - radius * 0.18, cy - radius * 0.12);
+  context.lineTo(cx - radius * 0.62, cy + radius * 0.34);
+  context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
+  context.moveTo(cx + radius * 0.18, cy - radius * 0.12);
+  context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
+  context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
+  context.moveTo(cx - radius * 0.62, cy + radius * 0.34);
+  context.lineTo(cx, cy + radius * 0.55);
+  context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
   context.strokeStyle = "#ddd";
-  context.lineWidth = 0.8;
+  context.lineWidth = 0.7;
   context.stroke();
+  context.restore();
 };
 
 const drawArmourSymbol = (context, cx: number, cy: number, size = 10) => {
