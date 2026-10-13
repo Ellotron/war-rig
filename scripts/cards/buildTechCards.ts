@@ -282,36 +282,45 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
     context.font = "15px Arial";
     context.textAlign = "left";
     context.textBaseline = "top";
-    const tokens = (description.match(/\*\*.*?\*\*|\\S+/g) || []).map((token) => ({
-      text: token.replace(/^\*\*|\*\*$/g, ""),
-      bold: token.startsWith("**") && token.endsWith("**"),
-    }));
-    let line: { text: string; bold: boolean }[] = [];
-    let lineY = descY;
-    const lineHeight = 17;
-    const drawLine = (parts: { text: string; bold: boolean }[], top: number) => {
-      let cursorX = descX;
-      for (const part of parts) {
-        context.font = part.bold ? "bold 15px Arial" : "15px Arial";
-        context.fillText(part.text, cursorX, top);
-        cursorX += context.measureText(part.text + " ").width;
+    // Parse bold spans the same way as drawRichCardText, retaining ordinary text around them.
+    const parseLine = (line: string) => {
+      const segments: { text: string; bold: boolean }[] = [];
+      const pattern = /\*\*(.*?)\*\*/g;
+      let cursor = 0;
+      let match;
+      while ((match = pattern.exec(line)) !== null) {
+        if (match.index > cursor) segments.push({ text: line.slice(cursor, match.index), bold: false });
+        segments.push({ text: match[1], bold: true });
+        cursor = pattern.lastIndex;
       }
+      if (cursor < line.length) segments.push({ text: line.slice(cursor), bold: false });
+      return segments;
     };
-    for (const token of tokens) {
-      const candidate = [...line, token];
-      const candidateWidth = candidate.reduce((total, part) => {
-        context.font = part.bold ? "bold 15px Arial" : "15px Arial";
-        return total + context.measureText(part.text + " ").width;
-      }, 0);
-      if (line.length && candidateWidth > descWidth) {
-        drawLine(line, lineY);
-        line = [token];
-        lineY += lineHeight;
-      } else {
-        line = candidate;
+    const fontFor = (bold: boolean) => bold ? "bold 15px Arial" : "15px Arial";
+    const lines: { text: string; bold: boolean }[][] = [[]];
+    for (const segment of parseLine(description)) {
+      const words = segment.text.match(/\s+|\S+/g) || [];
+      for (const word of words) {
+        const current = lines[lines.length - 1];
+        const currentText = current.map((part) => part.text).join("");
+        context.font = fontFor(segment.bold);
+        if (current.length > 0 && context.measureText(currentText + word).width > descWidth && !/^\s+$/.test(word)) {
+          lines.push([]);
+        }
+        lines[lines.length - 1].push({ text: word, bold: segment.bold });
       }
     }
-    if (line.length && lineY + lineHeight <= descY + descHeight) drawLine(line, lineY);
+    const lineHeight = 17;
+    lines.forEach((parts, index) => {
+      const top = descY + index * lineHeight;
+      if (top + lineHeight > descY + descHeight) return;
+      let cursorX = descX;
+      for (const part of parts) {
+        context.font = fontFor(part.bold);
+        context.fillText(part.text, cursorX, top);
+        cursorX += context.measureText(part.text).width;
+      }
+    });
     context.restore();
   }
   return true;
