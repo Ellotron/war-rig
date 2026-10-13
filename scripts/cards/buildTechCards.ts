@@ -28,7 +28,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
   context.save();
   context.beginPath();
 
-  if (dieColor === "#c62828") {
+  if (dieColor === "#c62828" || dieColor === "#1565c0") {
     // Red attack dice are D8s. Give the octahedron distinct triangular facets
     // and a small face value so it reads as a die, not just a red diamond.
     context.moveTo(cx, cy - radius);
@@ -38,7 +38,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.closePath();
     context.fillStyle = dieColor;
     context.fill();
-    context.strokeStyle = "#7f1515";
+    context.strokeStyle = dieColor === "#1565c0" ? "#0d2f66" : "#7f1515";
     context.lineWidth = 1;
     context.stroke();
 
@@ -48,7 +48,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineTo(cx - radius, cy);
     context.lineTo(cx, cy);
     context.closePath();
-    context.fillStyle = "#ef7777";
+    context.fillStyle = dieColor === "#1565c0" ? "#64b5f6" : "#ef7777";
     context.fill();
 
     context.beginPath();
@@ -56,7 +56,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineTo(cx + radius, cy);
     context.lineTo(cx, cy);
     context.closePath();
-    context.fillStyle = "#b51f1f";
+    context.fillStyle = dieColor === "#1565c0" ? "#1565c0" : "#b51f1f";
     context.fill();
 
     context.beginPath();
@@ -64,7 +64,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineTo(cx, cy + radius);
     context.lineTo(cx, cy);
     context.closePath();
-    context.fillStyle = "#d93636";
+    context.fillStyle = dieColor === "#1565c0" ? "#1e88e5" : "#d93636";
     context.fill();
 
     context.beginPath();
@@ -72,7 +72,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineTo(cx, cy + radius);
     context.lineTo(cx, cy);
     context.closePath();
-    context.fillStyle = "#981b1b";
+    context.fillStyle = dieColor === "#1565c0" ? "#0d47a1" : "#981b1b";
     context.fill();
 
     context.beginPath();
@@ -85,7 +85,7 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.moveTo(cx - radius, cy);
     context.lineTo(cx, cy + radius);
     context.lineTo(cx + radius, cy);
-    context.strokeStyle = "#ffd0d0";
+    context.strokeStyle = dieColor === "#1565c0" ? "#bbdefb" : "#ffd0d0";
     context.lineWidth = 0.7;
     context.stroke();
 
@@ -182,7 +182,7 @@ const drawWeaponLayout = (loc, card, context) => {
   context.textBaseline = "middle";
   context.fillText("Attack:", x + 7, y + 17);
   const attack = Math.max(0, Math.min(10, parseInt(card.attackRating, 10) || 0));
-  const attackDieColor = card.attackDieColor === "red" ? "#c62828" : "#111";
+  const attackDieColor = card.attackDieColor === "red" ? "#c62828" : card.attackDieColor === "blue" ? "#1565c0" : "#111";
   for (let i = 0; i < attack; i++) drawAttackSymbol(context, x + 94 + i * 25, y + 17, 10, attackDieColor);
 
   context.fillText("Armour:", x + 7, y + 55);
