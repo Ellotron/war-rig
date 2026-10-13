@@ -24,6 +24,122 @@ registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
+const drawAttackSymbol = (context, cx: number, cy: number, radius = 10) => {
+  context.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+    const r = i % 2 === 0 ? radius : radius * 0.68;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    if (i === 0) context.moveTo(x, y);
+    else context.lineTo(x, y);
+  }
+  context.closePath();
+  context.fillStyle = "#111";
+  context.fill();
+  context.strokeStyle = "#777";
+  context.lineWidth = 1;
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx, cy - radius * 0.78);
+  context.lineTo(cx - radius * 0.72, cy + radius * 0.55);
+  context.lineTo(cx + radius * 0.72, cy + radius * 0.55);
+  context.closePath();
+  context.strokeStyle = "#ddd";
+  context.lineWidth = 0.8;
+  context.stroke();
+};
+
+const drawArmourSymbol = (context, cx: number, cy: number, size = 10) => {
+  context.beginPath();
+  context.moveTo(cx, cy - size);
+  context.lineTo(cx + size * 0.82, cy - size * 0.55);
+  context.lineTo(cx + size * 0.68, cy + size * 0.35);
+  context.quadraticCurveTo(cx, cy + size * 1.2, cx, cy + size * 1.2);
+  context.quadraticCurveTo(cx, cy + size * 1.2, cx - size * 0.68, cy + size * 0.35);
+  context.lineTo(cx - size * 0.82, cy - size * 0.55);
+  context.closePath();
+  context.fillStyle = "#171717";
+  context.fill();
+  context.strokeStyle = "#777";
+  context.lineWidth = 1.5;
+  context.stroke();
+};
+
+const drawLightning = (context, x: number, y: number) => {
+  context.beginPath();
+  context.moveTo(x + 13, y);
+  context.lineTo(x, y + 17);
+  context.lineTo(x + 10, y + 17);
+  context.lineTo(x + 5, y + 32);
+  context.lineTo(x + 24, y + 12);
+  context.lineTo(x + 14, y + 12);
+  context.closePath();
+  context.fillStyle = "#f0c84b";
+  context.fill();
+};
+
+const drawWeaponLayout = (loc, card, context) => {
+  // Rebuild the original weapon-stat panel so values can change without
+  // turning the stats into a generic paragraph. The original artwork's
+  // labels and pre-printed symbols are replaced by this consistently placed layout.
+  const x = loc.x + 22;
+  const y = loc.y + 305;
+  const width = 363;
+  const height = 162;
+  context.fillStyle = "#fff";
+  context.fillRect(x, y, width, height);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2.5;
+  context.strokeRect(x, y, width, height);
+
+  context.fillStyle = "#111";
+  context.font = "18px Arial";
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText("Attack:", x + 7, y + 17);
+  const attack = Math.max(0, Math.min(10, parseInt(card.attackRating, 10) || 0));
+  for (let i = 0; i < attack; i++) drawAttackSymbol(context, x + 94 + i * 25, y + 17, 10);
+
+  context.fillText("Armour:", x + 7, y + 55);
+  const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
+  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 95 + i * 25, y + 53, 9);
+
+  // Weight remains in its own boxed area at the top-right, as on the source card.
+  context.fillStyle = "#fff";
+  context.fillRect(x + 247, y + 1, 111, 38);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2.5;
+  context.strokeRect(x + 247, y + 1, 111, 38);
+  context.fillStyle = "#111";
+  context.font = "18px Arial";
+  context.fillText(`Weight: ${card.weight || ""}`, x + 253, y + 20);
+
+  context.font = "18px Arial";
+  context.fillText("Special Abilities:", x + 7, y + 87);
+  if (card.specialAbilities && card.specialAbilities.trim()) {
+    drawLightning(context, x + 14, y + 107);
+    context.font = "16px Arial";
+    const text = card.specialAbilities.trim();
+    const maxWidth = width - 62;
+    const words = text.split(/\\s+/);
+    let line = "";
+    let lineY = y + 112;
+    for (const word of words) {
+      const candidate = line ? line + " " + word : word;
+      if (line && context.measureText(candidate).width > maxWidth) {
+        context.fillText(line, x + 54, lineY);
+        line = word;
+        lineY += 21;
+      } else {
+        line = candidate;
+      }
+    }
+    if (line) context.fillText(line, x + 54, lineY);
+  }
+  return true;
+};
+
 const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
@@ -48,22 +164,7 @@ loadAssets().then((assets) => {
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
     if (card.attackRating || card.armourRating || card.weight || card.specialAbilities) {
-      const parts = [];
-      if (card.attackRating) parts.push(`Attack: ${card.attackRating}`);
-      if (card.armourRating) parts.push(`Armour: ${card.armourRating}`);
-      if (card.weight) parts.push(`Weight: ${card.weight}`);
-      if (card.specialAbilities && card.specialAbilities.trim()) {
-        parts.push(`Special abilities: ${card.specialAbilities.trim()}`);
-      }
-      return drawRichCardText(loc, parts.join("\\n"), {
-        ...techDescriptionSpec,
-        xOffset: 31,
-        yOffset: 315,
-        width: 345,
-        height: 130,
-        minFontSize: 14,
-        maxFontSize: 18,
-      }, context);
+      return drawWeaponLayout(loc, card, context);
     }
     if (!card.description || !card.description.trim()) return true;
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
@@ -80,12 +181,7 @@ loadAssets().then((assets) => {
       if (!card.flavour || !card.flavour.trim()) return true;
       // Clear the existing printed flavour text before drawing the italic replacement.
       context.fillStyle = "#fff";
-      context.fillRect(
-        loc.x + 26,
-        loc.y + 475,
-        355,
-        78
-      );
+      context.fillRect(loc.x + 26, loc.y + 475, 355, 78);
       return drawCardText(loc, card.flavour, flavourSpec, context);
     },
   ]);
