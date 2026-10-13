@@ -29,7 +29,8 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
   context.beginPath();
 
   if (dieColor === "#c62828") {
-    // Red attack dice are D8s: an octahedral silhouette with triangular facets.
+    // Red attack dice are D8s. Give the octahedron distinct triangular facets
+    // and a small face value so it reads as a die, not just a red diamond.
     context.moveTo(cx, cy - radius);
     context.lineTo(cx + radius, cy);
     context.lineTo(cx, cy + radius);
@@ -41,16 +42,58 @@ const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor
     context.lineWidth = 1;
     context.stroke();
 
+    // Four triangular faces meet at the equator; alternating highlights add depth.
     context.beginPath();
     context.moveTo(cx, cy - radius);
     context.lineTo(cx - radius, cy);
+    context.lineTo(cx, cy);
+    context.closePath();
+    context.fillStyle = "#ef7777";
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx + radius, cy);
+    context.lineTo(cx, cy);
+    context.closePath();
+    context.fillStyle = "#b51f1f";
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(cx - radius, cy);
     context.lineTo(cx, cy + radius);
+    context.lineTo(cx, cy);
+    context.closePath();
+    context.fillStyle = "#d93636";
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(cx + radius, cy);
+    context.lineTo(cx, cy + radius);
+    context.lineTo(cx, cy);
+    context.closePath();
+    context.fillStyle = "#981b1b";
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx, cy);
+    context.lineTo(cx - radius, cy);
+    context.moveTo(cx, cy - radius);
+    context.lineTo(cx, cy);
     context.lineTo(cx + radius, cy);
     context.moveTo(cx - radius, cy);
+    context.lineTo(cx, cy + radius);
     context.lineTo(cx + radius, cy);
-    context.strokeStyle = "#ffb3b3";
+    context.strokeStyle = "#ffd0d0";
     context.lineWidth = 0.7;
     context.stroke();
+
+    context.fillStyle = "#fff";
+    context.font = `bold ${Math.max(8, radius * 0.9)}px Arial`;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText("8", cx, cy + 0.5);
   } else {
     // Black attack dice are D20s, shown as a compact faceted polygon.
     context.moveTo(cx, cy - radius);
