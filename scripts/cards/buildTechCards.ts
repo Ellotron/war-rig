@@ -230,7 +230,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
   const x = loc.x + 22;
   const y = loc.y + 305;
   const width = 363;
-  const height = 162;
+  const height = 166;
   context.fillStyle = "#fff";
   context.fillRect(x, y, width, height);
   context.strokeStyle = "#111";
@@ -274,18 +274,18 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
     const descX = x + 8;
     const descY = y + 43;
     const descWidth = 211;
-    const descHeight = 110;
+    const descHeight = 120;
     context.beginPath();
     context.rect(descX, descY, descWidth, descHeight);
     context.clip();
     context.fillStyle = "#111";
-    context.font = "16px Arial";
+    context.font = "15px Arial";
     context.textAlign = "left";
     context.textBaseline = "top";
     const words = description.replace(/\*\*/g, "").split(/\s+/);
     let line = "";
     let lineY = descY;
-    const lineHeight = 19;
+    const lineHeight = 17;
     for (const word of words) {
       const candidate = line ? line + " " + word : word;
       if (line && context.measureText(candidate).width > descWidth) {
