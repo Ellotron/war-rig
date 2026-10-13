@@ -42,7 +42,7 @@ export const flavourSpec: TextSpec = {
   width: 278,
   height: 40,
   xOffset: 203,
-  yOffset: 490,
+  yOffset: 480,
   minFontSize: 15,
   maxFontSize: 20,
   font: "Corbel Italic",
