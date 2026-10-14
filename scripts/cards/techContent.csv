@@ -8,7 +8,7 @@ Tracker Cannon,Rig,0,1,2,1,2,4,6,,,2,4,2T,"Re-roll misses for subsequent weapons
 Piston Actuated Walker,Rig,1,0,2,1,3,4,7,"Grants **movement** when paired with any other working walker tech.",,,4,2T,,,lowerRigMovement,6T,8T,12T
 All-terrain Track,Rig,0,0,1,2,2,4,8,"Grants **movement**. Supported weight doubles when paired with any other working crawler tech.",,,4,1T,,,lowerRigMovement,3T,6T,8T
 Flight Boosters,Rig,1,0,0,1,2,4,9,"Grants **movement**. If flight boosters ever stop working, it causes the rig to **crash**.",,,2,2T,,,lowerRigMovement,6T,8T,12T
-Utility Cockpit,Rig,0,1,1,1,3,4,10,,,,,,,
+Utility Cockpit,Rig,0,1,1,1,3,4,10,"Grants **targeting** ability.",,8,1T,,,armourDescription
 Orbital Platform,Facility,2,2,1,1,3,1,11,,,,,,,
 Orbital Cannon,Facility,1,0,1,2,4,1,12,,,,,,,
 Solar Harvester,Facility,2,0,2,1,4,1,13,,,,,,,
