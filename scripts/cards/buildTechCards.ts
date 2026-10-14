@@ -326,6 +326,58 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
   return true;
 };
 
+const drawArmourDescriptionLayout = (loc, card, context) => {
+  const x = loc.x + 22;
+  const y = loc.y + 305;
+  const width = 363;
+  const height = 166;
+  context.fillStyle = "#fff";
+  context.fillRect(x, y, width, height);
+  context.strokeStyle = "#111";
+  context.lineWidth = 2.5;
+  context.strokeRect(x, y, width, height);
+
+  context.fillStyle = "#111";
+  context.font = "18px Arial";
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText("Armour:", x + 7, y + 17);
+  const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
+  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 91 + i * 25, y + 16, 9);
+
+  if (card.weight && card.weight.trim()) {
+    context.fillStyle = "#fff";
+    context.fillRect(x + 229, y + 1, 129, 38);
+    context.strokeStyle = "#111";
+    context.lineWidth = 2.5;
+    context.strokeRect(x + 229, y + 1, 129, 38);
+    context.fillStyle = "#111";
+    context.font = "18px Arial";
+    context.fillText("Weight: " + card.weight, x + 235, y + 20);
+  }
+
+  const description = (card.description || "").trim();
+  if (description) {
+    context.save();
+    const descX = x + 8;
+    const descY = y + 45;
+    const descWidth = width - 16;
+    const descHeight = height - 53;
+    context.beginPath();
+    context.rect(descX, descY, descWidth, descHeight);
+    context.clip();
+    drawRichCardText(loc, description, {
+      ...techDescriptionSpec,
+      x: descX,
+      y: descY,
+      width: descWidth,
+      height: descHeight,
+    }, context);
+    context.restore();
+  }
+  return true;
+};
+
 const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
