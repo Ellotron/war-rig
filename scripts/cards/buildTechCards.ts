@@ -366,13 +366,45 @@ const drawArmourDescriptionLayout = (loc, card, context) => {
     context.beginPath();
     context.rect(descX, descY, descWidth, descHeight);
     context.clip();
-    drawRichCardText(loc, description, {
-      ...techDescriptionSpec,
-      x: descX,
-      y: descY,
-      width: descWidth,
-      height: descHeight,
-    }, context);
+    const parseLine = (line: string) => {
+      const segments: { text: string; bold: boolean }[] = [];
+      const pattern = /\\*\\*(.*?)\\*\\*/g;
+      let cursor = 0;
+      let match;
+      while ((match = pattern.exec(line)) !== null) {
+        if (match.index > cursor) segments.push({ text: line.slice(cursor, match.index), bold: false });
+        segments.push({ text: match[1], bold: true });
+        cursor = pattern.lastIndex;
+      }
+      if (cursor < line.length) segments.push({ text: line.slice(cursor), bold: false });
+      return segments;
+    };
+    const fontFor = (size: number, bold: boolean) => bold ? `bold ${size}px Arial` : `${size}px Arial`;
+    const size = 16;
+    const lineHeight = 19;
+    const lines: { text: string; bold: boolean }[][] = [[]];
+    for (const segment of parseLine(description)) {
+      for (const word of (segment.text.match(/\\s+|\\S+/g) || [])) {
+        const current = lines[lines.length - 1];
+        const currentText = current.map((part) => part.text).join("");
+        context.font = fontFor(size, segment.bold);
+        if (current.length > 0 && context.measureText(currentText + word).width > descWidth && !/^\\s+$/.test(word)) lines.push([]);
+        lines[lines.length - 1].push({ text: word, bold: segment.bold });
+      }
+    }
+    context.fillStyle = "#111";
+    context.textAlign = "left";
+    context.textBaseline = "top";
+    lines.forEach((line, index) => {
+      const top = descY + index * lineHeight;
+      if (top + lineHeight > descY + descHeight) return;
+      let cursorX = descX;
+      for (const part of line) {
+        context.font = fontFor(size, part.bold);
+        context.fillText(part.text, cursorX, top);
+        cursorX += context.measureText(part.text).width;
+      }
+    });
     context.restore();
   }
   return true;
