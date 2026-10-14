@@ -358,7 +358,7 @@ const drawArmourDescriptionLayout = (loc, card, context) => {
   context.textBaseline = "middle";
   context.fillText("Armour:", x + 7, y + 17);
   const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
-  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 91 + i * 25, y + 16, 9);
+  drawCappedSymbols(context, armour, (symbolX) => drawArmourSymbol(context, symbolX, y + 16, 9), x + 91, y + 16, 25);
 
   if (card.weight && card.weight.trim()) {
     context.fillStyle = "#fff";
