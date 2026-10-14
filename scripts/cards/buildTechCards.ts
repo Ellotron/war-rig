@@ -162,6 +162,21 @@ const drawLightning = (context, x: number, y: number) => {
   context.fill();
 };
 
+const drawCappedSymbols = (context, value: number, drawSymbol, x: number, y: number, spacing: number) => {
+  const count = Math.max(0, Math.floor(value || 0));
+  const visibleCount = count > 5 ? 1 : count;
+  for (let i = 0; i < visibleCount; i++) drawSymbol(x + i * spacing);
+  if (count > 5) {
+    context.save();
+    context.fillStyle = "#111";
+    context.font = "16px Arial";
+    context.textAlign = "left";
+    context.textBaseline = "middle";
+    context.fillText("x " + count, x + spacing, y);
+    context.restore();
+  }
+};
+
 const drawWeaponLayout = (loc, card, context) => {
   // Rebuild the original weapon-stat panel so values can change without
   // turning the stats into a generic paragraph. The original artwork's
@@ -183,11 +198,11 @@ const drawWeaponLayout = (loc, card, context) => {
   context.fillText("Attack:", x + 7, y + 17);
   const attack = Math.max(0, Math.min(10, parseInt(card.attackRating, 10) || 0));
   const attackDieColor = card.attackDieColor === "red" ? "#c62828" : card.attackDieColor === "blue" ? "#1565c0" : "#111";
-  for (let i = 0; i < attack; i++) drawAttackSymbol(context, x + 94 + i * 25, y + 17, 10, attackDieColor);
+  drawCappedSymbols(context, attack, (symbolX) => drawAttackSymbol(context, symbolX, y + 17, 10, attackDieColor), x + 94, y + 17, 25);
 
   context.fillText("Armour:", x + 7, y + 55);
   const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
-  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 95 + i * 25, y + 53, 9);
+  drawCappedSymbols(context, armour, (symbolX) => drawArmourSymbol(context, symbolX, y + 53, 9), x + 95, y + 53, 25);
 
   // Weight remains in its own boxed area at the top-right, as on the source card.
   context.fillStyle = "#fff";
@@ -243,7 +258,7 @@ const drawLowerRigMovementLayout = (loc, card, context) => {
   context.textBaseline = "middle";
   context.fillText("Armour:", x + 7, y + 17);
   const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
-  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 91 + i * 25, y + 16, 9);
+  drawCappedSymbols(context, armour, (symbolX) => drawArmourSymbol(context, symbolX, y + 16, 9), x + 91, y + 16, 25);
 
   context.fillStyle = "#fff";
   context.fillRect(x + 229, y + 1, 129, 38);
