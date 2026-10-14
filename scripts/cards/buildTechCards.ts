@@ -368,7 +368,7 @@ const drawArmourDescriptionLayout = (loc, card, context) => {
     context.clip();
     const parseLine = (line: string) => {
       const segments: { text: string; bold: boolean }[] = [];
-      const pattern = /\\*\\*(.*?)\\*\\*/g;
+      const pattern = /\*\*(.*?)\*\*/g;
       let cursor = 0;
       let match;
       while ((match = pattern.exec(line)) !== null) {
@@ -384,11 +384,11 @@ const drawArmourDescriptionLayout = (loc, card, context) => {
     const lineHeight = 19;
     const lines: { text: string; bold: boolean }[][] = [[]];
     for (const segment of parseLine(description)) {
-      for (const word of (segment.text.match(/\\s+|\\S+/g) || [])) {
+      for (const word of (segment.text.match(/\s+|\S+/g) || [])) {
         const current = lines[lines.length - 1];
         const currentText = current.map((part) => part.text).join("");
         context.font = fontFor(size, segment.bold);
-        if (current.length > 0 && context.measureText(currentText + word).width > descWidth && !/^\\s+$/.test(word)) lines.push([]);
+        if (current.length > 0 && context.measureText(currentText + word).width > descWidth && !/^\s+$/.test(word)) lines.push([]);
         lines[lines.length - 1].push({ text: word, bold: segment.bold });
       }
     }
@@ -433,6 +433,9 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
+    if (card.layout === "armourDescription") {
+      return drawArmourDescriptionLayout(loc, card, context);
+    }
     if (card.layout === "lowerRigMovement") {
       return drawLowerRigMovementLayout(loc, card, context);
     }
