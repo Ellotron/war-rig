@@ -357,8 +357,16 @@ const drawArmourDescriptionLayout = (loc, card, context) => {
   context.textAlign = "left";
   context.textBaseline = "middle";
   context.fillText("Armour:", x + 7, y + 17);
-  const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
-  drawCappedSymbols(context, armour, (symbolX) => drawArmourSymbol(context, symbolX, y + 16, 9), x + 91, y + 16, 25);
+  const indestructible = card.layout === "indestructibleArmour" || String(card.armourRating).trim() === "∞";
+  if (indestructible) {
+    context.font = "bold 26px Arial";
+    context.fillText("∞", x + 91, y + 17);
+    context.font = "16px Arial";
+    context.fillText("(Cannot be destroyed)", x + 117, y + 17);
+  } else {
+    const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
+    drawCappedSymbols(context, armour, (symbolX) => drawArmourSymbol(context, symbolX, y + 16, 9), x + 91, y + 16, 25);
+  }
 
   if (card.weight && card.weight.trim()) {
     context.fillStyle = "#fff";
