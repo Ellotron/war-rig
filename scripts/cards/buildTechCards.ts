@@ -456,7 +456,7 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
-    if (card.layout === "armourDescription") {
+    if (card.layout === "armourDescription" || card.layout === "indestructibleArmour") {
       return drawArmourDescriptionLayout(loc, card, context);
     }
     if (card.layout === "lowerRigMovement") {
