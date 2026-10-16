@@ -39,7 +39,10 @@ jobs:
       - name: Generate technology card sheet
         run: npm run t-cards
       - name: Generate mission card sheets
-        run: npm run m-cards
+      - name: Generate technology card sheet
+        run: yarn run t-cards
+      - name: Generate mission card sheets
+        run: yarn run m-cards
       - name: Commit generated sheets to pull request branch
         if: github.event_name == 'pull_request'
         run: |
