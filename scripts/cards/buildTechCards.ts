@@ -14,6 +14,7 @@ import {
   drawCardCost,
   drawCardText,
   drawRichCardText,
+  drawCardFlavour,
 } from "./drawCards";
 
 const fs = require("fs");
@@ -60,15 +61,7 @@ loadAssets().then((assets) => {
     drawDescription,
     (loc, card) => {
       if (!card.flavour || !card.flavour.trim()) return true;
-      // Clear the existing printed flavour text before drawing the italic replacement.
-      context.fillStyle = "#fff";
-      context.fillRect(
-        loc.x + 26,
-        loc.y + 475,
-        355,
-        78
-      );
-      return drawCardText(loc, card.flavour, flavourSpec, context);
+      return drawCardFlavour(loc, card.flavour, flavourSpec, context);
     },
   ]);
 
