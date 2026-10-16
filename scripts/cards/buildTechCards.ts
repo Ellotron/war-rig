@@ -3,6 +3,8 @@ import {
   costSpec,
   techBaseImages,
   techCardSpec,
+  techDescriptionSpec,
+  flavourSpec,
   techPageSpec,
   titleSpec,
 } from "./constants";
@@ -11,6 +13,7 @@ import {
   drawCanvas,
   drawCardCost,
   drawCardText,
+  drawRichCardText,
 } from "./drawCards";
 
 const fs = require("fs");
@@ -18,6 +21,8 @@ const { loadImage, registerFont } = require("canvas");
 const csv = require("csvtojson");
 
 registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
+registerFont("./fonts/corbel.ttf", { family: "Corbel" });
+registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
 const loadAssets = async () => {
   return {
@@ -41,9 +46,31 @@ loadAssets().then((assets) => {
   const endIfHidden = (_, card) => card.title !== "hidden";
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
+  const drawDescription = (loc, card) => {
+    if (!card.description || !card.description.trim()) return true;
+    return drawRichCardText(loc, card.description, techDescriptionSpec, context);
+  };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
 
-  buildCards(locations, content, [drawBase, endIfHidden, drawTitle, drawCost]);
+  buildCards(locations, content, [
+    drawBase,
+    endIfHidden,
+    drawTitle,
+    drawCost,
+    drawDescription,
+    (loc, card) => {
+      if (!card.flavour || !card.flavour.trim()) return true;
+      // Clear the existing printed flavour text before drawing the italic replacement.
+      context.fillStyle = "#fff";
+      context.fillRect(
+        loc.x + 26,
+        loc.y + 475,
+        355,
+        78
+      );
+      return drawCardText(loc, card.flavour, flavourSpec, context);
+    },
+  ]);
 
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync("./assets/tech.png", buffer);

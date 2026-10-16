@@ -25,11 +25,24 @@ export const titleSpec: TextSpec = {
   colour: "#000",
 };
 
+export const techDescriptionSpec: TextSpec = {
+  width: 351,
+  height: 135,
+  xOffset: 28,
+  yOffset: 315,
+  minFontSize: 12,
+  maxFontSize: 20,
+  font: "Arial",
+  align: "left",
+  baseline: "top",
+  colour: "#000",
+};
+
 export const flavourSpec: TextSpec = {
-  width: 278,
+  width: 330,
   height: 40,
   xOffset: 203,
-  yOffset: 490,
+  yOffset: 480,
   minFontSize: 15,
   maxFontSize: 20,
   font: "Corbel Italic",
