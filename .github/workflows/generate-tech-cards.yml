@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "npm"
+          cache: "yarn"
       - name: Install native canvas dependencies
         run: |
           sudo apt-get update
@@ -37,7 +37,8 @@ jobs:
       - name: Install dependencies
         run: yarn ci
       - name: Generate technology card sheet
-        run: npm run t-cards
+      - name: Install dependencies
+        run: yarn install
       - name: Generate mission card sheets
       - name: Generate technology card sheet
         run: yarn run t-cards
