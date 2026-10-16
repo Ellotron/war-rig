@@ -1,13 +1,13 @@
-title,type,red,green,brown,blue,power,count,base,description,flavour,attackRating,armourRating,weight,specialAbilities,attackDieColor
+title,type,red,green,brown,blue,power,count,base,description,flavour,attackRating,armourRating,weight,specialAbilities,attackDieColor,layout,supportLight,supportMedium,supportHeavy
 ID Scanner,Equipment,0,1,2,1,2,4,1,"Counts as an extra **defending squad** when rolling for **repel** or **recruit**.","""Ain't no one getting through less da blooper sez bloop"" - Marv",,,,,
 Assault Rifles,Equipment,1,0,1,1,2,4,2,"Counts as an extra **squad** when rolling for **attack** or **defence**.","Talon Industries new X4 model has several hot-swap fire profiles to suit almost any situation - Talon Ind.",,,,,
 Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allows any friendly squad in the same location to perform the **construct action**.","""Look do you want it fixed or do you want it quickly?"" - Unknown source",,,,,
 Mass Driver,Rig,1,0,2,2,3,4,4,,,3,5,3T,"Target takes 4 hits cannot perform any action or ability for 1 turn",
 Linked Lasers,Rig,0,0,1,2,2,4,5,,,2,3,1T,"If 2 critical hits are scored, target rig site catches fire",red
 Tracker Cannon,Rig,0,1,2,1,2,4,6,,,2,4,2T,"Re-roll misses for subsequent weapons in this attack",blue
-Piston Actuated Walker,Rig,1,0,2,1,3,4,7,,,,,,,
-All-terrain Track,Rig,0,0,1,2,2,4,8,,,,,,,
-Flight Boosters,Rig,1,0,0,1,2,4,9,,,,,,,
+Piston Actuated Walker,Rig,1,0,2,1,3,4,7,"Grants **movement** when paired with any other working walker tech.",,,4,2T,,,lowerRigMovement,6T,8T,12T
+All-terrain Track,Rig,0,0,1,2,2,4,8,"Grants **movement**. Supported weight doubles when paired with any other working crawler tech.",,,4,1T,,,lowerRigMovement,3T,6T,8T
+Flight Boosters,Rig,1,0,0,1,2,4,9,"Grants **movement**. If flight boosters ever stop working, it causes the rig to **crash**.",,,2,2T,,,lowerRigMovement,6T,8T,12T
 Utility Cockpit,Rig,0,1,1,1,3,4,10,,,,,,,
 Orbital Platform,Facility,2,2,1,1,3,1,11,,,,,,,
 Orbital Cannon,Facility,1,0,1,2,4,1,12,,,,,,,
