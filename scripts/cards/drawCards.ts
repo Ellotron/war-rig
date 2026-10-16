@@ -82,7 +82,7 @@ export const drawRichCardText = (
   // Add a little more horizontal padding between the rules text and the white panel edges.
   const textInset = 4;
   const x = cardLocation.x + textSpec.xOffset + textInset;
-  const y = cardLocation.y + textSpec.yOffset;
+  const y = cardLocation.y + textSpec.yOffset + 35;
   const maxWidth = Math.max(1, textSpec.width - textInset * 2);
   const maxHeight = textSpec.height;
   const baseFont = textSpec.font || "Arial";
@@ -91,7 +91,7 @@ export const drawRichCardText = (
   // Clear the full printed rules-text panel, not just the new text bounds.
   // Keep a small inset to preserve the card outline and stop before flavour text.
   context.fillStyle = "#fff";
-  context.fillRect(cardLocation.x + 26, cardLocation.y + 305, 355, 145);
+  context.fillRect(cardLocation.x + 26, cardLocation.y + 342, 355, 128);
   const parseLine = (line: string) => {
     const segments: { text: string; bold: boolean }[] = [];
     const pattern = /\*\*(.*?)\*\*/g;
