@@ -254,7 +254,7 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
-    if (card.attackRating && card.armourRatings) {
+    if (card.attackRating && card.armourRating) {
       return drawWeaponDescription(loc, card, context);
     }
     if (!card.description || !card.description.trim()) return true;
