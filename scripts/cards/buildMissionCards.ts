@@ -21,6 +21,7 @@ import {
   drawCanvas,
   drawCardText,
   drawCardImage,
+  drawCardFlavour,
 } from "./drawCards";
 
 const fs = require("fs");
@@ -64,7 +65,7 @@ const buildMissions = (outputName: string, content: any[], assets: any) => {
   const drawReward = (loc, card) =>
     drawCardText(loc, `Reward: ${card.reward}`, rewardSpec, context);
   const drawFlavour = (loc, card) =>
-    drawCardText(loc, card.flavour, flavourSpec, context);
+    drawCardFlavour(loc, card.flavour, flavourSpec, context);
 
   buildCards(locations, content, [
     drawBase,

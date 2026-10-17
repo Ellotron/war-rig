@@ -4,6 +4,7 @@ type PageSpec = Size & {
 
 type CardContent = {
   count: string;
+  flavour?: string;
 };
 
 type Size = {
