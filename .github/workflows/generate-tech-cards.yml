@@ -37,19 +37,26 @@ jobs:
         run: yarn run t-cards
       - name: Generate mission card sheets
         run: yarn run m-cards
+      - name: Detect generated changes
+        id: detect_changes
+        run: |
+          git add assets/tech.png assets/cards/missions1.png assets/cards/missions2.png assets/cards/missions3.png
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Generated sheets have no changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Generated sheets have changes."
+          fi
       - name: Commit generated sheets to pull request branch
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.detect_changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/tech.png assets/cards/missions1.png assets/cards/missions2.png assets/cards/missions3.png
-          if git diff --cached --quiet; then
-            echo "Generated sheets have no changes."
-          else
-            git commit -m "Update generated card sheets"
-            git push
-          fi
+          git commit -m "Update generated card sheets"
+          git push
       - name: Upload generated card sheets
+        if: steps.detect_changes.outputs.changed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: generated-card-sheets
