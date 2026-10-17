@@ -52,6 +52,11 @@ loadAssets().then((assets) => {
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
   };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
+  const drawFlavour = (loc, card) => {
+    if (!card.flavour || !card.flavour.trim()) return true;
+    return drawCardFlavour(loc, card.flavour, flavourSpec, context);
+  };
+
 
   buildCards(locations, content, [
     drawBase,
@@ -59,10 +64,7 @@ loadAssets().then((assets) => {
     drawTitle,
     drawCost,
     drawDescription,
-    (loc, card) => {
-      if (!card.flavour || !card.flavour.trim()) return true;
-      return drawCardFlavour(loc, card.flavour, flavourSpec, context);
-    },
+    drawFlavour,
   ]);
 
   const buffer = canvas.toBuffer("image/png");
