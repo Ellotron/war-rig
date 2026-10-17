@@ -163,7 +163,7 @@ const drawLightning = (context, x: number, y: number) => {
   context.fill();
 };
 
-const drawWeaponLayout = (loc, card, context) => {
+const drawWeaponDescription = (loc, card, context) => {
   // Rebuild the original weapon-stat panel so values can change without
   // turning the stats into a generic paragraph. The original artwork's
   // labels and pre-printed symbols are replaced by this consistently placed layout.
@@ -254,8 +254,8 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
-    if (card.attackRating || card.armourRating || card.weight || card.specialAbilities) {
-      return drawWeaponLayout(loc, card, context);
+    if (card.attackRating && card.armourRatings) {
+      return drawWeaponDescription(loc, card, context);
     }
     if (!card.description || !card.description.trim()) return true;
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
