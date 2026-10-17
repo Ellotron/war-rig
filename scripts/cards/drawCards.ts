@@ -199,3 +199,18 @@ export const drawCardCost = (
   }
   return true;
 };
+
+
+/** Draw replacement flavour text in the shared card style. */
+export const drawCardFlavour = (
+  cardLocation: CardLocation,
+  text: string,
+  flavourSpec: TextSpec,
+  context
+) => {
+  if (!text || !text.trim()) return true;
+  // Clear only the printed flavour-text area before drawing its replacement.
+  context.fillStyle = "#fff";
+  context.fillRect(cardLocation.x + 26, cardLocation.y + 475, 355, 78);
+  return drawCardText(cardLocation, text, flavourSpec, context);
+};

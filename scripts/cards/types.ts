@@ -1,5 +1,11 @@
+type PageBreak = {
+  cardsPerPage: number;
+  vGap: number;
+};
+
 type PageSpec = Size & {
   backColour: string;
+  pageBreak?: PageBreak;
 };
 
 type CardContent = {

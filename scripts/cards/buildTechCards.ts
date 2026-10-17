@@ -14,6 +14,7 @@ import {
   drawCardCost,
   drawCardText,
   drawRichCardText,
+  drawCardFlavour,
 } from "./drawCards";
 
 const fs = require("fs");
@@ -241,7 +242,11 @@ loadAssets().then((assets) => {
   console.log("Deck size:", totalCards);
 
   const { context, canvas } = drawCanvas(techPageSpec);
-  const locations = getLocations(techCardSpec, totalCards);
+  const locations = getLocations(
+    techCardSpec,
+    totalCards,
+    techPageSpec.pageBreak
+  );
 
   const drawBase = (loc, card) =>
     drawCardBase(loc, card, context, assets, techCardSpec);
@@ -256,6 +261,10 @@ loadAssets().then((assets) => {
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
   };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
+  const drawFlavour = (loc, card) => {
+    if (!card.flavour || !card.flavour.trim()) return true;
+    return drawCardFlavour(loc, card.flavour, flavourSpec, context);
+  };
 
   buildCards(locations, content, [
     drawBase,
@@ -263,13 +272,7 @@ loadAssets().then((assets) => {
     drawTitle,
     drawCost,
     drawDescription,
-    (loc, card) => {
-      if (!card.flavour || !card.flavour.trim()) return true;
-      // Clear the existing printed flavour text before drawing the italic replacement.
-      context.fillStyle = "#fff";
-      context.fillRect(loc.x + 26, loc.y + 475, 355, 78);
-      return drawCardText(loc, card.flavour, flavourSpec, context);
-    },
+    drawFlavour,
   ]);
 
   const buffer = canvas.toBuffer("image/png");
