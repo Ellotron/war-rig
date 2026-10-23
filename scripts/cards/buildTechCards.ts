@@ -16,7 +16,7 @@ import {
   drawRichCardText,
   drawCardFlavour,
 } from "./drawCards";
-import { drawArmourSymbol, drawAttackSymbol, drawLightning } from "./drawSymbols";
+import { drawArmourSymbol, drawAttackSymbol, drawCappedSymbols, drawLightning } from "./drawSymbols";
 
 const fs = require("fs");
 const { loadImage, registerFont } = require("canvas");
