@@ -1,31 +1,31 @@
 title,type,red,green,brown,blue,power,count,base,description,flavour,attackRating,armourRating,weight,specialAbilities,attackDieColor,layout,supportLight,supportMedium,supportHeavy
-ID Scanner,Equipment,0,1,2,1,2,4,1,"Counts as an extra **defending squad** when rolling for **repel** or **recruit**.","""Ain't no one getting through less da blooper sez bloop"" - Marv",,,,,
-Assault Rifles,Equipment,1,0,1,1,2,4,2,"Counts as an extra **squad** when rolling for **attack** or **defence**.","Talon Industries new X4 model has several hot-swap fire profiles to suit almost any situation - Talon Ind.",,,,,
-Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allows any friendly squad in the same location to perform the **construct action**.","""Look do you want it fixed or do you want it quickly?"" - Unknown source",,,,,
-Mass Driver,Rig,1,0,2,2,3,4,4,,,3,5,3T,"Target takes 4 hits cannot perform any action or ability for 1 turn",
+ID Scanner,Equipment,0,1,2,1,2,4,1,"Counts as an extra **defending squad** when rolling for **repel** or **recruit**.","""Ain't no one getting through less da blooper sez bloop"" - Marv",,,,, 
+Assault Rifles,Equipment,1,0,1,1,2,4,2,"Counts as an extra **squad** when rolling for **attack** or **defence**.","Talon Industries new X4 model has several hot-swap fire profiles to suit almost any situation - Talon Ind.",,,,, 
+Workshop Tools,Equipment,1,0,1,0,3,4,3,"Allows any friendly squad in the same location to perform the **construct action**.","""Look do you want it fixed or do you want it quickly?"" - Unknown source",,,,, 
+Mass Driver,Rig,1,0,2,2,3,4,4,,,3,5,3T,"Target takes 4 hits cannot perform any action or ability for 1 turn"
 Linked Lasers,Rig,0,0,1,2,2,4,5,,,2,3,1T,"If 2 critical hits are scored, target rig site catches fire",red
 Tracker Cannon,Rig,0,1,2,1,2,4,6,,,2,4,2T,"Re-roll misses for subsequent weapons in this attack",blue
 Piston Actuated Walker,Rig,1,0,2,1,3,4,7,"Grants **movement** when paired with any other working walker tech.",,,4,2T,,,lowerRigMovement,6T,8T,12T
 All-terrain Track,Rig,0,0,1,2,2,4,8,"Grants **movement**. Supported weight doubles when paired with any other working crawler tech.",,,4,1T,,,lowerRigMovement,3T,6T,8T
 Flight Boosters,Rig,1,0,0,1,2,4,9,"Grants **movement**. If flight boosters ever stop working, it causes the rig to **crash**.",,,2,2T,,,lowerRigMovement,6T,8T,12T
-Utility Cockpit,Rig,0,1,1,1,3,4,10,,,,,,,
+Utility Cockpit,Rig,0,1,1,1,3,4,10,"Grants **targeting** ability.",,,8,1T,,,armourDescription
 Orbital Platform,Facility,2,2,1,1,3,1,11,,,,,,,
 Orbital Cannon,Facility,1,0,1,2,4,1,12,,,,,,,
-Solar Harvester,Facility,2,0,2,1,4,1,13,,,,,,,
-Empire Portal,Facility,2,2,2,2,4,1,14,,,,,,,
-Cyber Warfare Array,Facility,1,2,1,0,3,1,15,,,,,,,
-Planetary Venting Infrastructure,Facility,3,1,2,2,4,1,16,,"Planet-wide ventilation was such a vast undertaking but now we can reap the benefits of those countless shafts we had to bore - Octo Mining Corp",,,,,
-Experimental Core Vent,Facility,3,1,2,2,3,1,17,,"Besides all we learnt about the core, the lasting side effect of the experiment was the long-barren test site suddenly became fertile again - Core Tech",,,,,
-Stable Core Reactor,Facility,3,2,2,2,4,1,18,,"A stable singularity represents near infinite energy and so we enter the most singularly unstable moment in our people's history - Dr Enzo Sidius",,,,,
-Planetary Hyperloop,Facility,1,2,2,0,4,1,19,,,,,,,
-Arc Shield Generator,Facility,1,0,2,2,4,1,20,,,,,,,
-Fire Control Drones,Equipment,0,0,1,1,3,2,21,"A squad with this equipped can, as an action, attempt to **Fight Fire** in their location.","While too delicate for offensive action the drone has become an invaluable support tool in modern warfare - War: 2.0",,,,,
-Smoke Grenades,Equipment,1,0,0,1,2,2,22,"When attacked a squad can use this equipment to negate all hits. At the end of the attackers actions the expended equipment is removed from the squad.",,,,,
-Armoured Haulage,Equipment,1,0,1,0,3,2,23,"Unlocks the squad's **three armoured resource slots**. When attacked, negate one hit per resource in these slots without losing the resources.",,,,,
+Solar Harvester,Facility,2,0,2,1,4,1,13,"Construction requires you control an **Orbital Platform**. Once per turn use an ability of a **Low Orbit** facility one additional time.",,,,,,
+Empire Portal,Facility,2,2,2,2,4,1,14,"Construction requires you control a **Solar Harvester**. Summon the **Empire Invasion** providing one is not already in-play.",,,,,,
+Cyber Warfare Array,Facility,1,2,1,0,3,1,15,"If you control an **Orbital Platform**: Once per turn carry out **Espionage** successfully on a base of your choosing.",,,,,,
+Planetary Venting Infrastructure,Facility,3,1,2,2,4,1,16,"While functional this facility doubles the resources retrieved when any player performs the **Gather** action in any location.","Planet-wide ventilation was such a vast undertaking but now we can reap the benefits of those countless shafts we had to bore - Octo Mining Corp",,,,, 
+Experimental Core Vent,Facility,3,1,2,2,3,1,17,"Construction requires you control **Planetary Venting Infrastructure**.\nPermanently halve the cost of turning **scrap** into **resource** for all players.","Besides all we learnt about the core, the lasting side effect of the experiment was the long-barren test site suddenly became fertile again - Core Tech",,∞,,,,indestructibleArmour
+Stable Core Reactor,Facility,3,2,2,2,4,1,18,"Construction requires **Experimental Core Vent** exists. If this facility is functional for **2 consecutive turns** you may attempt to discover **Infinite Power**.","A stable singularity represents near infinite energy and so we enter the most singularly unstable moment in our people's history - Dr Enzo Sidius",,,,, 
+Planetary Hyperloop,Facility,1,2,2,0,4,1,19,"Construction requires you control **Planetary Venting Infrastructure**. While functional squads you control can travel to any **Basic Location, Barren Wastes or Base** in one action.",,,,,,
+Arc Shield Generator,Facility,1,0,2,2,4,1,20,"If you control **Planetary Venting Infrastructure**: Once per turn prevent all attacks for the rest of the turn in one location.",,,,,,
+Fire Control Drones,Equipment,0,0,1,1,3,2,21,"A squad with this equipped can, as an action, attempt to **Fight Fire** in their location.","While too delicate for offensive action the drone has become an invaluable support tool in modern warfare - War: 2.0",,,,, 
+Smoke Grenades,Equipment,1,0,0,1,2,2,22,"When attacked a squad can use this equipment to negate all hits. At the end of the attackers actions the expended equipment is removed from the squad.",,,,,,
+Armoured Haulage,Equipment,1,0,1,0,3,2,23,"Unlocks the squad's **three armoured resource slots**. When attacked, negate one hit per resource in these slots without losing the resources.",,,,,,
 Re-education centre,Facility,0,2,1,0,3,2,24,,,,,,,
 Ion Canon,Facility,2,1,1,0,3,2,25,,,,,,,
 Resource Refinery,Facility,0,2,1,0,3,2,26,,,,,,,
-Redundancy Systems,Rig,0,2,1,1,4,2,27,,,,,,,
-CO2 Dispersal System,Rig,0,2,1,1,4,3,28,,,,,,,
+Redundancy Systems,Rig,0,2,1,1,4,2,27,"Grants the **targeting** ability. If the **movement** ability is lost return the rig to its home base.",,,8,1T,,,armourDescription
+CO2 Dispersal System,Rig,0,2,1,1,4,3,28,"Grants the **targeting** ability. As an action the rig may attempt to **fight fire** on its other parts.",,,8,1T,,,armourDescription
 Impact Gel Deployment,Rig,0,2,1,1,3,2,29,,,,,,,
 hidden,,,,,,,1,0,,,,,,,
