@@ -14,7 +14,9 @@ import {
   drawCardCost,
   drawCardText,
   drawRichCardText,
+  drawCardFlavour,
 } from "./drawCards";
+import { drawArmourSymbol, drawAttackSymbol, drawLightning } from "./drawSymbols";
 
 const fs = require("fs");
 const { loadImage, registerFont } = require("canvas");
@@ -24,160 +26,7 @@ registerFont("./fonts/copperplate.ttf", { family: "Copperplate Gothic" });
 registerFont("./fonts/corbel.ttf", { family: "Corbel" });
 registerFont("./fonts/corbelita.ttf", { family: "Corbel Italic" });
 
-const drawAttackSymbol = (context, cx: number, cy: number, radius = 10, dieColor = "#111") => {
-  context.save();
-  context.beginPath();
-
-  if (dieColor === "#c62828" || dieColor === "#1565c0") {
-    // Red attack dice are D8s; blue attack dice are D12s. Give the die distinct triangular facets
-    // and a small face value so it reads as a die, not just a red diamond.
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx + radius, cy);
-    context.lineTo(cx, cy + radius);
-    context.lineTo(cx - radius, cy);
-    context.closePath();
-    context.fillStyle = dieColor;
-    context.fill();
-    context.strokeStyle = dieColor === "#1565c0" ? "#0d2f66" : "#7f1515";
-    context.lineWidth = 1;
-    context.stroke();
-
-    // Faceted triangular faces and contrasting highlights make the colored die readable at card size.
-    context.beginPath();
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx - radius, cy);
-    context.lineTo(cx, cy);
-    context.closePath();
-    context.fillStyle = dieColor === "#1565c0" ? "#64b5f6" : "#ef7777";
-    context.fill();
-
-    context.beginPath();
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx + radius, cy);
-    context.lineTo(cx, cy);
-    context.closePath();
-    context.fillStyle = dieColor === "#1565c0" ? "#1565c0" : "#b51f1f";
-    context.fill();
-
-    context.beginPath();
-    context.moveTo(cx - radius, cy);
-    context.lineTo(cx, cy + radius);
-    context.lineTo(cx, cy);
-    context.closePath();
-    context.fillStyle = dieColor === "#1565c0" ? "#1e88e5" : "#d93636";
-    context.fill();
-
-    context.beginPath();
-    context.moveTo(cx + radius, cy);
-    context.lineTo(cx, cy + radius);
-    context.lineTo(cx, cy);
-    context.closePath();
-    context.fillStyle = dieColor === "#1565c0" ? "#0d47a1" : "#981b1b";
-    context.fill();
-
-    context.beginPath();
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx, cy);
-    context.lineTo(cx - radius, cy);
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx, cy);
-    context.lineTo(cx + radius, cy);
-    context.moveTo(cx - radius, cy);
-    context.lineTo(cx, cy + radius);
-    context.lineTo(cx + radius, cy);
-    context.strokeStyle = dieColor === "#1565c0" ? "#bbdefb" : "#ffd0d0";
-    context.lineWidth = 0.7;
-    context.stroke();
-
-    context.fillStyle = "#fff";
-    context.font = `bold ${Math.max(8, radius * 0.9)}px Arial`;
-    context.textAlign = "center";
-    context.textBaseline = "middle";
-    context.fillText(dieColor === "#1565c0" ? "12" : "8", cx, cy + 0.5);
-  } else {
-    // Black attack dice are D20s, shown as a compact faceted polygon.
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
-    context.lineTo(cx + radius, cy + radius * 0.28);
-    context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
-    context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
-    context.lineTo(cx - radius, cy + radius * 0.28);
-    context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
-    context.closePath();
-    context.fillStyle = dieColor;
-    context.fill();
-    context.strokeStyle = "#777";
-    context.lineWidth = 1;
-    context.stroke();
-
-    context.beginPath();
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx - radius * 0.18, cy - radius * 0.12);
-    context.lineTo(cx - radius * 0.78, cy - radius * 0.48);
-    context.moveTo(cx, cy - radius);
-    context.lineTo(cx + radius * 0.18, cy - radius * 0.12);
-    context.lineTo(cx + radius * 0.78, cy - radius * 0.48);
-    context.moveTo(cx - radius * 0.18, cy - radius * 0.12);
-    context.lineTo(cx - radius * 0.62, cy + radius * 0.34);
-    context.lineTo(cx - radius * 0.48, cy + radius * 0.88);
-    context.moveTo(cx + radius * 0.18, cy - radius * 0.12);
-    context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
-    context.lineTo(cx + radius * 0.48, cy + radius * 0.88);
-    context.moveTo(cx - radius * 0.62, cy + radius * 0.34);
-    context.lineTo(cx, cy + radius * 0.55);
-    context.lineTo(cx + radius * 0.62, cy + radius * 0.34);
-    context.strokeStyle = "#ddd";
-    context.lineWidth = 0.7;
-    context.stroke();
-  }
-  context.restore();
-};
-
-const drawArmourSymbol = (context, cx: number, cy: number, size = 10) => {
-  context.beginPath();
-  context.moveTo(cx, cy - size);
-  context.lineTo(cx + size * 0.82, cy - size * 0.55);
-  context.lineTo(cx + size * 0.68, cy + size * 0.35);
-  context.quadraticCurveTo(cx, cy + size * 1.2, cx, cy + size * 1.2);
-  context.quadraticCurveTo(cx, cy + size * 1.2, cx - size * 0.68, cy + size * 0.35);
-  context.lineTo(cx - size * 0.82, cy - size * 0.55);
-  context.closePath();
-  context.fillStyle = "#171717";
-  context.fill();
-  context.strokeStyle = "#777";
-  context.lineWidth = 1.5;
-  context.stroke();
-};
-
-const drawLightning = (context, x: number, y: number) => {
-  context.beginPath();
-  context.moveTo(x + 13, y);
-  context.lineTo(x, y + 17);
-  context.lineTo(x + 10, y + 17);
-  context.lineTo(x + 5, y + 32);
-  context.lineTo(x + 24, y + 12);
-  context.lineTo(x + 14, y + 12);
-  context.closePath();
-  context.fillStyle = "#f0c84b";
-  context.fill();
-};
-
-const drawCappedSymbols = (context, value: number, drawSymbol, x: number, y: number, spacing: number) => {
-  const count = Math.max(0, Math.floor(value || 0));
-  const visibleCount = count > 5 ? 1 : count;
-  for (let i = 0; i < visibleCount; i++) drawSymbol(x + i * spacing);
-  if (count > 5) {
-    context.save();
-    context.fillStyle = "#111";
-    context.font = "16px Arial";
-    context.textAlign = "left";
-    context.textBaseline = "middle";
-    context.fillText("x " + count, x + spacing, y);
-    context.restore();
-  }
-};
-
-const drawWeaponLayout = (loc, card, context) => {
+const drawWeaponDescription = (loc, card, context) => {
   // Rebuild the original weapon-stat panel so values can change without
   // turning the stats into a generic paragraph. The original artwork's
   // labels and pre-printed symbols are replaced by this consistently placed layout.
@@ -448,7 +297,11 @@ loadAssets().then((assets) => {
   console.log("Deck size:", totalCards);
 
   const { context, canvas } = drawCanvas(techPageSpec);
-  const locations = getLocations(techCardSpec, totalCards);
+  const locations = getLocations(
+    techCardSpec,
+    totalCards,
+    techPageSpec.pageBreak
+  );
 
   const drawBase = (loc, card) =>
     drawCardBase(loc, card, context, assets, techCardSpec);
@@ -462,13 +315,17 @@ loadAssets().then((assets) => {
     if (card.layout === "lowerRigMovement") {
       return drawLowerRigMovementLayout(loc, card, context);
     }
-    if (card.attackRating || card.armourRating || card.weight || card.specialAbilities) {
-      return drawWeaponLayout(loc, card, context);
+    if (card.attackRating && card.armourRating) {
+      return drawWeaponDescription(loc, card, context);
     }
     if (!card.description || !card.description.trim()) return true;
     return drawRichCardText(loc, card.description, techDescriptionSpec, context);
   };
   const drawCost = (loc, card) => drawCardCost(loc, card, context, costSpec);
+  const drawFlavour = (loc, card) => {
+    if (!card.flavour || !card.flavour.trim()) return true;
+    return drawCardFlavour(loc, card.flavour, flavourSpec, context);
+  };
 
   buildCards(locations, content, [
     drawBase,
@@ -476,13 +333,7 @@ loadAssets().then((assets) => {
     drawTitle,
     drawCost,
     drawDescription,
-    (loc, card) => {
-      if (!card.flavour || !card.flavour.trim()) return true;
-      // Clear the existing printed flavour text before drawing the italic replacement.
-      context.fillStyle = "#fff";
-      context.fillRect(loc.x + 26, loc.y + 475, 355, 78);
-      return drawCardText(loc, card.flavour, flavourSpec, context);
-    },
+    drawFlavour,
   ]);
 
   const buffer = canvas.toBuffer("image/png");
