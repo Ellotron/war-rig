@@ -27,5 +27,5 @@ Ion Canon,Facility,2,1,1,0,3,2,25,,,,,,,
 Resource Refinery,Facility,0,2,1,0,3,2,26,,,,,,,
 Redundancy Systems,Rig,0,2,1,1,4,2,27,"Grants the **targeting** ability. If the **movement** ability is lost return the rig to its home base.",,,8,1T,,,armourDescription
 CO2 Dispersal System,Rig,0,2,1,1,4,3,28,"Grants the **targeting** ability. As an action the rig may attempt to **fight fire** on its other parts.",,,8,1T,,,armourDescription
-Impact Gel Deployment,Rig,0,2,1,1,3,2,29,,,,,,,
+Impact Gel Deployment,Rig,0,2,1,1,3,2,29,"Grants the **targeting** ability.\nPrevent the effects of a **crash**.",,,8,1T,,,armourDescription
 hidden,,,,,,,1,0,,,,,,,
