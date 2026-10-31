@@ -90,106 +90,6 @@ const drawWeaponDescription = (loc, card, context) => {
   return true;
 };
 
-const drawLowerRigMovementLayout = (loc, card, context) => {
-  const x = loc.x + 22;
-  const y = loc.y + 305;
-  const width = 363;
-  const height = 166;
-  context.fillStyle = "#fff";
-  context.fillRect(x, y, width, height);
-  context.strokeStyle = "#111";
-  context.lineWidth = 2.5;
-  context.strokeRect(x, y, width, height);
-
-  context.fillStyle = "#111";
-  context.font = "18px Arial";
-  context.textAlign = "left";
-  context.textBaseline = "middle";
-  context.fillText("Armour:", x + 7, y + 17);
-  const armour = Math.max(0, Math.min(10, parseInt(card.armourRating, 10) || 0));
-  for (let i = 0; i < armour; i++) drawArmourSymbol(context, x + 91 + i * 25, y + 16, 9);
-
-  context.fillStyle = "#fff";
-  context.fillRect(x + 229, y + 1, 129, 38);
-  context.strokeStyle = "#111";
-  context.lineWidth = 2.5;
-  context.strokeRect(x + 229, y + 1, 129, 38);
-  context.fillStyle = "#111";
-  context.font = "18px Arial";
-  context.fillText("Weight: " + (card.weight || ""), x + 235, y + 20);
-
-  context.fillStyle = "#fff";
-  context.fillRect(x + 229, y + 40, 129, 82);
-  context.strokeStyle = "#111";
-  context.lineWidth = 2;
-  context.strokeRect(x + 229, y + 40, 129, 82);
-  context.fillStyle = "#111";
-  context.font = "15px Arial";
-  context.fillText("Supports max:", x + 235, y + 51);
-  context.font = "13px Arial";
-  context.fillText("• Light: " + (card.supportLight || "—"), x + 235, y + 67);
-  context.fillText("• Medium: " + (card.supportMedium || "—"), x + 235, y + 83);
-  context.fillText("• Heavy: " + (card.supportHeavy || "—"), x + 235, y + 99);
-
-  const description = (card.description || "").trim();
-  if (description) {
-    context.save();
-    // Keep description text inside the left column and never let it enter the support table.
-    const descX = x + 8;
-    const descY = y + 43;
-    const descWidth = 211;
-    const descHeight = 120;
-    context.beginPath();
-    context.rect(descX, descY, descWidth, descHeight);
-    context.clip();
-    context.fillStyle = "#111";
-    context.font = "16px Arial";
-    context.textAlign = "left";
-    context.textBaseline = "top";
-    // Parse bold spans the same way as drawRichCardText, retaining ordinary text around them.
-    const parseLine = (line: string) => {
-      const segments: { text: string; bold: boolean }[] = [];
-      const pattern = /\*\*(.*?)\*\*/g;
-      let cursor = 0;
-      let match;
-      while ((match = pattern.exec(line)) !== null) {
-        if (match.index > cursor) segments.push({ text: line.slice(cursor, match.index), bold: false });
-        segments.push({ text: match[1], bold: true });
-        cursor = pattern.lastIndex;
-      }
-      if (cursor < line.length) segments.push({ text: line.slice(cursor), bold: false });
-      return segments;
-    };
-    const fontFor = (bold: boolean) => bold ? "bold 16px Arial" : "16px Arial";
-    const lines: { text: string; bold: boolean }[][] = [[]];
-    for (const segment of parseLine(description)) {
-      const words = segment.text.match(/\s+|\S+/g) || [];
-      for (const word of words) {
-        const current = lines[lines.length - 1];
-        const currentText = current.map((part) => part.text).join("");
-        context.font = fontFor(segment.bold);
-        if (current.length > 0 && context.measureText(currentText + word).width > descWidth && !/^\s+$/.test(word)) {
-          lines.push([]);
-        }
-        lines[lines.length - 1].push({ text: word, bold: segment.bold });
-      }
-    }
-    const lineHeight = 18;
-    lines.forEach((parts, index) => {
-      const top = descY + index * lineHeight;
-      if (top + lineHeight > descY + descHeight) return;
-      let cursorX = descX;
-      for (const part of parts) {
-        context.font = fontFor(part.bold);
-        context.fillText(part.text, cursorX, top);
-        cursorX += context.measureText(part.text).width;
-      }
-    });
-    context.restore();
-  }
-  return true;
-};
-
 const loadAssets = async () => {
   return {
     baseImages: await Promise.all(
@@ -217,9 +117,6 @@ loadAssets().then((assets) => {
   const drawTitle = (loc, card) =>
     drawCardText(loc, card.title, titleSpec, context);
   const drawDescription = (loc, card) => {
-    if (card.layout === "lowerRigMovement") {
-      return drawLowerRigMovementLayout(loc, card, context);
-    }
     if (card.attackRating && card.armourRating) {
       return drawWeaponDescription(loc, card, context);
     }
