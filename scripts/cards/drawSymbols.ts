@@ -135,3 +135,18 @@ export const drawLightning = (context, x: number, y: number) => {
   context.fillStyle = "#f0c84b";
   context.fill();
 };
+
+export const drawCappedSymbols = (context, value: number, drawSymbol, x: number, y: number, spacing: number) => {
+  const count = Math.max(0, Math.floor(value || 0));
+  const visibleCount = count > 5 ? 1 : count;
+  for (let i = 0; i < visibleCount; i++) drawSymbol(x + i * spacing);
+  if (count > 5) {
+    context.save();
+    context.fillStyle = "#111";
+    context.font = "16px Arial";
+    context.textAlign = "left";
+    context.textBaseline = "middle";
+    context.fillText("x " + count, x + spacing, y);
+    context.restore();
+  }
+};
